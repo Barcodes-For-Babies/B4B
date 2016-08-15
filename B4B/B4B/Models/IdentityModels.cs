@@ -11,7 +11,7 @@ namespace B4B.Models
     public class ApplicationUser : IdentityUser
     {
         public string AdminName { get; set; }
-
+        public virtual ICollection<EmergencyContact> EmergencyContacts { get; set; }
         public virtual ICollection<Profile> Profiles { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)

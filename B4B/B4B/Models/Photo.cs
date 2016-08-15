@@ -12,6 +12,6 @@ namespace B4B.Models
         public string Extension { get; set; }
 
         //navigation properties
-        public virtual ICollection<Profile> Profiles { get; set; }
+        public virtual Profile Profiles { get; set; }
     }
 }

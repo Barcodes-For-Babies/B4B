@@ -22,14 +22,12 @@ namespace B4B.Models
         public string State { get; set; }
         public int ZipCode { get; set; }
         public int MedicalInfoID { get; set; }
-        [MaxLength(50)]
-        public string EmergencyName { get; set; }
-        [MaxLength(50)]
-        public string EmergencyPhone { get; set; }
+        public int EmergencyContactID { get; set; }
 
         //navigation properties
-        //public virtual ICollection<Photo> Photos { get; set; }
-        //public virtual ICollection<MedicalInfo> MedicalInfos { get; set; }
+        public virtual Photo Photos { get; set; }
+        public virtual MedicalInfo MedicalInfos { get; set; }
         public virtual ApplicationUser Admin { get; set; }
+        public virtual ICollection<EmergencyContact> EmergencyContacts { get; set; }
     }
 }
