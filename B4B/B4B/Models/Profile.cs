@@ -28,8 +28,8 @@ namespace B4B.Models
         public string EmergencyPhone { get; set; }
 
         //navigation properties
-        public virtual ICollection<Photo> Photos { get; set; }
-        public virtual ICollection<MedicalInfo> MedicalInfos { get; set; }
+        //public virtual ICollection<Photo> Photos { get; set; }
+        //public virtual ICollection<MedicalInfo> MedicalInfos { get; set; }
         public virtual ApplicationUser Admin { get; set; }
     }
 }
