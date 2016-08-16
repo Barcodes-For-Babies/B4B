@@ -211,6 +211,14 @@
     <Compile Include="Migrations\201608151838480_Initial.Designer.cs">
       <DependentUpon>201608151838480_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201608160237007_change relationships syntax.cs" />
+    <Compile Include="Migrations\201608160237007_change relationships syntax.Designer.cs">
+      <DependentUpon>201608160237007_change relationships syntax.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608160300132_added many to many profile to emergencyContact.cs" />
+    <Compile Include="Migrations\201608160300132_added many to many profile to emergencyContact.Designer.cs">
+      <DependentUpon>201608160300132_added many to many profile to emergencyContact.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\EmergencyContact.cs" />
@@ -311,6 +319,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201608151838480_Initial.resx">
       <DependentUpon>201608151838480_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608160237007_change relationships syntax.resx">
+      <DependentUpon>201608160237007_change relationships syntax.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608160300132_added many to many profile to emergencyContact.resx">
+      <DependentUpon>201608160300132_added many to many profile to emergencyContact.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

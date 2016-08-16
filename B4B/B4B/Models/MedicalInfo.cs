@@ -6,7 +6,7 @@ namespace B4B.Models
     {
         public int MedicalInfoID { get; set; }
         public string MedicalInformation { get; set; }
-
+        public int ProfileID { get; set; }
         //navigatoin properties
         public virtual Profile Profiles { get; set; }
 

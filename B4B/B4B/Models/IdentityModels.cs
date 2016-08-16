@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace B4B.Models
 {
@@ -33,6 +34,17 @@ namespace B4B.Models
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
+        }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Profile>()
+               .HasMany(x => x.EmergencyContacts).WithMany(x => x.Profiles)
+               .Map(x => x.ToTable("ProfileEmergencyContacts")
+               .MapLeftKey("ProfileID")
+               .MapRightKey("EmergencyContactID"));
+
+            base.OnModelCreating(modelBuilder);
         }
 
         public System.Data.Entity.DbSet<B4B.Models.Profile> Profiles { get; set; }

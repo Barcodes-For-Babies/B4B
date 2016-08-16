@@ -1,10 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace B4B.Models
 {
     public class Photo
     {
+        [ForeignKey("Profile")]
         public int PhotoID { get; set; }
         [MaxLength(50)]
         public string PhotoName { get; set; }
@@ -12,6 +14,6 @@ namespace B4B.Models
         public string Extension { get; set; }
 
         //navigation properties
-        public virtual Profile Profiles { get; set; }
+        public virtual Profile Profile { get; set; }
     }
 }
