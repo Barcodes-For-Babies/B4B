@@ -9,19 +9,17 @@ namespace B4B.Models
 {
     public class EmergencyContact
     {
-        public EmergencyContact()
-        {
-            this.Profiles = new HashSet<Profile>();
-        }
         public int EmergencyContactID { get; set; }
         [MaxLength(50)]
         public string EmergencyName { get; set; }
         [MaxLength(50)]
         public string EmergencyPhone { get; set; }
-        public int ProfileID { get; set; }
+
 
         //navigation properties
+        // Many to Many
         public virtual ICollection<Profile> Profiles { get; set; }
+        // 1 to Many
         public virtual ApplicationUser User { get; set; }
     }
 }

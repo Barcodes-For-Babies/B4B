@@ -14,6 +14,7 @@ namespace B4B.Models
         public string Extension { get; set; }
 
         //navigation properties
+        // 1 to 1
         public virtual Profile Profile { get; set; }
     }
 }

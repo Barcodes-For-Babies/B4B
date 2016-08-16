@@ -9,10 +9,6 @@ namespace B4B.Models
 {
     public class Profile
     {
-        public Profile() {
-            this.EmergencyContacts = new HashSet<EmergencyContact>();
-        }
-
         public int ProfileID { get; set; }
         [StringLength(50, ErrorMessage = "First name cannot be longer than 50 characters.")]
         public string FirstName { get; set; }
@@ -25,16 +21,19 @@ namespace B4B.Models
         [StringLength(50)]
         public string State { get; set; }
         public int ZipCode { get; set; }
-        public int EmergencyContactID { get; set; }
+
         [Display(Name = "Full Name")]
         public string FullName {
             get{ return LastName + ", " + FirstName; }
         }
 
         //navigation properties
+        // 1 to 1
         public virtual Photo Photo { get; set; }
+        // 1 to Many
         public virtual ICollection<MedicalInfo> MedicalInfos { get; set; }
         public virtual ApplicationUser Admin { get; set; }
+        // Many to Many
         public virtual ICollection<EmergencyContact> EmergencyContacts { get; set; }
     }
 }

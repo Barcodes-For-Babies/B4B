@@ -36,16 +36,6 @@ namespace B4B.Models
             return new ApplicationDbContext();
         }
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Profile>()
-               .HasMany(x => x.EmergencyContacts).WithMany(x => x.Profiles)
-               .Map(x => x.ToTable("ProfileEmergencyContacts")
-               .MapLeftKey("ProfileID")
-               .MapRightKey("EmergencyContactID"));
-
-            base.OnModelCreating(modelBuilder);
-        }
 
         public System.Data.Entity.DbSet<B4B.Models.Profile> Profiles { get; set; }
     }

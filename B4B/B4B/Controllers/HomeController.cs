@@ -1,4 +1,6 @@
 ﻿using B4B.Models;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,12 +31,25 @@ namespace B4B.Controllers
 
             return View();
         }
+
+        private ApplicationUser CurrentUser
+        {
+            get
+            {
+                UserManager<ApplicationUser> UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
+                ApplicationUser currentUser = UserManager.FindById(User.Identity.GetUserId());
+                return currentUser;
+            }
+        }
+
         //Created view to allow admin to create profiles
         //GET: Home/Admin/5
         [Authorize]
         public ActionResult Admin()
         {
-            return View();
+            ViewBag.currentUser = CurrentUser;
+            
+            return View(CurrentUser.Profiles.ToList());
         }
 
         //POST: Home/Admin/5

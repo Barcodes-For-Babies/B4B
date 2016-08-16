@@ -219,6 +219,10 @@
     <Compile Include="Migrations\201608160300132_added many to many profile to emergencyContact.Designer.cs">
       <DependentUpon>201608160300132_added many to many profile to emergencyContact.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201608161913162_Updated Models Relationships%282%29.cs" />
+    <Compile Include="Migrations\201608161913162_Updated Models Relationships%282%29.Designer.cs">
+      <DependentUpon>201608161913162_Updated Models Relationships%282%29.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\EmergencyContact.cs" />
@@ -325,6 +329,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201608160300132_added many to many profile to emergencyContact.resx">
       <DependentUpon>201608160300132_added many to many profile to emergencyContact.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608161913162_Updated Models Relationships%282%29.resx">
+      <DependentUpon>201608161913162_Updated Models Relationships%282%29.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -7,12 +7,24 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using B4B.Models;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace B4B.Controllers
 {
     public class ProfilesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+
+        private ApplicationUser CurrentUser
+        {
+            get
+            {
+                UserManager<ApplicationUser> UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
+                ApplicationUser currentUser = UserManager.FindById(User.Identity.GetUserId());
+                return currentUser;
+            }
+        }
 
         // GET: Profiles
         public ActionResult Index()
@@ -48,11 +60,13 @@ namespace B4B.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ProfileID,FirstName,LastName,PhotoID,StreetAdress,City,State,ZipCode,MedicalInfoID,EmergencyName,EmergencyPhone")] Profile profile)
         {
+            profile.Admin = CurrentUser;
+
             if (ModelState.IsValid)
             {
                 db.Profiles.Add(profile);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Admin", "Home");
             }
 
             return View(profile);

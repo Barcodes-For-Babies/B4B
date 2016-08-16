@@ -1,19 +1,25 @@
 ﻿@*Add the model you want to use*@
-@model  IEnumerable<B4B.Models.ApplicationUser>
+@model IEnumerable<B4B.Models.Profile>
 
-@{
+    @{
     Layout = "~/Views/Shared/_Layout.cshtml";
-}
+    }
 
 
-@*Go into the controller*@
+    @*Go into the controller*@
 
     <div class="container-fluid">
         <div class="row">
             <div id="adminHome" class="col-lg-12">
-                @Html.ActionLink("Create", "Create", "Profiles")
-                <button id="addProfile" class="btn btn-default">+</button>
+                @Html.ActionLink("+", "Create", "Profiles", null, new { @class="btn btn-default"})
+                @*<button id="addProfile" class="btn btn-default">+</button>*@
             </div>
+
+            @foreach(var item in Model){
+                @item.FirstName
+            }
+
+
         </div>
-        
+
     </div>
