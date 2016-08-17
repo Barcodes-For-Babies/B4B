@@ -27,9 +27,12 @@ namespace B4B.Models
             get{ return LastName + ", " + FirstName; }
         }
 
+        public string PhotoName { get; set; }
+        public string PhotoType { get; set; }
+        public byte[] PhotoBytes { get; set; }
+        public FileType FileType { get; set; }
+
         //navigation properties
-        // 1 to 1
-        public virtual Photo Photo { get; set; }
         // 1 to Many
         public virtual ICollection<MedicalInfo> MedicalInfos { get; set; }
         public virtual ApplicationUser Admin { get; set; }

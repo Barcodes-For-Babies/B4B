@@ -5,13 +5,20 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
 namespace B4B.Models
 {
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit http://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApplicationUser : IdentityUser
     {
-        public string AdminName { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        [Display(Name = "Full Name")]
+        public string FullName
+        {
+            get { return LastName + ", " + FirstName; }
+        }
         public virtual ICollection<EmergencyContact> EmergencyContacts { get; set; }
         public virtual ICollection<Profile> Profiles { get; set; }
 

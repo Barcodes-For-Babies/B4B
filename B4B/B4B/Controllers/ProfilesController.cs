@@ -58,12 +58,30 @@ namespace B4B.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProfileID,FirstName,LastName,PhotoID,StreetAdress,City,State,ZipCode,MedicalInfoID,EmergencyName,EmergencyPhone")] Profile profile)
+        public ActionResult Create([Bind(Include = "ProfileID,FirstName,LastName,PhotoID,StreetAdress,City,State,ZipCode,MedicalInfoID,EmergencyName,EmergencyPhone")] Profile profile, HttpPostedFileBase upload)
         {
             profile.Admin = CurrentUser;
 
             if (ModelState.IsValid)
             {
+                if (upload != null && upload.ContentLength > 0)
+                {
+                    var avatar = new Profile
+                    {
+                        PhotoName = System.IO.Path.GetFileName(upload.FileName),
+                        FileType = FileType.Avatar,
+                        PhotoType = upload.ContentType
+                    };
+                    using (var reader = new System.IO.BinaryReader(upload.InputStream))
+                    {
+                        avatar.PhotoBytes = reader.ReadBytes(upload.ContentLength);
+                    }
+
+                    profile.PhotoName = avatar.PhotoName;
+                    profile.FileType = avatar.FileType;
+                    profile.PhotoType = avatar.PhotoType;
+                    profile.PhotoBytes = avatar.PhotoBytes;
+                }
                 db.Profiles.Add(profile);
                 db.SaveChanges();
                 return RedirectToAction("Admin", "Home");
