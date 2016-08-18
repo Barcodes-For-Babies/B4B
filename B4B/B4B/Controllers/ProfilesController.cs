@@ -29,7 +29,7 @@ namespace B4B.Controllers
         // GET: Profiles
         public ActionResult Index()
         {
-            return View(db.Profiles.ToList());
+            return View(CurrentUser.Profiles.ToList());
         }
 
         // GET: Profiles/Details/5
@@ -62,7 +62,7 @@ namespace B4B.Controllers
         {
             profile.Admin = CurrentUser;
 
-            
+            //profile.MedicalInfos = 
 
             if (ModelState.IsValid)
             {
@@ -104,8 +104,12 @@ namespace B4B.Controllers
             {
                 return HttpNotFound();
             }
-            return View(profile);
-        }
+            if (CurrentUser.Profiles.Contains(profile))
+            {
+                return View(profile);
+            }
+            return RedirectToAction("Login", "Account");
+         }
 
         // POST: Profiles/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 

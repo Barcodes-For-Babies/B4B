@@ -15,7 +15,11 @@ namespace B4B.Controllers
         public ActionResult Index(int id)
         {
             var fileToRetrieve = db.Profiles.Find(id);
-            return File(fileToRetrieve.PhotoBytes, fileToRetrieve.PhotoType);
+
+            if(fileToRetrieve.PhotoBytes != null && fileToRetrieve.PhotoType != null)
+                return File(fileToRetrieve.PhotoBytes, fileToRetrieve.PhotoType);
+
+            return View();
         }
     }
 }
