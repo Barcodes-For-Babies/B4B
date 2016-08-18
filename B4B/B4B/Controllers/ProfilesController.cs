@@ -44,7 +44,11 @@ namespace B4B.Controllers
             {
                 return HttpNotFound();
             }
-            return View(profile);
+            if (CurrentUser.Profiles.Contains(profile))
+            {
+                return View(profile);
+            }
+            return RedirectToAction("Login", "Account");
         }
 
         // GET: Profiles/Create
@@ -157,7 +161,11 @@ namespace B4B.Controllers
             {
                 return HttpNotFound();
             }
-            return View(profile);
+            if (CurrentUser.Profiles.Contains(profile))
+            {
+                return View(profile);
+            }
+            return RedirectToAction("Login", "Account");
         }
 
         // POST: Profiles/Delete/5
