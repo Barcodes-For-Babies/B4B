@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -9,12 +6,20 @@ using System.Web.Mvc;
 using B4B.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using Twilio;
+using System;
 
 namespace B4B.Controllers
 {
     public class ProfilesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+
+        public void sendEmergencyText()
+        {
+            var client = new TwilioRestClient(Environment.GetEnvironmentVariable("TWILIO_ACCOUNT_SID"), Environment.GetEnvironmentVariable("TWILIO_AUTH_TOKEN"));
+            client.SendMessage("YOUR_TWILIO_NUMBER", "YOUR_NUMBER", "Ahoy from Twilio!");
+        }
 
         private ApplicationUser CurrentUser
         {
