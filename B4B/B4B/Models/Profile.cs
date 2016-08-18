@@ -20,7 +20,7 @@ namespace B4B.Models
         public string City { get; set; }
         [StringLength(50)]
         public string State { get; set; }
-        public int ZipCode { get; set; }
+        public int? ZipCode { get; set; }
 
         [Display(Name = "Full Name")]
         public string FullName {

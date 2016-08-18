@@ -244,6 +244,10 @@
     <Compile Include="Migrations\201608180456262_guess i updated something.Designer.cs">
       <DependentUpon>201608180456262_guess i updated something.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201608181328593_profile zipcode allows null.cs" />
+    <Compile Include="Migrations\201608181328593_profile zipcode allows null.Designer.cs">
+      <DependentUpon>201608181328593_profile zipcode allows null.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\EmergencyContact.cs" />
@@ -376,6 +380,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201608180456262_guess i updated something.resx">
       <DependentUpon>201608180456262_guess i updated something.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608181328593_profile zipcode allows null.resx">
+      <DependentUpon>201608181328593_profile zipcode allows null.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
