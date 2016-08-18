@@ -1,0 +1,34 @@
+﻿@model B4B.Models.MedicalInfo
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>MedicalInfo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Profiles.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Profiles.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MedicalInformation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MedicalInformation)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MedicalInfoID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

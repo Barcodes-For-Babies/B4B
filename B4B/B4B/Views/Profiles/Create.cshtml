@@ -16,75 +16,148 @@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-        <div class="form-group">
-            @Html.Label("Avatar", new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <input type="file" name="upload" id="Avatar" />
+        <div id="rootwizard">
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <div class="container">
+                        <ul>
+                            <li><a href="#tab1" data-toggle="tab">First</a></li>
+                            <li><a href="#tab2" data-toggle="tab">Second</a></li>
+                            <li><a href="#tab3" data-toggle="tab">Third</a></li>
+                            <li><a href="#tab4" data-toggle="tab">Forth</a></li>
+                            <li><a href="#tab5" data-toggle="tab">Fifth</a></li>
+                            <li><a href="#tab6" data-toggle="tab">Sixth</a></li>
+                            <li><a href="#tab7" data-toggle="tab">Seventh</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div id="bar" class="progress">
+                <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
+            </div>
+            <div class="tab-content">
+                <div class="tab-pane" id="tab1">
+
+                    <div class="form-group">
+                        @Html.Label("Avatar", new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            <input type="file" name="upload" id="Avatar" />
+                        </div>
+                    </div> <!-- end Profile Picture -->
+
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control", @placeholder = "First Name", @id = "name" } })
+                            @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                        </div>
+                    </div> <!-- end First Name -->
+
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Last Name" } })
+                            @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                        </div>
+                    </div> <!-- end Last Name -->
+
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.StreetAdress, new { htmlAttributes = new { @class = "form-control", @placeholder = "Street Address" } })
+                            @Html.ValidationMessageFor(model => model.StreetAdress, "", new { @class = "text-danger" })
+                        </div>
+                    </div> <!-- end Street Address -->
+
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-control", @placeholder = "City" } })
+                            @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+                        </div>
+                    </div> <!-- end City -->
+
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.State, new { htmlAttributes = new { @class = "form-control", @placeholder = "State" } })
+                            @Html.ValidationMessageFor(model => model.State, "", new { @class = "text-danger" })
+                        </div>
+                    </div> <!-- end State -->
+
+                    @*<div class="form-group">
+                        <div class="col-md-10">
+                            @Html.TextArea(model => Profile, new { htmlAttributes = new { @class = "form-control", @placeholder = "Medical Information" } })
+                            @Html.ValidationMessageFor(model => model.MedicalInfos, "", new { @class = "text-danger" })
+                        </div>
+                    </div>*@
+
+
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.ZipCode, new { htmlAttributes = new { @class = "form-control", @placeholder = "Zip Code" } })
+                            @Html.ValidationMessageFor(model => model.ZipCode, "", new { @class = "text-danger" })
+                        </div>
+                    </div> <!-- end Zip Code -->
+
+
+                </div> <!-- end Form page 1 -->
+                <div class="tab-pane" id="tab2">
+                    <p>
+                        Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.
+                    </p>
+                </div>
+                <div class="tab-pane" id="tab3">
+                    <p>
+                        Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.
+                    </p>
+                </div>
+                <div class="tab-pane" id="tab4">
+
+
+
+                    @*<div class="form-group">
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.EmergencyContacts, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.EmergencyContacts, "", new { @class = "text-danger" })
+                        </div>
+                    </div>*@
+
+                                @*<div class="form-group">
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.EmergencyPhone, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.EmergencyPhone, "", new { @class = "text-danger" })
+                        </div>
+                    </div>*@
+                </div>
+                <div class="tab-pane" id="tab5">
+                    <p>
+                        Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.
+                    </p>
+                </div>
+                <div class="tab-pane" id="tab6">
+                    <p>
+                        Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.
+                    </p>
+                </div>
+                <div class="tab-pane" id="tab7">
+                    <p>
+                        Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.
+                    </p>
+                </div>
+                <ul class="pager wizard">
+                    <li class="previous first" style="display:none;"><a href="#">First</a></li>
+                    <li class="previous"><a href="#">Previous</a></li>
+                    <li class="next last" style="display:none;"><a href="#">Last</a></li>
+                    <li class="next"><a href="#">Next</a></li>
+                </ul>
             </div>
         </div>
 
-        <div class="form-group">
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control", @placeholder="First Name" } })
-                @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        <div class="form-group">
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control", @placeholder="Last Name" } })
-                @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
-            </div>
-        </div>
+        <!--End -->
 
-        <div class="form-group">
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.StreetAdress, new { htmlAttributes = new { @class = "form-control", @placeholder="Street Address" } })
-                @Html.ValidationMessageFor(model => model.StreetAdress, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        <div class="form-group">
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-control", @placeholder="City" } })
-                @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        <div class="form-group">
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.State, new { htmlAttributes = new { @class = "form-control", @placeholder="State" } })
-                @Html.ValidationMessageFor(model => model.State, "", new { @class = "text-danger" })
-            </div>
-        </div>
+       
 
-        <div class="form-group">
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ZipCode, new { htmlAttributes = new { @class = "form-control", @placeholder="Zip Code" } })
-                @Html.ValidationMessageFor(model => model.ZipCode, "", new { @class = "text-danger" })
-            </div>
-        </div>
+       
 
-        @*<div class="form-group">
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.MedicalInfoID, new { htmlAttributes = new { @class = "form-control", @placeholder="Medical Information" } })
-                @Html.ValidationMessageFor(model => model.MedicalInfoID, "", new { @class = "text-danger" })
-            </div>
-        </div>*@
-
-        @*<div class="form-group">
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.EmergencyName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.EmergencyName, "", new { @class = "text-danger" })
-            </div>
-        </div>*@
-
-        @*<div class="form-group">
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.EmergencyPhone, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.EmergencyPhone, "", new { @class = "text-danger" })
-            </div>
-        </div>*@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
@@ -100,4 +173,31 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/Scripts/jquery.bootstrap.wizard.js");
+    @Scripts.Render("~/Scripts/jquery.bootstrap.wizard.min.js");
+    <script>
+        $(document).ready(function () {
+            $('#rootwizard').bootstrapWizard({
+                onNext: function (tab, navigation, index) {
+                    if (index == 1) {
+                        // Make sure we entered the name
+                        if (!$('#name').val()) {
+                            alert('You must enter your name');
+                            $('#name').focus();
+                            return false;
+                        }
+                    }
+
+                    // Set the name for the next tab
+                    $('#tab3').html('Hello, ' + $('#name').val());
+
+                }, onTabShow: function (tab, navigation, index) {
+                    var $total = navigation.find('li').length;
+                    var $current = index + 1;
+                    var $percent = ($current / $total) * 100;
+                    $('#rootwizard .progress-bar').css({ width: $percent + '%' });
+                }
+            });
+        });
+    </script>
 }

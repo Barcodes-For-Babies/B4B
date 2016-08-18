@@ -35,3 +35,88 @@ textarea {
     vertical-align:middle;
     margin-top:50px;
 }
+
+
+/*
+    Set up wizard form
+*/
+
+.wizard>.steps{
+    position: relative;
+    display: block;
+    width: 100%;
+}
+.wizard ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.wizard ul>li{
+    display: block;
+    padding: 0;
+    float: left;
+    list-style: none;
+    width: 25%;
+    line-height: 1.5em;
+}
+.wizard>.steps .current a, .wizard>.steps .current a:hover, .wizard>.steps .current a:active{
+    background: blue;
+    color: #fff;
+    cursor: default
+}
+.wizard>.steps a{
+    display: block;
+    width: auto;
+    margin: 0 0.5em 0.5em;
+    padding: 1em 1em;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+
+.wizard>.content {
+    background: #eee;
+    display: block;
+    margin: .5em;
+    min-height: 35em;
+    overflow: hidden;
+    position: relative;
+    width: auto;
+    border-radius: 5px;
+}
+.wizard>.content>.title{
+    position:absolute;
+    left: -999em;
+}
+.wizard>.content>.body{
+    float: left;
+    position: absolute;
+    width: 95%;
+    height: 95%;
+    padding: 2.5%;
+    display: block;
+}
+
+.wizard>.actions{
+    position: relative;
+    display: block;
+    text-align: right;
+    width: 100%;
+}
+.wizard>.actions> ul{
+    display: inline-block;
+    text-align: right;
+}
+.wizard>.actions .disabled a{
+    background: #eee;
+    color: #aaa !important;
+}
+.wizard>.actions a{
+    display: block;
+    color: #fff;
+    background: #2184be;
+    padding: .5em 1em;
+    text-decoration: none;
+    border-radius: 5px; 
+}
