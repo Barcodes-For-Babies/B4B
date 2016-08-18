@@ -80,12 +80,12 @@
                         </div>
                     </div> <!-- end State -->
 
-                    @*<div class="form-group">
+                    <div class="form-group">
                         <div class="col-md-10">
-                            @Html.TextArea(model => Profile, new { htmlAttributes = new { @class = "form-control", @placeholder = "Medical Information" } })
+                            @Html.TextBoxFor(model => model.MedicalInfos, new { htmlAttributes = new { @class = "form-control", @placeholder = "Medical Information" } })
                             @Html.ValidationMessageFor(model => model.MedicalInfos, "", new { @class = "text-danger" })
                         </div>
-                    </div>*@
+                    </div>
 
 
                     <div class="form-group">
