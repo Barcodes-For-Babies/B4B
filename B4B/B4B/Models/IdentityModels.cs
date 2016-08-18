@@ -46,7 +46,7 @@ namespace B4B.Models
 
         public System.Data.Entity.DbSet<B4B.Models.Profile> Profiles { get; set; }
 
-        public System.Data.Entity.DbSet<B4B.Models.MedicalInfo> MedicalInfoes { get; set; }
+       
 
         public System.Data.Entity.DbSet<B4B.Models.EmergencyContact> EmergencyContacts { get; set; }
     }

@@ -21,6 +21,7 @@ namespace B4B.Models
         [StringLength(50)]
         public string State { get; set; }
         public int? ZipCode { get; set; }
+        public string MedicalInformation { get; set; }
 
         [Display(Name = "Full Name")]
         public string FullName {
@@ -34,7 +35,7 @@ namespace B4B.Models
 
         //navigation properties
         // 1 to Many
-        public virtual ICollection<MedicalInfo> MedicalInfos { get; set; }
+      
         public virtual ApplicationUser Admin { get; set; }
         // Many to Many
         public virtual ICollection<EmergencyContact> EmergencyContacts { get; set; }

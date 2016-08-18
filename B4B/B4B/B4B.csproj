@@ -203,7 +203,6 @@
     <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\MedicalInfoesController.cs" />
     <Compile Include="Controllers\ProfilesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -240,13 +239,16 @@
     <Compile Include="Migrations\201608181328593_profile zipcode allows null.Designer.cs">
       <DependentUpon>201608181328593_profile zipcode allows null.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201608181658420_removed medical info.cs" />
+    <Compile Include="Migrations\201608181658420_removed medical info.Designer.cs">
+      <DependentUpon>201608181658420_removed medical info.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\EmergencyContact.cs" />
     <Compile Include="Models\FileType.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\MedicalInfo.cs" />
     <Compile Include="Models\Profile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -375,6 +377,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201608181328593_profile zipcode allows null.resx">
       <DependentUpon>201608181328593_profile zipcode allows null.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608181658420_removed medical info.resx">
+      <DependentUpon>201608181658420_removed medical info.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
