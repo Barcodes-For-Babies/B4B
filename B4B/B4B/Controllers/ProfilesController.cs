@@ -8,6 +8,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Twilio;
 using System;
+using System.Web.Configuration;
 
 namespace B4B.Controllers
 {
@@ -15,13 +16,17 @@ namespace B4B.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        //This method will send a text to the emergency contact provided by admin (Not tested yet)
-        public void sendEmergencyText()
+        //This method will send a text to the emergency contact provided by admin
+        public ActionResult SendEmergencyText()
         {
-            var client = new TwilioRestClient(Environment.GetEnvironmentVariable("TWILIO_ACCOUNT_SID"), Environment.GetEnvironmentVariable("TWILIO_AUTH_TOKEN"));
-            client.SendMessage("YOUR_TWILIO_NUMBER", "YOUR_NUMBER", "Ahoy from Twilio!");
-        }
+            var client = new TwilioRestClient(WebConfigurationManager.AppSettings["TWILIO_SID"],
+            WebConfigurationManager.AppSettings["TWILIO_AUTHTOKEN"]);
+            
+            var result = client.SendMessage(WebConfigurationManager.AppSettings["TWILIO_PHONE"], "+14195551212", "Emergency button has been activated!");
 
+            return RedirectToAction("Index");
+        }
+       
         private ApplicationUser CurrentUser
         {
             get

@@ -9,6 +9,7 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+
 <table class="table">
     <tr>
         <th>
@@ -86,3 +87,6 @@
 }
 
 </table>
+
+@*calls method to send text*@
+@Html.ActionLink("Emergency", "SendEmergencyText", "Profiles", null, new { @class = "btn btn-primary btn-large" })
