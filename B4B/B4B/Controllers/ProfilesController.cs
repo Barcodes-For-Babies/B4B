@@ -15,6 +15,7 @@ namespace B4B.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+        //This method will send a text to the emergency contact provided by admin (Not tested yet)
         public void sendEmergencyText()
         {
             var client = new TwilioRestClient(Environment.GetEnvironmentVariable("TWILIO_ACCOUNT_SID"), Environment.GetEnvironmentVariable("TWILIO_AUTH_TOKEN"));
