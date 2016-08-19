@@ -48,7 +48,7 @@ namespace B4B.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MedicalInfoID,MedicalInformation,ProfileID")] MedicalInfo medicalInfo)
+        public ActionResult Create([Bind(Include = "MedicalInfoID,MedicalCondition,Symptoms,RelatedInformation,ProfileID")] MedicalInfo medicalInfo)
         {
             if (ModelState.IsValid)
             {
@@ -82,7 +82,7 @@ namespace B4B.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MedicalInfoID,MedicalInformation,ProfileID")] MedicalInfo medicalInfo)
+        public ActionResult Edit([Bind(Include = "MedicalInfoID,MedicalCondition,Symptoms,RelatedInformation,ProfileID")] MedicalInfo medicalInfo)
         {
             if (ModelState.IsValid)
             {

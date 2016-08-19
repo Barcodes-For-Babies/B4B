@@ -248,6 +248,10 @@
     <Compile Include="Migrations\201608181328593_profile zipcode allows null.Designer.cs">
       <DependentUpon>201608181328593_profile zipcode allows null.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201608182045054_updated models and added wizard model.cs" />
+    <Compile Include="Migrations\201608182045054_updated models and added wizard model.Designer.cs">
+      <DependentUpon>201608182045054_updated models and added wizard model.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\EmergencyContact.cs" />
@@ -256,6 +260,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MedicalInfo.cs" />
     <Compile Include="Models\Profile.cs" />
+    <Compile Include="Models\WizardViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Models\Twilio.cs" />
@@ -334,16 +339,16 @@
     <Content Include="Views\Profiles\Index.cshtml" />
     <Content Include="Views\Home\Admin.cshtml" />
     <Content Include="Views\Home\Settings.cshtml" />
-    <Content Include="Views\MedicalInfoes\Create.cshtml" />
-    <Content Include="Views\MedicalInfoes\Delete.cshtml" />
-    <Content Include="Views\MedicalInfoes\Details.cshtml" />
-    <Content Include="Views\MedicalInfoes\Edit.cshtml" />
-    <Content Include="Views\MedicalInfoes\Index.cshtml" />
     <Content Include="Views\EmergencyContacts\Create.cshtml" />
     <Content Include="Views\EmergencyContacts\Delete.cshtml" />
     <Content Include="Views\EmergencyContacts\Details.cshtml" />
     <Content Include="Views\EmergencyContacts\Edit.cshtml" />
     <Content Include="Views\EmergencyContacts\Index.cshtml" />
+    <Content Include="Views\MedicalInfoes\Create.cshtml" />
+    <Content Include="Views\MedicalInfoes\Delete.cshtml" />
+    <Content Include="Views\MedicalInfoes\Details.cshtml" />
+    <Content Include="Views\MedicalInfoes\Edit.cshtml" />
+    <Content Include="Views\MedicalInfoes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -384,6 +389,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201608181328593_profile zipcode allows null.resx">
       <DependentUpon>201608181328593_profile zipcode allows null.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608182045054_updated models and added wizard model.resx">
+      <DependentUpon>201608182045054_updated models and added wizard model.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
