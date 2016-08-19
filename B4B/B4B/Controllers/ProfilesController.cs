@@ -119,13 +119,15 @@ namespace B4B.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Profile profile = db.Profiles.Find(id);
+            WizardViewModel wizardViewModel = new WizardViewModel();
+            wizardViewModel._profile = profile;
             if (profile == null)
             {
                 return HttpNotFound();
             }
-            if (CurrentUser.Profiles.Contains(profile))
+            if (CurrentUser.Profiles.Contains(wizardViewModel._profile))
             {
-                return View(profile);
+                return View(wizardViewModel);
             }
             return RedirectToAction("Login", "Account");
          }
@@ -135,7 +137,7 @@ namespace B4B.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProfileID,FirstName,LastName,PhotoID,StreetAdress,City,State,ZipCode,MedicalInfoID,EmergencyName,EmergencyPhone")] Profile profile, HttpPostedFileBase upload)
+        public ActionResult Edit([Bind(Include = "ProfileID,FirstName,LastName,PhotoID,StreetAdress,City,State,ZipCode,MedicalInfoID,EmergencyName,EmergencyPhone")] WizardViewModel wizardViewModel, HttpPostedFileBase upload)
         {
             if (ModelState.IsValid)
             {
@@ -152,16 +154,27 @@ namespace B4B.Controllers
                         avatar.PhotoBytes = reader.ReadBytes(upload.ContentLength);
                     }
 
-                    profile.PhotoName = avatar.PhotoName;
-                    profile.FileType = avatar.FileType;
-                    profile.PhotoType = avatar.PhotoType;
-                    profile.PhotoBytes = avatar.PhotoBytes;
+                    wizardViewModel._profile.PhotoName = avatar.PhotoName;
+                    wizardViewModel._profile.FileType = avatar.FileType;
+                    wizardViewModel._profile.PhotoType = avatar.PhotoType;
+                    wizardViewModel._profile.PhotoBytes = avatar.PhotoBytes;
                 }
-                db.Entry(profile).State = EntityState.Modified;
+
+                //wizardViewModel._profile.Admin = CurrentUser;                               //Assigns current user to as admin of profile
+                //db.Profiles.Add(wizardViewModel._profile);                                  //Adds profile object into database
+                //wizardViewModel._emergencyContact.User = CurrentUser;                       //Assigns current user as creator emergency contact 
+                //wizardViewModel._emergencyContact.Profiles = CurrentUser.Profiles;          //Assigns profile to emergency contact
+                //wizardViewModel._medicalInfo.ProfileID = profile.ProfileID;                 //Assigns profile to medicalInfo
+                //db.EmergencyContacts.Add(wizardViewModel._emergencyContact);                //Adds emergency contact object to database
+                //db.MedicalInfoes.Add(wizardViewModel._medicalInfo);
+
+                db.Entry(wizardViewModel._emergencyContact).State = EntityState.Modified;
+                db.Entry(wizardViewModel._medicalInfo).State = EntityState.Modified;
+                db.Entry(wizardViewModel._profile).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(profile);
+            return View(wizardViewModel._profile);
         }
 
         // GET: Profiles/Delete/5
