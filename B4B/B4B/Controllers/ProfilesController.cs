@@ -67,12 +67,10 @@ namespace B4B.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProfileID,FirstName,LastName,PhotoID,StreetAdress,City,State,ZipCode,MedicalInfos,EmergencyName,EmergencyPhone")] Profile profile, HttpPostedFileBase upload)
+        public ActionResult Create([Bind(Include = "ProfileID,FirstName,LastName,PhotoID,StreetAdress,City,State,ZipCode,MedicalInfos,EmergencyName,EmergencyPhone")] Profile profile, HttpPostedFileBase upload, WizardViewModel wizardViewModel)
         {
             profile.Admin = CurrentUser;
-
-            //profile.MedicalInfos = 
-
+            
             if (ModelState.IsValid)
             {
                 if (upload != null && upload.ContentLength > 0)
@@ -93,7 +91,18 @@ namespace B4B.Controllers
                     profile.PhotoType = avatar.PhotoType;
                     profile.PhotoBytes = avatar.PhotoBytes;
                 }
-                db.Profiles.Add(profile);
+                
+                wizardViewModel._profile.Admin = CurrentUser;
+                db.Profiles.Add(wizardViewModel._profile);
+                wizardViewModel._emergencyContact.User = CurrentUser;
+                //foreach (var p in CurrentUser.Profiles)
+                //{
+                //    wizardViewModel._emergencyContact.Profiles.Add(p);
+                //}
+                wizardViewModel._emergencyContact.Profiles = CurrentUser.Profiles;
+                wizardViewModel._medicalInfo.ProfileID = profile.ProfileID;
+                db.EmergencyContacts.Add(wizardViewModel._emergencyContact);
+                db.MedicalInfoes.Add(wizardViewModel._medicalInfo);
                 db.SaveChanges();
                 return RedirectToAction("Admin", "Home");
             }

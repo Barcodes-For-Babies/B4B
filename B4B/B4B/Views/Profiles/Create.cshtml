@@ -1,4 +1,5 @@
-﻿@model B4B.Models.Profile
+﻿@model B4B.Models.WizardViewModel
+
 
 @{
     ViewBag.Title = "Create";
@@ -47,84 +48,94 @@
 
                     <div class="form-group">
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control", @placeholder = "First Name", @id = "name" } })
-                            @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                            @Html.EditorFor(model => model._profile.FirstName, new { htmlAttributes = new { @class = "form-control", @placeholder = "First Name", @id = "name" } })
+                            @Html.ValidationMessageFor(model => model._profile.FirstName, "", new { @class = "text-danger" })
                         </div>
                     </div> <!-- end First Name -->
 
                     <div class="form-group">
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Last Name" } })
-                            @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                            @Html.EditorFor(model => model._profile.LastName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Last Name" } })
+                            @Html.ValidationMessageFor(model => model._profile.LastName, "", new { @class = "text-danger" })
                         </div>
                     </div> <!-- end Last Name -->
 
                     <div class="form-group">
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.StreetAdress, new { htmlAttributes = new { @class = "form-control", @placeholder = "Street Address" } })
-                            @Html.ValidationMessageFor(model => model.StreetAdress, "", new { @class = "text-danger" })
+                            @Html.EditorFor(model => model._profile.StreetAdress, new { htmlAttributes = new { @class = "form-control", @placeholder = "Street Address" } })
+                            @Html.ValidationMessageFor(model => model._profile.StreetAdress, "", new { @class = "text-danger" })
                         </div>
                     </div> <!-- end Street Address -->
 
                     <div class="form-group">
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-control", @placeholder = "City" } })
-                            @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+                            @Html.EditorFor(model => model._profile.City, new { htmlAttributes = new { @class = "form-control", @placeholder = "City" } })
+                            @Html.ValidationMessageFor(model => model._profile.City, "", new { @class = "text-danger" })
                         </div>
                     </div> <!-- end City -->
 
                     <div class="form-group">
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.State, new { htmlAttributes = new { @class = "form-control", @placeholder = "State" } })
-                            @Html.ValidationMessageFor(model => model.State, "", new { @class = "text-danger" })
+                            @Html.EditorFor(model => model._profile.State, new { htmlAttributes = new { @class = "form-control", @placeholder = "State" } })
+                            @Html.ValidationMessageFor(model => model._profile.State, "", new { @class = "text-danger" })
                         </div>
                     </div> <!-- end State -->
 
-                    @*<div class="form-group">
-                        <div class="col-md-10">
-                            @Html.TextAreaFor(model => model.MedicalInfos, new { htmlAttributes = new { @class = "form-control", @placeholder = "Medical Information" } })
-                            @Html.ValidationMessageFor(model => model.MedicalInfos, "", new { @class = "text-danger" })
-                        </div>
-                    </div>*@
-
-
                     <div class="form-group">
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.ZipCode, new { htmlAttributes = new { @class = "form-control", @placeholder = "Zip Code" } })
-                            @Html.ValidationMessageFor(model => model.ZipCode, "", new { @class = "text-danger" })
+                            @Html.EditorFor(model => model._profile.ZipCode, new { htmlAttributes = new { @class = "form-control", @placeholder = "Zip Code" } })
+                            @Html.ValidationMessageFor(model => model._profile.ZipCode, "", new { @class = "text-danger" })
                         </div>
                     </div> <!-- end Zip Code -->
 
-
                 </div> <!-- end Form page 1 -->
+
                 <div class="tab-pane" id="tab2">
                     <p>
                         Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.
                     </p>
                 </div>
+
                 <div class="tab-pane" id="tab3">
-                    <p>
-                        Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.
-                    </p>
-                </div>
+
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model._medicalInfo.MedicalCondition, new { htmlAttributes = new { @class = "form-control", @placeholder = "Medical Condition" } })
+                            @Html.ValidationMessageFor(model => model._medicalInfo.MedicalCondition, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model._medicalInfo.Symptoms, new { htmlAttributes = new { @class = "form-control", @placeholder = "Symptoms" } })
+                            @Html.ValidationMessageFor(model => model._medicalInfo.Symptoms, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model._medicalInfo.RelatedInformation, new { htmlAttributes = new { @class = "form-control", @placeholder = "Add extra information here" } })
+                            @Html.ValidationMessageFor(model => model._medicalInfo.RelatedInformation, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                </div> <!-- end Form page 3 Medical Information-->
+
                 <div class="tab-pane" id="tab4">
 
-
-
-                    @*<div class="form-group">
+                    <div class="form-group">
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.EmergencyContacts, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.EmergencyContacts, "", new { @class = "text-danger" })
+                            @Html.EditorFor(model => model._emergencyContact.EmergencyName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Emergency Contact Name" } })
+                            @Html.ValidationMessageFor(model => model._emergencyContact.EmergencyName, "", new { @class = "text-danger" })
                         </div>
-                    </div>*@
+                    </div>
 
-                                @*<div class="form-group">
+                    <div class="form-group">
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.EmergencyPhone, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.EmergencyPhone, "", new { @class = "text-danger" })
+                            @Html.EditorFor(model => model._emergencyContact.EmergencyPhone, new { htmlAttributes = new { @class = "form-control", @placeholder = "Emergency Contact Phone Number" } })
+                            @Html.ValidationMessageFor(model => model._emergencyContact.EmergencyPhone, "", new { @class = "text-danger" })
                         </div>
-                    </div>*@
-                </div>
+                    </div>
+
+                </div> <!-- end Form page 4 Emergency Information-->
                 <div class="tab-pane" id="tab5">
                     <p>
                         Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.
@@ -189,7 +200,7 @@
                     }
 
                     // Set the name for the next tab
-                    $('#tab3').html('Hello, ' + $('#name').val());
+                    $('#tab2').html('Hello, ' + $('#name').val());
 
                 }, onTabShow: function (tab, navigation, index) {
                     var $total = navigation.find('li').length;
