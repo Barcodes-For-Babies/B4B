@@ -68,11 +68,10 @@ namespace B4B.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ProfileID,FirstName,LastName,PhotoID,StreetAdress,City,State,ZipCode,MedicalInfos,EmergencyName,EmergencyPhone")] Profile profile, HttpPostedFileBase upload, WizardViewModel wizardViewModel)
-        {
-            profile.Admin = CurrentUser;
-            
+        {            
             if (ModelState.IsValid)
             {
+                // if user uploaded a photo this runs (gets picture)
                 if (upload != null && upload.ContentLength > 0)
                 {
                     var avatar = new Profile
@@ -86,25 +85,21 @@ namespace B4B.Controllers
                         avatar.PhotoBytes = reader.ReadBytes(upload.ContentLength);
                     }
 
-                    profile.PhotoName = avatar.PhotoName;
-                    profile.FileType = avatar.FileType;
-                    profile.PhotoType = avatar.PhotoType;
-                    profile.PhotoBytes = avatar.PhotoBytes;
+                    profile.PhotoName = avatar.PhotoName;           //Adds name of photo to db
+                    profile.FileType = avatar.FileType;             //Adds FileType of photo to db
+                    profile.PhotoType = avatar.PhotoType;           //Adds the extension type of photo to db
+                    profile.PhotoBytes = avatar.PhotoBytes;         //Adds the byte array representation of photo to db
                 }
                 
-                wizardViewModel._profile.Admin = CurrentUser;
-                db.Profiles.Add(wizardViewModel._profile);
-                wizardViewModel._emergencyContact.User = CurrentUser;
-                //foreach (var p in CurrentUser.Profiles)
-                //{
-                //    wizardViewModel._emergencyContact.Profiles.Add(p);
-                //}
-                wizardViewModel._emergencyContact.Profiles = CurrentUser.Profiles;
-                wizardViewModel._medicalInfo.ProfileID = profile.ProfileID;
-                db.EmergencyContacts.Add(wizardViewModel._emergencyContact);
-                db.MedicalInfoes.Add(wizardViewModel._medicalInfo);
-                db.SaveChanges();
-                return RedirectToAction("Admin", "Home");
+                wizardViewModel._profile.Admin = CurrentUser;                               //Assigns current user to as admin of profile
+                db.Profiles.Add(wizardViewModel._profile);                                  //Adds profile object into database
+                wizardViewModel._emergencyContact.User = CurrentUser;                       //Assigns current user as creator emergency contact 
+                wizardViewModel._emergencyContact.Profiles = CurrentUser.Profiles;          //Assigns profile to emergency contact
+                wizardViewModel._medicalInfo.ProfileID = profile.ProfileID;                 //Assigns profile to medicalInfo
+                db.EmergencyContacts.Add(wizardViewModel._emergencyContact);                //Adds emergency contact object to database
+                db.MedicalInfoes.Add(wizardViewModel._medicalInfo);                         //Adds medical info object to database
+                db.SaveChanges();                                                           //Saves everything just added to database
+                return RedirectToAction("Admin", "Home");                                   //Redirect you to admin home
             }
 
             return View(profile);
