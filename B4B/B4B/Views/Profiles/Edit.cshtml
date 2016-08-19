@@ -6,7 +6,7 @@
 <h2>Edit</h2>
 
 
-@using (Html.BeginForm("Edit", "Profiles", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("Edit", "Profiles", FormMethod.Post, new { enctype = "multipart/form-data", role = "form"}))
 {
     @Html.AntiForgeryToken()
     
@@ -64,7 +64,26 @@
             </div>
         </div>
 
-        
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.EditorFor(model => model._medicalInfo.MedicalCondition, new { htmlAttributes = new { @class = "form-control", @placeholder = "Medical Condition" } })
+                @Html.ValidationMessageFor(model => model._medicalInfo.MedicalCondition, "", new { @class = "text-danger" })
+            </div>
+        </div> <!-- end Medical Condition -->
+
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.EditorFor(model => model._medicalInfo.Symptoms, new { htmlAttributes = new { @class = "form-control", @placeholder = "Symptoms" } })
+                @Html.ValidationMessageFor(model => model._medicalInfo.Symptoms, "", new { @class = "text-danger" })
+            </div>
+        </div> <!-- end Medical Info -->
+
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.EditorFor(model => model._medicalInfo.RelatedInformation, new { htmlAttributes = new { @class = "form-control", @placeholder = "Add extra information here" } })
+                @Html.ValidationMessageFor(model => model._medicalInfo.RelatedInformation, "", new { @class = "text-danger" })
+            </div>
+        </div> <!-- end Related Information -->
 
         <div class="form-group">
             @Html.LabelFor(model => model._emergencyContact.EmergencyName, htmlAttributes: new { @class = "control-label col-md-2" })

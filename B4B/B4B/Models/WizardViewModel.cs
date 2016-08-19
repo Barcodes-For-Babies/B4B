@@ -14,7 +14,7 @@ namespace B4B.Models
     public class WizardViewModel
     {
         public Profile _profile { get; set; }                       // Sets the Profile model as a property
-        public MedicalInfo _medicalInfo { get; set; }               // Sets the Profile model as a property
-        public EmergencyContact _emergencyContact { get; set; }     // Sets the Profile model as a property
+        public MedicalInfo _medicalInfo { get; set; }               // Sets the MedicalInfo model as a property
+        public EmergencyContact _emergencyContact { get; set; }     // Sets the Emergency model as a property
     }
 }
