@@ -17,12 +17,26 @@ namespace B4B.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         //This method will send a text to the emergency contact provided by admin
-        public ActionResult SendEmergencyText()
+        public ActionResult SendEmergencyText(int? id)
         {
+
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Profile profile = db.Profiles.Find(id);
+            if (profile == null)
+            {
+                return HttpNotFound();
+            }
+
             var client = new TwilioRestClient(WebConfigurationManager.AppSettings["TWILIO_SID"],
             WebConfigurationManager.AppSettings["TWILIO_AUTHTOKEN"]);
             
-            var result = client.SendMessage(WebConfigurationManager.AppSettings["TWILIO_PHONE"], "+14195551212", "Emergency button has been activated!");
+            foreach (var contact in profile.EmergencyContacts)
+            {
+                var result = client.SendMessage(WebConfigurationManager.AppSettings["TWILIO_PHONE"], contact.EmergencyPhone, "Emergency button has been activated!");
+            }
 
             return RedirectToAction("Index");
         }
