@@ -64,34 +64,35 @@
 
         <dd>
             @Html.DisplayFor(model => model.ZipCode)
-        </dd>
+        </dd> 
 
-        @*<dt>
-            @Html.DisplayNameFor(model => model.MedicalInfoID)
-        </dt>
+        @foreach (var e in Model.EmergencyContacts)
+        {
+            <dt>
+                @Html.DisplayNameFor(modelItem => e.EmergencyName)
+            </dt>
+            <dd>
+                @Html.DisplayFor(modelItem => e.EmergencyName)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(modelItem => e.EmergencyPhone)
+            </dt>
+            <dd>
+                @Html.DisplayFor(modelItem => e.EmergencyPhone)
+            </dd>
+        }
 
-        <dd>
-            @Html.DisplayFor(model => model.MedicalInfoID)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.EmergencyName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.EmergencyName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.EmergencyPhone)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.EmergencyPhone)
-        </dd>*@
-
+      
+            
     </dl>
+    
+
 </div>
+@*<td>
+        @Html.DisplayFor(modelItem => Model.MedicalInfos)
+    </td>*@
+
+
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.ProfileID }) |
     @Html.ActionLink("Back to List", "Index")

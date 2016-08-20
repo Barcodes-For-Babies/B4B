@@ -250,9 +250,9 @@
     <Compile Include="Migrations\201608181328593_profile zipcode allows null.Designer.cs">
       <DependentUpon>201608181328593_profile zipcode allows null.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201608182045054_updated models and added wizard model.cs" />
-    <Compile Include="Migrations\201608182045054_updated models and added wizard model.Designer.cs">
-      <DependentUpon>201608182045054_updated models and added wizard model.cs</DependentUpon>
+    <Compile Include="Migrations\201608191453376_updated models.cs" />
+    <Compile Include="Migrations\201608191453376_updated models.Designer.cs">
+      <DependentUpon>201608191453376_updated models.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -393,8 +393,8 @@
     <EmbeddedResource Include="Migrations\201608181328593_profile zipcode allows null.resx">
       <DependentUpon>201608181328593_profile zipcode allows null.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201608182045054_updated models and added wizard model.resx">
-      <DependentUpon>201608182045054_updated models and added wizard model.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201608191453376_updated models.resx">
+      <DependentUpon>201608191453376_updated models.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
