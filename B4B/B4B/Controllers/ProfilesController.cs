@@ -73,7 +73,7 @@ namespace B4B.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProfileID,FirstName,LastName,PhotoID,StreetAdress,City,State,ZipCode,MedicalInfos,EmergencyName,EmergencyPhone")] Profile profile, HttpPostedFileBase upload, WizardViewModel wizardViewModel)
+        public ActionResult Create([Bind(Include = "ProfileID,FirstName,LastName,PhotoID,StreetAdress,City,State,ZipCode,MedicalInfos,EcontactName,EmergencyPhone")] Profile profile, HttpPostedFileBase upload, WizardViewModel wizardViewModel)
         {            
             if (ModelState.IsValid)
             {
@@ -91,18 +91,15 @@ namespace B4B.Controllers
                         avatar.PhotoBytes = reader.ReadBytes(upload.ContentLength);
                     }
 
-                    profile.PhotoName = avatar.PhotoName;           //Adds name of photo to db
-                    profile.FileType = avatar.FileType;             //Adds FileType of photo to db
-                    profile.PhotoType = avatar.PhotoType;           //Adds the extension type of photo to db
-                    profile.PhotoBytes = avatar.PhotoBytes;         //Adds the byte array representation of photo to db
+                    wizardViewModel._profile.PhotoName = avatar.PhotoName;           //Adds name of photo to db
+                    wizardViewModel._profile.FileType = avatar.FileType;             //Adds FileType of photo to db
+                    wizardViewModel._profile.PhotoType = avatar.PhotoType;           //Adds the extension type of photo to db
+                    wizardViewModel._profile.PhotoBytes = avatar.PhotoBytes;         //Adds the byte array representation of photo to db
                 }
                 
                 wizardViewModel._profile.Admin = CurrentUser;                               //Assigns current user to as admin of profile
                 db.Profiles.Add(wizardViewModel._profile);                                  //Adds profile object into database
-                wizardViewModel._emergencyContact.User = CurrentUser;                       //Assigns current user as creator emergency contact 
-                wizardViewModel._emergencyContact.Profiles = CurrentUser.Profiles;          //Assigns profile to emergency contact
                 wizardViewModel._medicalInfo.ProfileID = profile.ProfileID;                 //Assigns profile to medicalInfo
-                db.EmergencyContacts.Add(wizardViewModel._emergencyContact);                //Adds emergency contact object to database
                 db.MedicalInfoes.Add(wizardViewModel._medicalInfo);                         //Adds medical info object to database
                 db.SaveChanges();                                                           //Saves everything just added to database
                 return RedirectToAction("Admin", "Home");                                   //Redirect you to admin home
@@ -121,10 +118,6 @@ namespace B4B.Controllers
             Profile profile = db.Profiles.Find(id);
             WizardViewModel wizardViewModel = new WizardViewModel();
             wizardViewModel._profile = profile;
-            foreach (var ec in profile.EmergencyContacts)
-            {
-                wizardViewModel._emergencyContact = ec;
-            }
             foreach (var mi in profile.MedicalInfos)
             {
                 wizardViewModel._medicalInfo = mi;
@@ -170,17 +163,9 @@ namespace B4B.Controllers
                     wizardViewModel._profile.PhotoType = avatar.PhotoType;           //Adds the extension type of photo to db
                     wizardViewModel._profile.PhotoBytes = avatar.PhotoBytes;         //Adds the byte array representation of photo to db
                 }
-
-                var testID = from id in db.EmergencyContacts
-                             where id.Equals(CurrentUser.EmergencyContacts)
-                             select id.EmergencyContactID;
-
                 wizardViewModel._profile.Admin = CurrentUser;                               //Assigns current user to as admin of profile
                 db.Entry(wizardViewModel._profile).State = EntityState.Modified;            //Adds profile object into database
-                wizardViewModel._emergencyContact.User = CurrentUser;                       //Assigns current user as creator emergency contact 
-                wizardViewModel._emergencyContact.Profiles = CurrentUser.Profiles;          //Assigns profile to emergency contact
                 wizardViewModel._medicalInfo.ProfileID = wizardViewModel._profile.ProfileID;                 //Assigns profile to medicalInfo
-                db.Entry(wizardViewModel._emergencyContact).State = EntityState.Modified;
                 db.Entry(wizardViewModel._medicalInfo).State = EntityState.Modified;
 
 

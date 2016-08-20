@@ -126,15 +126,15 @@
 
                     <div class="form-group">
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model._emergencyContact.EmergencyName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Emergency Contact Name" } })
-                            @Html.ValidationMessageFor(model => model._emergencyContact.EmergencyName, "", new { @class = "text-danger" })
+                            @Html.EditorFor(model => model._profile.EcontactName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Emergency Contact Name" } })
+                            @Html.ValidationMessageFor(model => model._profile.EcontactName, "", new { @class = "text-danger" })
                         </div>
                     </div> <!-- end Emergency Name -->
 
                     <div class="form-group">
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model._emergencyContact.EmergencyPhone, new { htmlAttributes = new { @class = "form-control", @placeholder = "Emergency Contact Phone Number" } })
-                            @Html.ValidationMessageFor(model => model._emergencyContact.EmergencyPhone, "", new { @class = "text-danger" })
+                            @Html.EditorFor(model => model._profile.EmergencyPhone, new { htmlAttributes = new { @class = "form-control", @placeholder = "Emergency Contact Phone Number" } })
+                            @Html.ValidationMessageFor(model => model._profile.EmergencyPhone, "", new { @class = "text-danger" })
                         </div>
                     </div> <!-- end Emergency Phone -->
 

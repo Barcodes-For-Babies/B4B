@@ -68,15 +68,15 @@
             @Html.DisplayFor(modelItem => item.MedicalInfos)
         </td>*@
        
-        @foreach (var e in item.EmergencyContacts)
-        {
         <td>
-            @Html.DisplayFor(modelItem => e.EmergencyName)
+            @Html.DisplayFor(modelItem => item.EcontactFirstName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => e.EmergencyPhone)
+            @Html.DisplayFor(modelItem => item.EcontactLasttName)
         </td>
-        }
+        <td>
+            @Html.DisplayFor(modelItem => item.EmergencyPhone)
+        </td>
         
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ProfileID }) |

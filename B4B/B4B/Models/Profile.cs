@@ -22,7 +22,7 @@ namespace B4B.Models
         public string State { get; set; }
         public int? ZipCode { get; set; }
 
-        [Display(Name = "Full Name")]
+        [Display(Name = "Name")]
         public string FullName {
             get{ return LastName + ", " + FirstName; }
         }
@@ -32,11 +32,21 @@ namespace B4B.Models
         public byte[] PhotoBytes { get; set; }
         public FileType FileType { get; set; }
 
+        [StringLength(50)]
+        public string EcontactFirstName { get; set; }
+        [StringLength(50)]
+        public string EcontactLasttName { get; set; }
+        [StringLength(50)]
+        public string EmergencyPhone { get; set; }
+        [Display(Name = "Name")]
+        public string EcontactName
+        {
+            get { return EcontactLasttName + ", " + EcontactFirstName; }
+        }
+
         //navigation properties
         // 1 to Many
         public virtual ICollection<MedicalInfo> MedicalInfos { get; set; }
         public virtual ApplicationUser Admin { get; set; }
-        // Many to Many
-        public virtual ICollection<EmergencyContact> EmergencyContacts { get; set; }
     }
 }

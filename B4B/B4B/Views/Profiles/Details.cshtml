@@ -66,21 +66,19 @@
             @Html.DisplayFor(model => model.ZipCode)
         </dd> 
 
-        @foreach (var e in Model.EmergencyContacts)
-        {
-            <dt>
-                @Html.DisplayNameFor(modelItem => e.EmergencyName)
-            </dt>
-            <dd>
-                @Html.DisplayFor(modelItem => e.EmergencyName)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(modelItem => e.EmergencyPhone)
-            </dt>
-            <dd>
-                @Html.DisplayFor(modelItem => e.EmergencyPhone)
-            </dd>
-        }
+        <dt>
+            @Html.DisplayNameFor(modelItem => modelItem.EcontactName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(modelItem => modelItem.EcontactName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(modelItem => modelItem.EmergencyPhone)
+        </dt>
+        <dd>
+            @Html.DisplayFor(modelItem => modelItem.EmergencyPhone)
+        </dd>
+        
 
       
             

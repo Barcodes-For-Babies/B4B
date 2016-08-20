@@ -209,7 +209,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\EmergencyContactsController.cs" />
     <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -250,13 +249,16 @@
     <Compile Include="Migrations\201608181328593_profile zipcode allows null.Designer.cs">
       <DependentUpon>201608181328593_profile zipcode allows null.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201608191453376_updated models.cs" />
-    <Compile Include="Migrations\201608191453376_updated models.Designer.cs">
-      <DependentUpon>201608191453376_updated models.cs</DependentUpon>
+    <Compile Include="Migrations\201608200740283_update for reclone.cs" />
+    <Compile Include="Migrations\201608200740283_update for reclone.Designer.cs">
+      <DependentUpon>201608200740283_update for reclone.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608201447042_updated profiles model to include emergency contact.cs" />
+    <Compile Include="Migrations\201608201447042_updated profiles model to include emergency contact.Designer.cs">
+      <DependentUpon>201608201447042_updated profiles model to include emergency contact.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\EmergencyContact.cs" />
     <Compile Include="Models\FileType.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -341,11 +343,6 @@
     <Content Include="Views\Profiles\Index.cshtml" />
     <Content Include="Views\Home\Admin.cshtml" />
     <Content Include="Views\Home\Settings.cshtml" />
-    <Content Include="Views\EmergencyContacts\Create.cshtml" />
-    <Content Include="Views\EmergencyContacts\Delete.cshtml" />
-    <Content Include="Views\EmergencyContacts\Details.cshtml" />
-    <Content Include="Views\EmergencyContacts\Edit.cshtml" />
-    <Content Include="Views\EmergencyContacts\Index.cshtml" />
     <Content Include="Views\MedicalInfoes\Create.cshtml" />
     <Content Include="Views\MedicalInfoes\Delete.cshtml" />
     <Content Include="Views\MedicalInfoes\Details.cshtml" />
@@ -393,8 +390,11 @@
     <EmbeddedResource Include="Migrations\201608181328593_profile zipcode allows null.resx">
       <DependentUpon>201608181328593_profile zipcode allows null.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201608191453376_updated models.resx">
-      <DependentUpon>201608191453376_updated models.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201608200740283_update for reclone.resx">
+      <DependentUpon>201608200740283_update for reclone.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608201447042_updated profiles model to include emergency contact.resx">
+      <DependentUpon>201608201447042_updated profiles model to include emergency contact.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

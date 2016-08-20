@@ -14,7 +14,9 @@ namespace B4B.Models
         public string RelatedInformation { get; set; }
 
         public int ProfileID { get; set; }
+
         //navigatoin properties
+        // 1 to manny
         public virtual Profile Profiles { get; set; }
 
     }

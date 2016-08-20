@@ -19,7 +19,6 @@ namespace B4B.Models
         {
             get { return LastName + ", " + FirstName; }
         }
-        public virtual ICollection<EmergencyContact> EmergencyContacts { get; set; }
         public virtual ICollection<Profile> Profiles { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
@@ -47,7 +46,5 @@ namespace B4B.Models
         public System.Data.Entity.DbSet<B4B.Models.Profile> Profiles { get; set; }
 
         public System.Data.Entity.DbSet<B4B.Models.MedicalInfo> MedicalInfoes { get; set; }
-
-        public System.Data.Entity.DbSet<B4B.Models.EmergencyContact> EmergencyContacts { get; set; }
     }
 }
