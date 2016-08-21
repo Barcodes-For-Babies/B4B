@@ -217,45 +217,21 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201608151733511_InitialCreate.cs" />
-    <Compile Include="Migrations\201608151733511_InitialCreate.Designer.cs">
-      <DependentUpon>201608151733511_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\201608201609526_updateProfileWithEmergencyContact.cs" />
+    <Compile Include="Migrations\201608201609526_updateProfileWithEmergencyContact.Designer.cs">
+      <DependentUpon>201608201609526_updateProfileWithEmergencyContact.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201608151838480_Initial.cs" />
-    <Compile Include="Migrations\201608151838480_Initial.Designer.cs">
-      <DependentUpon>201608151838480_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201608201853529_updateProfileWithEmergencyContact1.cs" />
+    <Compile Include="Migrations\201608201853529_updateProfileWithEmergencyContact1.Designer.cs">
+      <DependentUpon>201608201853529_updateProfileWithEmergencyContact1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201608160237007_change relationships syntax.cs" />
-    <Compile Include="Migrations\201608160237007_change relationships syntax.Designer.cs">
-      <DependentUpon>201608160237007_change relationships syntax.cs</DependentUpon>
+    <Compile Include="Migrations\201608201917160_WizardViewModel Updated.cs" />
+    <Compile Include="Migrations\201608201917160_WizardViewModel Updated.Designer.cs">
+      <DependentUpon>201608201917160_WizardViewModel Updated.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201608160300132_added many to many profile to emergencyContact.cs" />
-    <Compile Include="Migrations\201608160300132_added many to many profile to emergencyContact.Designer.cs">
-      <DependentUpon>201608160300132_added many to many profile to emergencyContact.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201608161913162_Updated Models Relationships%282%29.cs" />
-    <Compile Include="Migrations\201608161913162_Updated Models Relationships%282%29.Designer.cs">
-      <DependentUpon>201608161913162_Updated Models Relationships%282%29.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201608172043487_Updated Profile table with Photo.cs" />
-    <Compile Include="Migrations\201608172043487_Updated Profile table with Photo.Designer.cs">
-      <DependentUpon>201608172043487_Updated Profile table with Photo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201608180456262_guess i updated something.cs" />
-    <Compile Include="Migrations\201608180456262_guess i updated something.Designer.cs">
-      <DependentUpon>201608180456262_guess i updated something.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201608181328593_profile zipcode allows null.cs" />
-    <Compile Include="Migrations\201608181328593_profile zipcode allows null.Designer.cs">
-      <DependentUpon>201608181328593_profile zipcode allows null.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201608200740283_update for reclone.cs" />
-    <Compile Include="Migrations\201608200740283_update for reclone.Designer.cs">
-      <DependentUpon>201608200740283_update for reclone.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201608201447042_updated profiles model to include emergency contact.cs" />
-    <Compile Include="Migrations\201608201447042_updated profiles model to include emergency contact.Designer.cs">
-      <DependentUpon>201608201447042_updated profiles model to include emergency contact.cs</DependentUpon>
+    <Compile Include="Migrations\201608210151223_WizardViewModel Updated%282%29.cs" />
+    <Compile Include="Migrations\201608210151223_WizardViewModel Updated%282%29.Designer.cs">
+      <DependentUpon>201608210151223_WizardViewModel Updated%282%29.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -366,35 +342,17 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201608151733511_InitialCreate.resx">
-      <DependentUpon>201608151733511_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201608201609526_updateProfileWithEmergencyContact.resx">
+      <DependentUpon>201608201609526_updateProfileWithEmergencyContact.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201608151838480_Initial.resx">
-      <DependentUpon>201608151838480_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201608201853529_updateProfileWithEmergencyContact1.resx">
+      <DependentUpon>201608201853529_updateProfileWithEmergencyContact1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201608160237007_change relationships syntax.resx">
-      <DependentUpon>201608160237007_change relationships syntax.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201608201917160_WizardViewModel Updated.resx">
+      <DependentUpon>201608201917160_WizardViewModel Updated.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201608160300132_added many to many profile to emergencyContact.resx">
-      <DependentUpon>201608160300132_added many to many profile to emergencyContact.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201608161913162_Updated Models Relationships%282%29.resx">
-      <DependentUpon>201608161913162_Updated Models Relationships%282%29.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201608172043487_Updated Profile table with Photo.resx">
-      <DependentUpon>201608172043487_Updated Profile table with Photo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201608180456262_guess i updated something.resx">
-      <DependentUpon>201608180456262_guess i updated something.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201608181328593_profile zipcode allows null.resx">
-      <DependentUpon>201608181328593_profile zipcode allows null.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201608200740283_update for reclone.resx">
-      <DependentUpon>201608200740283_update for reclone.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201608201447042_updated profiles model to include emergency contact.resx">
-      <DependentUpon>201608201447042_updated profiles model to include emergency contact.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201608210151223_WizardViewModel Updated%282%29.resx">
+      <DependentUpon>201608210151223_WizardViewModel Updated%282%29.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

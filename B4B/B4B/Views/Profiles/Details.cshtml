@@ -18,7 +18,7 @@
             <img src="~/File?id=@Model.ProfileID" alt="avatar" />
         </dd>
 
-        <dt>
+        <dt class="">
             @Html.DisplayNameFor(model => model.FirstName)
         </dt>
 
@@ -64,24 +64,40 @@
 
         <dd>
             @Html.DisplayFor(model => model.ZipCode)
-        </dd> 
+        </dd>
 
         <dt>
             @Html.DisplayNameFor(modelItem => modelItem.EcontactName)
+            
         </dt>
         <dd>
-            @Html.DisplayFor(modelItem => modelItem.EcontactName)
+            @if (Model.EmergencyPhone == null)
+            {
+                @:No Emergency contact set
+            }
+            else
+            {
+                @Html.DisplayFor(modelItem => modelItem.EcontactName)
+            }
         </dd>
         <dt>
             @Html.DisplayNameFor(modelItem => modelItem.EmergencyPhone)
+            
         </dt>
         <dd>
-            @Html.DisplayFor(modelItem => modelItem.EmergencyPhone)
+            @if (Model.EmergencyPhone == null)
+            {
+                @:No Emergency contact set
+            }
+            else
+            {
+                @Html.DisplayFor(modelItem => modelItem.EmergencyPhone)
+            }
         </dd>
-        
 
-      
-            
+
+
+
     </dl>
     
 

@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Twilio;
 using System;
 using System.Web.Configuration;
+using System.Collections.Generic;
 
 namespace B4B.Controllers
 {
@@ -33,10 +34,7 @@ namespace B4B.Controllers
             var client = new TwilioRestClient(WebConfigurationManager.AppSettings["TWILIO_SID"],
             WebConfigurationManager.AppSettings["TWILIO_AUTHTOKEN"]);
             
-            foreach (var contact in profile.EmergencyContacts)
-            {
-                var result = client.SendMessage(WebConfigurationManager.AppSettings["TWILIO_PHONE"], contact.EmergencyPhone, "Emergency button has been activated!");
-            }
+            var result = client.SendMessage(WebConfigurationManager.AppSettings["TWILIO_PHONE"], profile.EmergencyPhone, "Emergency button has been activated!");
 
             return RedirectToAction("Index");
         }
@@ -79,7 +77,7 @@ namespace B4B.Controllers
         // GET: Profiles/Create
         public ActionResult Create()
         {
-            return View();
+            return View(new WizardViewModel());
         }
 
         // POST: Profiles/Create
@@ -87,7 +85,7 @@ namespace B4B.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProfileID,FirstName,LastName,PhotoID,StreetAdress,City,State,ZipCode,MedicalInfos,EcontactName,EmergencyPhone")] Profile profile, HttpPostedFileBase upload, WizardViewModel wizardViewModel)
+        public ActionResult Create(HttpPostedFileBase upload, WizardViewModel wizardViewModel)
         {            
             if (ModelState.IsValid)
             {
@@ -110,33 +108,45 @@ namespace B4B.Controllers
                     wizardViewModel._profile.PhotoType = avatar.PhotoType;           //Adds the extension type of photo to db
                     wizardViewModel._profile.PhotoBytes = avatar.PhotoBytes;         //Adds the byte array representation of photo to db
                 }
-                
+                var profileID = 0;
+                var profilesList = db.Profiles.ToList();
+                profileID = profilesList.Count() + 1;
+
+                var medInfoID = 0;
+                var medInfosList = db.MedicalInfoes.ToList();
+                medInfoID = medInfosList.Count() + 1;
+              
                 wizardViewModel._profile.Admin = CurrentUser;                               //Assigns current user to as admin of profile
+                wizardViewModel._profile.ProfileID = profileID;
                 db.Profiles.Add(wizardViewModel._profile);                                  //Adds profile object into database
-                wizardViewModel._medicalInfo.ProfileID = profile.ProfileID;                 //Assigns profile to medicalInfo
+                wizardViewModel._medicalInfo.MedicalInfoID = medInfoID;
+                wizardViewModel._medicalInfo.ProfileID = profileID;                 //Assigns profile to medicalInfo
                 db.MedicalInfoes.Add(wizardViewModel._medicalInfo);                         //Adds medical info object to database
                 db.SaveChanges();                                                           //Saves everything just added to database
                 return RedirectToAction("Admin", "Home");                                   //Redirect you to admin home
             }
 
-            return View(profile);
+            return View(wizardViewModel);
         }
 
         // GET: Profiles/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int? id, List<MedicalInfo> medInfos)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Profile profile = db.Profiles.Find(id);
             WizardViewModel wizardViewModel = new WizardViewModel();
+            Profile profile = db.Profiles.Find(id);
             wizardViewModel._profile = profile;
-            foreach (var mi in profile.MedicalInfos)
-            {
-                wizardViewModel._medicalInfo = mi;
-            }
 
+            medInfos = db.MedicalInfoes.ToList();          
+            foreach (var mi in medInfos)
+            {
+                if (mi.ProfileID == profile.ProfileID)
+                    wizardViewModel._medicalInfo = db.MedicalInfoes.Find(mi.ProfileID);
+            }
+            
             if (profile == null)
             {
                 return HttpNotFound();
@@ -155,7 +165,7 @@ namespace B4B.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(HttpPostedFileBase upload, WizardViewModel wizardViewModel)
+        public ActionResult Edit([Bind(Include = "_profile, _medicalInfo")] WizardViewModel wizardViewModel, HttpPostedFileBase upload)
         {
             if (ModelState.IsValid)
             {
@@ -177,10 +187,23 @@ namespace B4B.Controllers
                     wizardViewModel._profile.PhotoType = avatar.PhotoType;           //Adds the extension type of photo to db
                     wizardViewModel._profile.PhotoBytes = avatar.PhotoBytes;         //Adds the byte array representation of photo to db
                 }
-                wizardViewModel._profile.Admin = CurrentUser;                               //Assigns current user to as admin of profile
+                wizardViewModel._profile.Admin = CurrentUser;
                 db.Entry(wizardViewModel._profile).State = EntityState.Modified;            //Adds profile object into database
-                wizardViewModel._medicalInfo.ProfileID = wizardViewModel._profile.ProfileID;                 //Assigns profile to medicalInfo
-                db.Entry(wizardViewModel._medicalInfo).State = EntityState.Modified;
+
+                wizardViewModel._medicalInfo.ProfileID = wizardViewModel._profile.ProfileID;
+                var medicalInfoList = db.MedicalInfoes.ToList();
+                foreach(var mi in medicalInfoList)
+                {
+                    if(mi.ProfileID == wizardViewModel._profile.ProfileID)
+                    {
+                        wizardViewModel._medicalInfo.MedicalInfoID = mi.MedicalInfoID;
+                    }
+                }
+                var medicalInfoDB = db.MedicalInfoes.Find(wizardViewModel._medicalInfo.MedicalInfoID);
+
+                wizardViewModel._medicalInfo.Profiles = db.Profiles.Find(wizardViewModel._profile.ProfileID);
+                db.Entry(medicalInfoDB).CurrentValues.SetValues(wizardViewModel._medicalInfo);
+                db.Entry(medicalInfoDB).State = EntityState.Modified;
 
 
                 db.SaveChanges();

@@ -10,10 +10,13 @@ namespace B4B.Models
     public class Profile
     {
         public int ProfileID { get; set; }
+        [Display(Name = "First Name")]
         [StringLength(50, ErrorMessage = "First name cannot be longer than 50 characters.")]
         public string FirstName { get; set; }
+        [Display(Name = "Last Name")]
         [StringLength(50, ErrorMessage = "First name cannot be longer than 50 characters.")]
         public string LastName { get; set; }
+        [Display(Name = "Street Address")]
         [StringLength(50)]
         public string StreetAdress { get; set; }
         [StringLength(50)]
@@ -27,6 +30,7 @@ namespace B4B.Models
             get{ return LastName + ", " + FirstName; }
         }
 
+        [Display(Name = "Photo Name")]
         public string PhotoName { get; set; }
         public string PhotoType { get; set; }
         public byte[] PhotoBytes { get; set; }
@@ -36,9 +40,10 @@ namespace B4B.Models
         public string EcontactFirstName { get; set; }
         [StringLength(50)]
         public string EcontactLasttName { get; set; }
+        [Display(Name = "Emergency Phone Number")]
         [StringLength(50)]
         public string EmergencyPhone { get; set; }
-        [Display(Name = "Name")]
+        [Display(Name = "Emergency Contact Name")]
         public string EcontactName
         {
             get { return EcontactLasttName + ", " + EcontactFirstName; }

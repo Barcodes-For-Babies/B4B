@@ -3,7 +3,7 @@ namespace B4B.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class updatedprofilesmodeltoincludeemergencycontact : DbMigration
+    public partial class updateProfileWithEmergencyContact : DbMigration
     {
         public override void Up()
         {
@@ -16,8 +16,8 @@ namespace B4B.Migrations
             AddColumn("dbo.Profiles", "EcontactFirstName", c => c.String(maxLength: 50));
             AddColumn("dbo.Profiles", "EcontactLasttName", c => c.String(maxLength: 50));
             AddColumn("dbo.Profiles", "EmergencyPhone", c => c.String(maxLength: 50));
-            DropTable("dbo.EmergencyContacts");
             DropTable("dbo.ProfileEmergencyContacts");
+            DropTable("dbo.EmergencyContacts");
         }
         
         public override void Down()
@@ -50,7 +50,7 @@ namespace B4B.Migrations
             CreateIndex("dbo.EmergencyContacts", "User_Id");
             AddForeignKey("dbo.ProfileEmergencyContacts", "EmergencyContact_EmergencyContactID", "dbo.EmergencyContacts", "EmergencyContactID", cascadeDelete: true);
             AddForeignKey("dbo.ProfileEmergencyContacts", "Profile_ProfileID", "dbo.Profiles", "ProfileID", cascadeDelete: true);
-            AddForeignKey("dbo.EmergencyContacts", "User_Id", "dbo.AspNetUsers", "Id");
+            AddForeignKey("dbo.EmergencyContacts", "User_Id", "dbo.AspNetUsers", "Id", cascadeDelete: true);
         }
     }
 }

@@ -7,13 +7,13 @@ namespace B4B.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class updatedprofilesmodeltoincludeemergencycontact : IMigrationMetadata
+    public sealed partial class WizardViewModelUpdated2 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(updatedprofilesmodeltoincludeemergencycontact));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(WizardViewModelUpdated2));
         
         string IMigrationMetadata.Id
         {
-            get { return "201608201447042_updated profiles model to include emergency contact"; }
+            get { return "201608210151223_WizardViewModel Updated(2)"; }
         }
         
         string IMigrationMetadata.Source

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 
 namespace B4B.Models
 {
@@ -15,5 +12,6 @@ namespace B4B.Models
     {
         public Profile _profile { get; set; }                       // Sets the Profile model as a property
         public MedicalInfo _medicalInfo { get; set; }               // Sets the MedicalInfo model as a property
+        //public List<MedicalInfo> _medicalInfo { get; set; }
     }
 }

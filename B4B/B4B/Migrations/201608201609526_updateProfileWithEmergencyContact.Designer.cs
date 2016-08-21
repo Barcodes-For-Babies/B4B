@@ -7,13 +7,13 @@ namespace B4B.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class updateforreclone : IMigrationMetadata
+    public sealed partial class updateProfileWithEmergencyContact : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(updateforreclone));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(updateProfileWithEmergencyContact));
         
         string IMigrationMetadata.Id
         {
-            get { return "201608200740283_update for reclone"; }
+            get { return "201608201609526_updateProfileWithEmergencyContact"; }
         }
         
         string IMigrationMetadata.Source
