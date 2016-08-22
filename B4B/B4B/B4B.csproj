@@ -241,6 +241,18 @@
     <Compile Include="Migrations\201608210151223_WizardViewModel Updated%282%29.Designer.cs">
       <DependentUpon>201608210151223_WizardViewModel Updated%282%29.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201608221504419_emergency phone twilio.cs" />
+    <Compile Include="Migrations\201608221504419_emergency phone twilio.Designer.cs">
+      <DependentUpon>201608221504419_emergency phone twilio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608221612135_twilio.cs" />
+    <Compile Include="Migrations\201608221612135_twilio.Designer.cs">
+      <DependentUpon>201608221612135_twilio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608221616584_asterik.cs" />
+    <Compile Include="Migrations\201608221616584_asterik.Designer.cs">
+      <DependentUpon>201608221616584_asterik.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\FileType.cs" />
@@ -251,7 +263,6 @@
     <Compile Include="Models\WizardViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="Models\Twilio.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -361,6 +372,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201608210151223_WizardViewModel Updated%282%29.resx">
       <DependentUpon>201608210151223_WizardViewModel Updated%282%29.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608221504419_emergency phone twilio.resx">
+      <DependentUpon>201608221504419_emergency phone twilio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608221612135_twilio.resx">
+      <DependentUpon>201608221612135_twilio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608221616584_asterik.resx">
+      <DependentUpon>201608221616584_asterik.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

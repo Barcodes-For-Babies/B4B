@@ -11,8 +11,10 @@ using System;
 using System.Web.Configuration;
 using System.Collections.Generic;
 using System.Drawing;
-using QRCoder;
+//using QRCoder;
 using System.IO;
+using System.Text.RegularExpressions;
+using QRCoder;
 
 namespace B4B.Controllers
 {
@@ -20,7 +22,7 @@ namespace B4B.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
         private byte[] byteArray;
-        
+
         //This method will send a text to the emergency contact provided by admin
         public ActionResult SendEmergencyText(int? id)
         {
@@ -34,13 +36,21 @@ namespace B4B.Controllers
             {
                 return HttpNotFound();
             }
+            string pattern = "[0-9]";
+            string input = profile.EmergencyPhone;
+            string output = "+1";
+
+            foreach (Match m in Regex.Matches(input, pattern))
+                output += m.Value;
 
             var client = new TwilioRestClient(WebConfigurationManager.AppSettings["TWILIO_SID"],
             WebConfigurationManager.AppSettings["TWILIO_AUTHTOKEN"]);
             
-            var result = client.SendMessage(WebConfigurationManager.AppSettings["TWILIO_PHONE"], profile.EmergencyPhone, "Emergency button has been activated!");
+                var result = client.SendMessage(WebConfigurationManager.AppSettings["TWILIO_PHONE"], output, "Emergency button has been activated!");
 
             return RedirectToAction("Index");
+            
+
         }
 
         private Bitmap renderQRCode()
