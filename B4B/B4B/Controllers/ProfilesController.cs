@@ -61,10 +61,11 @@ namespace B4B.Controllers
             QRCodeData qrCodeData = qrGenerator.CreateQrCode(myUrl.ToString(), QRCodeGenerator.ECCLevel.Q);
             QRCode qrCode = new QRCode(qrCodeData);
             //Bitmap qrCodeImage = qrCode.GetGraphic(20);
-            Bitmap qrCodeImage = qrCode.GetGraphic(20, Color.AliceBlue, Color.PaleGreen, true);
+            Bitmap qrCodeImage = qrCode.GetGraphic(20, Color.White, Color.Black,true);
 
             return qrCodeImage;
         }
+
 
         public FileContentResult myAction()
         {
