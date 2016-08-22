@@ -36,19 +36,14 @@ namespace B4B.Models
         public byte[] PhotoBytes { get; set; }
         public FileType FileType { get; set; }
 
-        [StringLength(50)]
-        public string EcontactFirstName { get; set; }
-        [StringLength(50)]
-        public string EcontactLasttName { get; set; }
+        [StringLength(100)]
+        public string EcontactName { get; set; }
+              
+        [DataType(DataType.PhoneNumber)]
         [Display(Name = "Emergency Phone Number")]
-        [StringLength(50)]
+        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Entered phone format is not valid.")]
         public string EmergencyPhone { get; set; }
-        [Display(Name = "Emergency Contact Name")]
-        public string EcontactName
-        {
-            get { return EcontactLasttName + ", " + EcontactFirstName; }
-        }
-
+        
         //navigation properties
         // 1 to Many
         public virtual ICollection<MedicalInfo> MedicalInfos { get; set; }
