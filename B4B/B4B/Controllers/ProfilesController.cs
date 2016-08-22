@@ -106,6 +106,7 @@ namespace B4B.Controllers
             }
             if (CurrentUser.Profiles.Contains(profile))
             {
+                ViewBag.CurrentUser = CurrentUser;
                 return View(profile);
             }
             return RedirectToAction("Login", "Account");

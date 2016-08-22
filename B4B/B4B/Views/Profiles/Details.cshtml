@@ -5,109 +5,160 @@
 }
 
 <h2>Details</h2>
-
-<div>
-    <h4>Profile</h4>
-    <hr />
-    <dl class="dl-horizontal">
-
-        <dt>
-            Avatar
-        </dt>
-        <dd>
-            <img src="~/File?id=@Model.ProfileID" alt="avatar" />
-        </dd>
-
-        <dt class="">
-            @Html.DisplayNameFor(model => model.FirstName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.FirstName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.LastName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.LastName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.StreetAdress)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.StreetAdress)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.City)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.City)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.State)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.State)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ZipCode)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ZipCode)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(modelItem => modelItem.EcontactName)
-            
-        </dt>
-        <dd>
-            @if (Model.EmergencyPhone == null)
-            {
-                @:No Emergency contact set
-            }
-            else
-            {
-                @Html.DisplayFor(modelItem => modelItem.EcontactName)
-            }
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(modelItem => modelItem.EmergencyPhone)
-            
-        </dt>
-        <dd>
-            @if (Model.EmergencyPhone == null)
-            {
-                @:No Emergency contact set
-            }
-            else
-            {
-                @Html.DisplayFor(modelItem => modelItem.EmergencyPhone)
-            }
-        </dd>
-
-
-
-
-    </dl>
+<div class="row">
     
+        <h4>Profile</h4>
+        <hr />
+    <div class="col-md-6">
+        <dl>
 
-</div>
-@*<td>
-        @Html.DisplayFor(modelItem => Model.MedicalInfos)
-    </td>*@
+            <dd>
+                <img src="~/File?id=@Model.ProfileID" class="idpicsize img-responsive" />
+            </dd>
+            <div>
+                @Html.ActionLink("Emergency", "SendEmergencyText", "Profiles", new { id = Model.ProfileID }, new { @class = "btn btn-primary btn-large" })
+            </div>
+    </div>
+
+            <div class="infotable" class"col-md-6">
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.FirstName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.FirstName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.LastName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.LastName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.StreetAdress)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.StreetAdress)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.City)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.City)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.State)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.State)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.ZipCode)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ZipCode)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(modelItem => modelItem.EcontactName)
+
+                </dt>
+                <dd>
+                    @if (Model.EmergencyPhone == null)
+            {
+                        @:No Emergency contact set
+            }
+            else
+            {
+                        @Html.DisplayFor(modelItem => modelItem.EcontactName)
+                    }
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(modelItem => modelItem.EmergencyPhone)
+
+                </dt>
+                <dd>
+                    @if (Model.EmergencyPhone == null)
+            {
+                        @:No Emergency contact set
+            }
+            else
+            {
+                        @Html.DisplayFor(modelItem => modelItem.EmergencyPhone)
+                    }
+                </dd>
+                
+
+
+            </div>
+        
+    </div>
+
+@if (Model.Admin == ViewBag.CurrentUser)
+{
+
 
 
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.ProfileID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
+
+
+
+<tr>
+    <td>
+        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+            <div class="dashboard">
+                <button class="btn btn-primary" id="generateQr" onclick="displayQr()">Generate Qr Code</button>
+                <div class="qrCodeTester pull-right target" id="target">
+                    <img src="@Url.Action("myAction", "Profiles")" alt="qr code" id="testQrCode" />
+                </div>
+            </div>
+
+        </div>
+    </td>
+</tr>
+}
+
+<script type="text/javascript">
+    hide(document.querySelectorAll('.target'));
+
+    function hide(elements) {
+        elements = elements.length ? elements : [elements];
+        for (var index = 0; index < elements.length; index++) {
+            elements[index].style.display = 'none';
+        }
+    }
+    function displayQr() {
+        var element = document.getElementById('target'),
+            style = window.getComputedStyle(element),
+            display = style.getPropertyValue('display')
+
+        if (display == "none") {
+            show(document.querySelectorAll('.target'));
+
+            function show(elements) {
+                elements = elements.length ? elements : [elements];
+                for (var index = 0; index < elements.length; index++) {
+                    elements[index].style.display = 'block';
+                }
+            }
+        } else {
+            hide(document.querySelectorAll('.target'));
+        }
+
+    }
+
+</script>
