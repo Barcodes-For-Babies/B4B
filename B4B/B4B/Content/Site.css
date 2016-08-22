@@ -135,9 +135,10 @@ textarea {
    -------------------------------------- */
 
 #generateQr{
-    position: absolute;
+    /*position: absolute;
     top: 350px;
-    right: 30px;
+    right: 30px;*/
+    position: relative;
 }
 #testQrCode{
     height: 250px;

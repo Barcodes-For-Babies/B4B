@@ -11,8 +11,10 @@ using System;
 using System.Web.Configuration;
 using System.Collections.Generic;
 using System.Drawing;
-using QRCoder;
+//using QRCoder;
 using System.IO;
+using System.Text.RegularExpressions;
+using QRCoder;
 
 namespace B4B.Controllers
 {
@@ -34,13 +36,21 @@ namespace B4B.Controllers
             {
                 return HttpNotFound();
             }
+            string pattern = "[0-9]";
+            string input = profile.EmergencyPhone;
+            string output = "+1";
+
+            foreach (Match m in Regex.Matches(input, pattern))
+                output += m.Value;
 
             var client = new TwilioRestClient(WebConfigurationManager.AppSettings["TWILIO_SID"],
             WebConfigurationManager.AppSettings["TWILIO_AUTHTOKEN"]);
             
-            var result = client.SendMessage(WebConfigurationManager.AppSettings["TWILIO_PHONE"], profile.EmergencyPhone, "Emergency button has been activated!");
+                var result = client.SendMessage(WebConfigurationManager.AppSettings["TWILIO_PHONE"], output, "Emergency button has been activated!");
 
             return RedirectToAction("Index");
+            
+
         }
 
         private Bitmap renderQRCode()
@@ -51,7 +61,7 @@ namespace B4B.Controllers
             QRCodeData qrCodeData = qrGenerator.CreateQrCode(myUrl.ToString(), QRCodeGenerator.ECCLevel.Q);
             QRCode qrCode = new QRCode(qrCodeData);
             //Bitmap qrCodeImage = qrCode.GetGraphic(20);
-            Bitmap qrCodeImage = qrCode.GetGraphic(20, Color.DarkRed, Color.PaleGreen, true);
+            Bitmap qrCodeImage = qrCode.GetGraphic(20, Color.AliceBlue, Color.PaleGreen, true);
 
             return qrCodeImage;
         }
