@@ -10,12 +10,16 @@ using Twilio;
 using System;
 using System.Web.Configuration;
 using System.Collections.Generic;
+using System.Drawing;
+using QRCoder;
+using System.IO;
 
 namespace B4B.Controllers
 {
     public class ProfilesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+        private byte[] byteArray;
 
         //This method will send a text to the emergency contact provided by admin
         public ActionResult SendEmergencyText(int? id)
@@ -38,7 +42,40 @@ namespace B4B.Controllers
 
             return RedirectToAction("Index");
         }
-       
+
+        private Bitmap renderQRCode()
+        {
+            string url = Request.Url.ToString();
+            PayloadGenerator.Url myUrl = new PayloadGenerator.Url(url);
+            QRCodeGenerator qrGenerator = new QRCodeGenerator();
+            QRCodeData qrCodeData = qrGenerator.CreateQrCode(myUrl.ToString(), QRCodeGenerator.ECCLevel.Q);
+            QRCode qrCode = new QRCode(qrCodeData);
+            //Bitmap qrCodeImage = qrCode.GetGraphic(20);
+            Bitmap qrCodeImage = qrCode.GetGraphic(20, Color.DarkRed, Color.PaleGreen, true);
+
+            return qrCodeImage;
+        }
+
+        public FileContentResult myAction()
+        {
+            Bitmap qrCodeImage = renderQRCode();
+            byteArray = ImageToByte2(qrCodeImage);
+            return new FileContentResult(byteArray, "image/jpg");
+        }
+
+        public static byte[] ImageToByte2(Image img)
+        {
+            byte[] byteArray = new byte[0];
+            using (MemoryStream stream = new MemoryStream())
+            {
+                img.Save(stream, System.Drawing.Imaging.ImageFormat.Jpeg);
+                stream.Close();
+
+                byteArray = stream.ToArray();
+            }
+            return byteArray;
+        }
+
         private ApplicationUser CurrentUser
         {
             get

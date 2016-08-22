@@ -37,9 +37,9 @@ textarea {
 }
 
 
-/*
-    Set up wizard form
-*/
+/* --------------------------------------
+             Wizard Form
+   -------------------------------------- */
 
 .wizard>.steps{
     position: relative;
@@ -119,4 +119,43 @@ textarea {
     padding: .5em 1em;
     text-decoration: none;
     border-radius: 5px; 
+}
+
+/* --------------------------------------
+                Qr Code
+   -------------------------------------- */
+
+#generateQr{
+    position: absolute;
+    top: 350px;
+    right: 30px;
+}
+#testQrCode{
+    height: 250px;
+    width: 250px;
+    margin-top: 20px;
+}
+
+/* --------------------------------------
+             Media Quries
+   -------------------------------------- */
+
+@media screen and (max-width: 1024px) {
+
+}
+
+@media screen and (max-width: 768px) {
+
+}
+
+@media screen and (max-width: 425px) {
+
+}
+
+@media screen and (max-width: 375px) {
+
+}
+
+@media screen and (max-width: 320px) {
+    
 }

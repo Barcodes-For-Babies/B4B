@@ -87,8 +87,52 @@
             @Html.ActionLink("Emergency", "SendEmergencyText", "Profiles", new { id = item.ProfileID }, new { @class = "btn btn-primary btn-large" })
         </td>
     </tr>
-                }
+}
+    <tr>
+        <td>
+            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                <div class="dashboard">
+                    <button class="btn btn-primary" id="generateQr" onclick="displayQr()">Generate Qr Code</button>
+                    <div class="qrCodeTester pull-right target" id="target">
+                        <img src="@Url.Action("myAction", "Profiles")" alt="qr code" id="testQrCode" />
+                    </div>
+                </div>
 
+            </div>
+        </td>
+    </tr>
+    
 </table>
 
 
+
+<script type="text/javascript">
+    hide(document.querySelectorAll('.target'));
+
+    function hide(elements) {
+        elements = elements.length ? elements : [elements];
+        for (var index = 0; index < elements.length; index++) {
+            elements[index].style.display = 'none';
+        }
+    }
+    function displayQr() {
+        var element = document.getElementById('target'),
+            style = window.getComputedStyle(element),
+            display = style.getPropertyValue('display')
+
+        if (display == "none") {
+            show(document.querySelectorAll('.target'));
+
+            function show(elements) {
+                elements = elements.length ? elements : [elements];
+                for (var index = 0; index < elements.length; index++) {
+                    elements[index].style.display = 'block';
+                }
+            }
+        } else {
+            hide(document.querySelectorAll('.target'));
+        }
+
+    }
+
+</script>
