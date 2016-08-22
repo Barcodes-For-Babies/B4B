@@ -90,9 +90,10 @@
 }
     <tr>
         <td>
-            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+            <div>
                 <div class="dashboard">
                     <button class="btn btn-primary" id="generateQr" onclick="displayQr()">Generate Qr Code</button>
+                    <button class="btn btn-primary" id="generateQr" onclick="printpage()">Print Qr Code</button>
                     <div class="qrCodeTester pull-right target" id="target">
                         <img src="@Url.Action("myAction", "Profiles")" alt="qr code" id="testQrCode" />
                     </div>
@@ -135,4 +136,20 @@
 
     }
 
+</script>
+<script type="text/javascript">
+    function printpage() {
+        var getQrCode = document.getElementById('target');
+        var MainWindow = window.open('', '', 'height=500, width=800');
+
+        MainWindow.document.write('<html><head><title>Print Page</title>');
+        MainWindow.document.write('</head><body>');
+        MainWindow.document.write(getQrCode.innerHTML);
+        MainWindow.document.write('</body></html>');
+        MainWindow.document.close();
+        setTimeout(function () {
+            MainWindow.print();
+        }, 500);
+        return false;
+    }
 </script>
