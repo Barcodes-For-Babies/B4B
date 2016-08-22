@@ -225,33 +225,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201608201609526_updateProfileWithEmergencyContact.cs" />
-    <Compile Include="Migrations\201608201609526_updateProfileWithEmergencyContact.Designer.cs">
-      <DependentUpon>201608201609526_updateProfileWithEmergencyContact.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201608201853529_updateProfileWithEmergencyContact1.cs" />
-    <Compile Include="Migrations\201608201853529_updateProfileWithEmergencyContact1.Designer.cs">
-      <DependentUpon>201608201853529_updateProfileWithEmergencyContact1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201608201917160_WizardViewModel Updated.cs" />
-    <Compile Include="Migrations\201608201917160_WizardViewModel Updated.Designer.cs">
-      <DependentUpon>201608201917160_WizardViewModel Updated.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201608210151223_WizardViewModel Updated%282%29.cs" />
-    <Compile Include="Migrations\201608210151223_WizardViewModel Updated%282%29.Designer.cs">
-      <DependentUpon>201608210151223_WizardViewModel Updated%282%29.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201608221504419_emergency phone twilio.cs" />
-    <Compile Include="Migrations\201608221504419_emergency phone twilio.Designer.cs">
-      <DependentUpon>201608221504419_emergency phone twilio.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201608221612135_twilio.cs" />
-    <Compile Include="Migrations\201608221612135_twilio.Designer.cs">
-      <DependentUpon>201608221612135_twilio.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201608221616584_asterik.cs" />
-    <Compile Include="Migrations\201608221616584_asterik.Designer.cs">
-      <DependentUpon>201608221616584_asterik.cs</DependentUpon>
+    <Compile Include="Migrations\201608221932585_Initial.cs" />
+    <Compile Include="Migrations\201608221932585_Initial.Designer.cs">
+      <DependentUpon>201608221932585_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -361,26 +337,8 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201608201609526_updateProfileWithEmergencyContact.resx">
-      <DependentUpon>201608201609526_updateProfileWithEmergencyContact.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201608201853529_updateProfileWithEmergencyContact1.resx">
-      <DependentUpon>201608201853529_updateProfileWithEmergencyContact1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201608201917160_WizardViewModel Updated.resx">
-      <DependentUpon>201608201917160_WizardViewModel Updated.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201608210151223_WizardViewModel Updated%282%29.resx">
-      <DependentUpon>201608210151223_WizardViewModel Updated%282%29.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201608221504419_emergency phone twilio.resx">
-      <DependentUpon>201608221504419_emergency phone twilio.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201608221612135_twilio.resx">
-      <DependentUpon>201608221612135_twilio.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201608221616584_asterik.resx">
-      <DependentUpon>201608221616584_asterik.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201608221932585_Initial.resx">
+      <DependentUpon>201608221932585_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
