@@ -233,6 +233,10 @@
     <Compile Include="Migrations\201608231138242_Colors.Designer.cs">
       <DependentUpon>201608231138242_Colors.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201608231817258_Emergency contact display text.cs" />
+    <Compile Include="Migrations\201608231817258_Emergency contact display text.Designer.cs">
+      <DependentUpon>201608231817258_Emergency contact display text.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\FileType.cs" />
@@ -346,6 +350,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201608231138242_Colors.resx">
       <DependentUpon>201608231138242_Colors.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608231817258_Emergency contact display text.resx">
+      <DependentUpon>201608231817258_Emergency contact display text.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
