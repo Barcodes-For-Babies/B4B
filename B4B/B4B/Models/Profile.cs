@@ -7,6 +7,10 @@ using System.Web;
 
 namespace B4B.Models
 {
+    public enum Colors
+    {
+        Blue, Red, Yellow, Pink
+    }
     public class Profile
     {
         public int ProfileID { get; set; }
@@ -24,6 +28,9 @@ namespace B4B.Models
         [StringLength(50)]
         public string State { get; set; }
         public int? ZipCode { get; set; }
+
+        public Colors forgroundColor { get; set; }
+        public Colors backgroundColor { get; set; }
 
         [Display(Name = "Name")]
         public string FullName {

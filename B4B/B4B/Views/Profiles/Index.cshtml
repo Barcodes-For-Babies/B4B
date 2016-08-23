@@ -76,6 +76,10 @@
         <td>
             @Html.DisplayFor(modelItem => item.EmergencyPhone)
         </td>
+        <td>
+            @Html.EnumDropDownListFor(model => item.backgroundColor)
+            @Html.EnumDropDownListFor(model => item.forgroundColor)
+        </td>
 
         <td>
             @Html.ActionLink("Edit", "Edit", new { id = item.ProfileID }) |
