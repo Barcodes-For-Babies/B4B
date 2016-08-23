@@ -97,17 +97,38 @@
                 @Html.DisplayFor(modelItem => modelItem.EmergencyPhone)
             }
         </dd>
+        <dt>
+            @Html.DisplayNameFor(modelItem => modelItem.SecondEcontactName)
 
+        </dt>
+        <dd>
+            @if (Model.SecondEmergencyPhone == null)
+            {
+                @:No Emergency contact set
+            }
+            else
+            {
+                @Html.DisplayFor(modelItem => modelItem.SecondEcontactName)
+            }
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(modelItem => modelItem.SecondEmergencyPhone)
 
-
+        </dt>
+        <dd>
+            @if (Model.SecondEmergencyPhone == null)
+            {
+                @:No Emergency contact set
+                       }
+            else
+            {
+                @Html.DisplayFor(modelItem => modelItem.SecondEmergencyPhone)
+            }
+        </dd>
     </dl>
-
-</div>
 
 @if (Model.Admin == ViewBag.CurrentUser)
 { }
-
-
 
     <p>
         @Html.ActionLink("Edit", "Edit", new { id = Model.ProfileID }) |
