@@ -16,102 +16,19 @@
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model._profile.ProfileID)
 
-        <div class="form-group">
-            @Html.LabelFor(model => model._profile.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model._profile.FirstName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model._profile.FirstName, "", new { @class = "text-danger" })
-            </div>
-        </div> <!-- end First Name -->
-
-        <div class="form-group">
-            @Html.LabelFor(model => model._profile.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model._profile.LastName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model._profile.LastName, "", new { @class = "text-danger" })
-            </div>
-        </div> <!-- end Last Name -->
-
-        <div class="form-group">
-            @Html.LabelFor(model => model._profile.StreetAdress, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model._profile.StreetAdress, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model._profile.StreetAdress, "", new { @class = "text-danger" })
-            </div>
-        </div> <!-- end Street -->
-
-        <div class="form-group">
-            @Html.LabelFor(model => model._profile.City, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model._profile.City, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model._profile.City, "", new { @class = "text-danger" })
-            </div>
-        </div> <!-- end City -->
-
-        <div class="form-group">
-            @Html.LabelFor(model => model._profile.State, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model._profile.State, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model._profile.State, "", new { @class = "text-danger" })
-            </div>
-        </div> <!-- end State -->
-
-        <div class="form-group">
-            @Html.LabelFor(model => model._profile.ZipCode, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model._profile.ZipCode, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model._profile.ZipCode, "", new { @class = "text-danger" })
-            </div>
-        </div> <!-- end Zipcode -->
+        <div class="col-md-6">
+            <div class="form-group">
+                <span class="control-label col-md-2"><strong>Current Avatar</strong></span>
+                <div class="col-md-10">
+                    <img src="~/File?id=@Model._profile.ProfileID" alt="avatar" class="idpicsize img-responsive" />
+                </div>
+            </div> <!-- end Current Avatar -->
 
             <div class="form-group">
+                @Html.Label("Avatar", new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model._medicalInfo.MedicalCondition, new { htmlAttributes = new { @class = "form-control", @placeholder = "Medical Condition" } })
-                    @Html.ValidationMessageFor(model => model._medicalInfo.MedicalCondition, "", new { @class = "text-danger" })
+                    <input type="file" id="Avatar" name="upload" />
                 </div>
-            </div> <!-- end Medical Condition -->
-
-            <div class="form-group">
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model._medicalInfo.Symptoms, new { htmlAttributes = new { @class = "form-control", @placeholder = "Symptoms" } })
-                    @Html.ValidationMessageFor(model => model._medicalInfo.Symptoms, "", new { @class = "text-danger" })
-                </div>
-            </div> <!-- end Symptoms -->
-            <div class="form-group">
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model._medicalInfo.RelatedInformation, new { htmlAttributes = new { @class = "form-control", @placeholder = "Symptoms" } })
-                    @Html.ValidationMessageFor(model => model._medicalInfo.RelatedInformation, "", new { @class = "text-danger" })
-                </div>
-            </div> <!-- end Related Information -->
-
-        <div class="form-group">
-            @Html.LabelFor(model => model._profile.EcontactName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model._profile.EcontactName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model._profile.EcontactName, "", new { @class = "text-danger" })
-            </div>
-        </div> <!-- end Emergency Contact Name -->
-
-        <div class="form-group">
-            @Html.LabelFor(model => model._profile.EmergencyPhone, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model._profile.EmergencyPhone, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model._profile.EmergencyPhone, "", new { @class = "text-danger" })
-            </div>
-        </div> <!-- end Emergency Contact Phone -->
-
-
-        <div class="form-group">
-            <span class="control-label col-md-2"><strong>Current Avatar</strong></span>
-            <div class="col-md-10">
-                <img src="~/File?id=@Model._profile.ProfileID" alt="avatar" />
-            </div>
-        </div> <!-- end Current Avatar -->
-
-        <div class="form-group">
-            @Html.Label("Avatar", new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <input type="file" id="Avatar" name="upload" />
             </div>
         </div> <!-- end New Avatar -->
 
@@ -122,11 +39,165 @@
             </div>
         </div>
     </div>
+    <tr>
+    <td>
+        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+            <div class="dashboard">
+                <button class="btn btn-primary" id="generateQr" onclick="displayQr()">Generate Qr Code</button>
+                <button class="btn btn-primary" id="generateQr" onclick="printpage()">Print Qr Code</button>
+                <div class="qrCodeTester pull-right target" id="target">
+                    <img src="@Url.Action("myAction", "Profiles")" alt="qr code" id="testQrCode" />
+                </div>
+            </div>
+
+        </div>
+    </td>
+</tr>
 }
+
+<div class="col=md-6 infotable" >
+    <div class="form-group">
+        @*@Html.LabelFor(model => model._profile.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })*@
+        <div>
+            @Html.EditorFor(model => model._profile.FirstName, new { htmlAttributes = new { @class = "form-control", @placeholder = "First Name" } })
+            @Html.ValidationMessageFor(model => model._profile.FirstName, "", new { @class = "text-danger" })
+        </div>
+    </div> <!-- end First Name -->
+
+    <div class="form-group">
+        @*@Html.LabelFor(model => model._profile.LastName, htmlAttributes: new { @class = "control-label col-md-2" })*@
+        <div>
+            @Html.EditorFor(model => model._profile.LastName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Last Name" } })
+            @Html.ValidationMessageFor(model => model._profile.LastName, "", new { @class = "text-danger" })
+        </div>
+    </div> <!-- end Last Name -->
+
+    <div class="form-group">
+        @*@Html.LabelFor(model => model._profile.StreetAdress, htmlAttributes: new { @class = "control-label col-md-2" })*@
+        <div>
+            @Html.EditorFor(model => model._profile.StreetAdress, new { htmlAttributes = new { @class = "form-control", @placeholder = "Street Address" } })
+            @Html.ValidationMessageFor(model => model._profile.StreetAdress, "", new { @class = "text-danger" })
+        </div>
+    </div> <!-- end Street -->
+
+    <div class="form-group">
+        @*@Html.LabelFor(model => model._profile.City, htmlAttributes: new { @class = "control-label col-md-2" })*@
+        <div>
+            @Html.EditorFor(model => model._profile.City, new { htmlAttributes = new { @class = "form-control", @placeholder = "City" } })
+            @Html.ValidationMessageFor(model => model._profile.City, "", new { @class = "text-danger" })
+        </div>
+    </div> <!-- end City -->
+
+    <div class="form-group">
+        @*@Html.LabelFor(model => model._profile.State, htmlAttributes: new { @class = "control-label col-md-2" })*@
+        <div>
+            @Html.EditorFor(model => model._profile.State, new { htmlAttributes = new { @class = "form-control", @placeholder = "State" } })
+            @Html.ValidationMessageFor(model => model._profile.State, "", new { @class = "text-danger" })
+        </div>
+    </div> <!-- end State -->
+
+    <div class="form-group">
+        @*@Html.LabelFor(model => model._profile.ZipCode, htmlAttributes: new { @class = "control-label col-md-2" })*@
+        <div>
+            @Html.EditorFor(model => model._profile.ZipCode, new { htmlAttributes = new { @class = "form-control", @placeholder = "Zip Code" } })
+            @Html.ValidationMessageFor(model => model._profile.ZipCode, "", new { @class = "text-danger" })
+        </div>
+    </div> <!-- end Zipcode -->
+
+    <div class="form-group">
+        <div>
+            @Html.EditorFor(model => model._medicalInfo.MedicalCondition, new { htmlAttributes = new { @class = "form-control", @placeholder = "Medical Condition" } })
+            @Html.ValidationMessageFor(model => model._medicalInfo.MedicalCondition, "", new { @class = "text-danger" })
+        </div>
+    </div> <!-- end Medical Condition -->
+
+    <div class="form-group">
+        <div>
+            @Html.EditorFor(model => model._medicalInfo.Symptoms, new { htmlAttributes = new { @class = "form-control", @placeholder = "Symptoms" } })
+            @Html.ValidationMessageFor(model => model._medicalInfo.Symptoms, "", new { @class = "text-danger" })
+        </div>
+    </div> <!-- end Symptoms -->
+    <div class="form-group">
+        <div>
+            @Html.EditorFor(model => model._medicalInfo.RelatedInformation, new { htmlAttributes = new { @class = "form-control", @placeholder = "Symptoms" } })
+            @Html.ValidationMessageFor(model => model._medicalInfo.RelatedInformation, "", new { @class = "text-danger" })
+        </div>
+    </div> <!-- end Related Information -->
+
+    <div class="form-group">
+        @*@Html.LabelFor(model => model._profile.EcontactName, htmlAttributes: new { @class = "control-label col-md-2" })*@
+        <div>
+            @Html.EditorFor(model => model._profile.EcontactName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Emergency Conatact Name" } })
+            @Html.ValidationMessageFor(model => model._profile.EcontactName, "", new { @class = "text-danger" })
+        </div>
+    </div> <!-- end Emergency Contact Name -->
+
+    <div class="form-group">
+        @*@Html.LabelFor(model => model._profile.EmergencyPhone, htmlAttributes: new { @class = "control-label col-md-2" })*@
+        <div>
+            @Html.EditorFor(model => model._profile.EmergencyPhone, new { htmlAttributes = new { @class = "form-control", @placeholder = "Emergency Contact Number" } })
+            @Html.ValidationMessageFor(model => model._profile.EmergencyPhone, "", new { @class = "text-danger" })
+        </div>
+    </div> <!-- end Emergency Contact Phone -->
+</div>
+
+
+
+
+
+
+
 
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+<script type="text/javascript">
+    hide(document.querySelectorAll('.target'));
+
+    function hide(elements) {
+        elements = elements.length ? elements : [elements];
+        for (var index = 0; index < elements.length; index++) {
+            elements[index].style.display = 'none';
+        }
+    }
+    function displayQr() {
+        var element = document.getElementById('target'),
+            style = window.getComputedStyle(element),
+            display = style.getPropertyValue('display')
+
+        if (display == "none") {
+            show(document.querySelectorAll('.target'));
+
+            function show(elements) {
+                elements = elements.length ? elements : [elements];
+                for (var index = 0; index < elements.length; index++) {
+                    elements[index].style.display = 'block';
+                }
+            }
+        } else {
+            hide(document.querySelectorAll('.target'));
+        }
+
+    }
+
+</script>
+<script type="text/javascript">
+    function printpage() {
+        var getQrCode = document.getElementById('target');
+        var MainWindow = window.open('', '', 'height=500, width=800');
+
+        MainWindow.document.write('<html><head><title>Print Page</title>');
+        MainWindow.document.write('</head><body>');
+        MainWindow.document.write(getQrCode.innerHTML);
+        MainWindow.document.write('</body></html>');
+        MainWindow.document.close();
+        setTimeout(function () {
+            MainWindow.print();
+        }, 500);
+        return false;
+    }
+</script>
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
