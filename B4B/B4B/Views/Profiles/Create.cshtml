@@ -45,7 +45,13 @@
 
                     <div class="form-group">
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model._profile.FirstName, new { htmlAttributes = new { @class = "form-control", @placeholder = "First Name", @id = "name" } })
+                            <p>Fields marked with an asterisk (*) are required</p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model._profile.FirstName, new { htmlAttributes = new { @class = "form-control", @placeholder = "First Name*", @id = "name" } })
                             @Html.ValidationMessageFor(model => model._profile.FirstName, "", new { @class = "text-danger" })
                         </div>
                     </div> <!-- end First Name -->
@@ -91,6 +97,12 @@
 
                     <div class="form-group">
                         <div class="col-md-10">
+                            <p>Fields marked with an asterisk (*) are required</p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-10">
                             @Html.EditorFor(model => model._medicalInfo.MedicalCondition, new { htmlAttributes = new { @class = "form-control", @placeholder = "Medical Condition" } })
                             @Html.ValidationMessageFor(model => model._medicalInfo.MedicalCondition, "", new { @class = "text-danger" })
                         </div>
@@ -116,79 +128,99 @@
 
                     <div class="form-group">
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model._profile.EcontactName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Emergency Contact Name" } })
+                            <p>Fields marked with an asterisk (*) are required</p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model._profile.EcontactName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Emergency Contact Name*" } })
                             @Html.ValidationMessageFor(model => model._profile.EcontactName, "", new { @class = "text-danger" })
                         </div>
                     </div> <!-- end Emergency Name -->
 
                     <div class="form-group">
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model._profile.EmergencyPhone, new { htmlAttributes = new { @class = "form-control", @placeholder = "Emergency Contact Phone Number" } })
+                            @Html.EditorFor(model => model._profile.EmergencyPhone, new { htmlAttributes = new { @class = "form-control", @placeholder = "Emergency Contact Phone Number*" } })
                             @Html.ValidationMessageFor(model => model._profile.EmergencyPhone, "", new { @class = "text-danger" })
                         </div>
-                    </div> <!-- end Emergency Phone -->
-                
-                    <div class="form-group">
-                        <div class="col-md-10">
-                            <p>
-                                The content of this profile will not be private and confidential information once created. In no event shall Barcodes 4
-                                Babies be held liable for any improper or incorrect use of the information described and/or contained herein.
-                            </p>
+                    </div><!-- end Emergency Phone -->
+
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model._profile.SecondEcontactName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Emergency Contact Name" } })
+                                @Html.ValidationMessageFor(model => model._profile.SecondEcontactName, "", new { @class = "text-danger" })
+                            </div>
+                        </div> <!-- end Second Emergency Name -->
+
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model._profile.SecondEmergencyPhone, new { htmlAttributes = new { @class = "form-control", @placeholder = "Emergency Contact Phone Number" } })
+                                @Html.ValidationMessageFor(model => model._profile.SecondEmergencyPhone, "", new { @class = "text-danger" })
+                            </div>
+                        </div> <!-- end SecondEmergency Phone -->
+
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                <p>
+                                    The content of this profile will not be private and confidential information once created. In no event shall Barcodes 4
+                                    Babies be held liable for any improper or incorrect use of the information described and/or contained herein.
+                                </p>
+                            </div>
                         </div>
-                    </div>
 
                     </div> <!-- end Form page 3 Emergency Information -->
 
 
-                <ul class="pager wizard">
-                    <li class="previous first" style="display:none;"><a href="#">First</a></li>
-                    <li class="previous"><a href="#">Previous</a></li>
-                    <li class="next last" style="display:none;"><a href="#">Last</a></li>
-                    <li class="next"><a href="#">Next</a></li>
-                </ul>  <!-- end pager wizard nav buttons -->
-            </div>   <!-- end tab-content -->
-        </div>  <!-- end rootwizard -->
-        <!-- Add create button to pager wizard -->
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                    <ul class="pager wizard">
+                        <li class="previous first" style="display:none;"><a href="#">First</a></li>
+                        <li class="previous"><a href="#">Previous</a></li>
+                        <li class="next last" style="display:none;"><a href="#">Last</a></li>
+                        <li class="next"><a href="#">Next</a></li>
+                    </ul>  <!-- end pager wizard nav buttons -->
+                </div>   <!-- end tab-content -->
+            </div>  <!-- end rootwizard -->
+            <!-- Add create button to pager wizard -->
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
             </div>
+
+        </div>
+        }
+
+        <div>
+            @Html.ActionLink("Back to List", "Index")
         </div>
 
-    </div>
-}
+        @section Scripts {
+            @Scripts.Render("~/bundles/jqueryval")
+            @Scripts.Render("~/Scripts/jquery.bootstrap.wizard.js");
+            @Scripts.Render("~/Scripts/jquery.bootstrap.wizard.min.js");
+            <script>
+                $(document).ready(function () {
+                    $('#rootwizard').bootstrapWizard({
+                        onNext: function (tab, navigation, index) {
+                            //if (index == 1) {
+                            //    // Make sure we entered the name
+                            //    if (!$('#name').val()) {
+                            //        alert('You must enter your name');
+                            //        $('#name').focus();
+                            //        return false;
+                            //    }
+                            //}
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+                            // Set the name for the next tab
+                            //$('#tab2').html('Hello, ' + $('#name').val());
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-    @Scripts.Render("~/Scripts/jquery.bootstrap.wizard.js");
-    @Scripts.Render("~/Scripts/jquery.bootstrap.wizard.min.js");
-    <script>
-        $(document).ready(function () {
-            $('#rootwizard').bootstrapWizard({
-                onNext: function (tab, navigation, index) {
-                    //if (index == 1) {
-                    //    // Make sure we entered the name
-                    //    if (!$('#name').val()) {
-                    //        alert('You must enter your name');
-                    //        $('#name').focus();
-                    //        return false;
-                    //    }
-                    //}
-
-                    // Set the name for the next tab
-                    //$('#tab2').html('Hello, ' + $('#name').val());
-
-                }, onTabShow: function (tab, navigation, index) {
-                    var $total = navigation.find('li').length;
-                    var $current = index + 1;
-                    var $percent = ($current / $total) * 100;
-                    $('#rootwizard .progress-bar').css({ width: $percent + '%' });
-                }
-            });
-        });
-    </script>
-}
+                        }, onTabShow: function (tab, navigation, index) {
+                            var $total = navigation.find('li').length;
+                            var $current = index + 1;
+                            var $percent = ($current / $total) * 100;
+                            $('#rootwizard .progress-bar').css({ width: $percent + '%' });
+                        }
+                    });
+                });
+            </script>
+        }

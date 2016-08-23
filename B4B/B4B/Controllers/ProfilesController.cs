@@ -24,9 +24,17 @@ namespace B4B.Controllers
         private byte[] byteArray;
 
         //This method will send a text to the emergency contact provided by admin
-        public ActionResult SendEmergencyText(int? id)
+        public void SendEmergencyText(string output)
         {
+           var client = new TwilioRestClient(WebConfigurationManager.AppSettings["TWILIO_SID"],
+                WebConfigurationManager.AppSettings["TWILIO_AUTHTOKEN"]);
 
+                var result = client.SendMessage(WebConfigurationManager.AppSettings["TWILIO_PHONE"], output, "Emergency button has been activated!");
+          
+        }
+
+        public ActionResult EmergencyText(int? id)
+        {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -36,21 +44,27 @@ namespace B4B.Controllers
             {
                 return HttpNotFound();
             }
+
             string pattern = "[0-9]";
-            string input = profile.EmergencyPhone;
-            string output = "+1";
+            string phoneNumber = "+1";
+            string phoneNumber2 = "+1";
 
-            foreach (Match m in Regex.Matches(input, pattern))
-                output += m.Value;
+            if (profile.EmergencyPhone != null)
+            {
+                foreach (Match m in Regex.Matches(profile.EmergencyPhone, pattern))
+                    phoneNumber += m.Value;
 
-            var client = new TwilioRestClient(WebConfigurationManager.AppSettings["TWILIO_SID"],
-            WebConfigurationManager.AppSettings["TWILIO_AUTHTOKEN"]);
-            
-                var result = client.SendMessage(WebConfigurationManager.AppSettings["TWILIO_PHONE"], output, "Emergency button has been activated!");
+                SendEmergencyText(phoneNumber);
 
+            }
+            if (profile.SecondEmergencyPhone != null)
+            {
+                foreach (Match m in Regex.Matches(profile.SecondEmergencyPhone, pattern))
+                    phoneNumber2 += m.Value;
+
+                SendEmergencyText(phoneNumber2);
+            }
             return RedirectToAction("Index");
-            
-
         }
 
         private Bitmap renderQRCode()
