@@ -233,6 +233,18 @@
     <Compile Include="Migrations\201608231138242_Colors.Designer.cs">
       <DependentUpon>201608231138242_Colors.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201608231459018_second emergency contact.cs" />
+    <Compile Include="Migrations\201608231459018_second emergency contact.Designer.cs">
+      <DependentUpon>201608231459018_second emergency contact.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608231518565_profiles.cs" />
+    <Compile Include="Migrations\201608231518565_profiles.Designer.cs">
+      <DependentUpon>201608231518565_profiles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608231557362_required fields.cs" />
+    <Compile Include="Migrations\201608231557362_required fields.Designer.cs">
+      <DependentUpon>201608231557362_required fields.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\FileType.cs" />
@@ -346,6 +358,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201608231138242_Colors.resx">
       <DependentUpon>201608231138242_Colors.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608231459018_second emergency contact.resx">
+      <DependentUpon>201608231459018_second emergency contact.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608231518565_profiles.resx">
+      <DependentUpon>201608231518565_profiles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608231557362_required fields.resx">
+      <DependentUpon>201608231557362_required fields.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

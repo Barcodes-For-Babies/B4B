@@ -16,6 +16,7 @@ namespace B4B.Models
         public int ProfileID { get; set; }
         [Display(Name = "First Name")]
         [StringLength(50, ErrorMessage = "First name cannot be longer than 50 characters.")]
+        [Required]
         public string FirstName { get; set; }
         [Display(Name = "Last Name")]
         [StringLength(50, ErrorMessage = "First name cannot be longer than 50 characters.")]
@@ -44,13 +45,21 @@ namespace B4B.Models
         public FileType FileType { get; set; }
 
         [StringLength(100)]
+        [Required]
         public string EcontactName { get; set; }
-              
-        [DataType(DataType.PhoneNumber)]
+                      [DataType(DataType.PhoneNumber)]
         [Display(Name = "Emergency Phone Number")]
         [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Entered phone format is not valid.")]
+        [Required]
         public string EmergencyPhone { get; set; }
-        
+
+        [StringLength(100)]
+        public string SecondEcontactName { get; set; }
+                [DataType(DataType.PhoneNumber)]
+        [Display(Name = "Emergency Phone Number")]
+        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Entered phone format is not valid.")]
+        public string SecondEmergencyPhone { get; set; }
+
         //navigation properties
         // 1 to Many
         public virtual ICollection<MedicalInfo> MedicalInfos { get; set; }

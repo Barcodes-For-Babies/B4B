@@ -85,7 +85,7 @@
             @Html.ActionLink("Edit", "Edit", new { id = item.ProfileID }) |
             @Html.ActionLink("Details", "Details", new { id = item.ProfileID, medInfos = ViewBag.medInfo }) |
             @Html.ActionLink("Delete", "Delete", new { id = item.ProfileID }) |
-            @Html.ActionLink("Emergency", "SendEmergencyText", "Profiles", new { id = item.ProfileID }, new { @class = "btn btn-primary btn-large" })
+            @Html.ActionLink("Emergency", "EmergencyText", "Profiles", new { id = item.ProfileID }, new { @class = "btn btn-primary btn-large" })
         </td>
     </tr>
 }
