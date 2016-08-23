@@ -245,6 +245,10 @@
     <Compile Include="Migrations\201608231557362_required fields.Designer.cs">
       <DependentUpon>201608231557362_required fields.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201608231855527_registration.cs" />
+    <Compile Include="Migrations\201608231855527_registration.Designer.cs">
+      <DependentUpon>201608231855527_registration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\FileType.cs" />
@@ -339,6 +343,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Migrations\201608231855174_registration first\" />
     <Folder Include="Views\File\" />
   </ItemGroup>
   <ItemGroup>
@@ -367,6 +372,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201608231557362_required fields.resx">
       <DependentUpon>201608231557362_required fields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608231855527_registration.resx">
+      <DependentUpon>201608231855527_registration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
