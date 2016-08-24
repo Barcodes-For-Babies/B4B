@@ -93,7 +93,7 @@
         <td>
             <div>
                 <div class="dashboard">
-                    <button class="btn btn-primary" id="generateQr" onclick="displayQr()">Generate Qr Code</button>
+                    <button class="btn btn-primary" id="generateQr" onclick="getLocation()">Generate Qr Code</button>
                     <button class="btn btn-primary" id="generateQr" onclick="printpage()">Print Qr Code</button>
                     <div class="qrCodeTester pull-right target" id="target">
                         <img src="@Url.Action("myAction", "Profiles")" alt="qr code" id="testQrCode" />
@@ -152,5 +152,57 @@
             MainWindow.print();
         }, 500);
         return false;
+    }
+</script>
+<script>
+    //var x = document.getElementById("demo");
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+            x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+    }
+    function showPosition(position) {
+        //x.innerHTML = "Latitude: " + position.coords.latitude +
+        //"<br>Longitude: " + position.coords.longitude;
+
+        //stores lat and long in array
+        var coordinates = {
+            "Latitude": position.coords.latitude,
+            "Longitude": position.coords.longitude
+        }
+
+        // send the array to the controller
+        $.ajax({
+            url: '@Url.Action("getLocation", "Profiles")',
+            type: 'POST',
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8',
+            data: JSON.stringify(coordinates),
+            success: function (data) {
+                alert(data);
+            },
+            failure: function (errMsg) {
+                alert(errMsg);
+            },
+            async: true
+        });
+    }
+    function showError(error) {
+        switch (error.code) {
+            case error.PERMISSION_DENIED:
+                x.innerHTML = "User denied the request for Geolocation."
+                break;
+            case error.POSITION_UNAVAILABLE:
+                x.innerHTML = "Location information is unavailable."
+                break;
+            case error.TIMEOUT:
+                x.innerHTML = "The request to get user location timed out."
+                break;
+            case error.UNKNOWN_ERROR:
+                x.innerHTML = "An unknown error occurred."
+                break;
+        }
     }
 </script>

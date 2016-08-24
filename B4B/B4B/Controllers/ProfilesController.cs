@@ -11,7 +11,6 @@ using System;
 using System.Web.Configuration;
 using System.Collections.Generic;
 using System.Drawing;
-//using QRCoder;
 using System.IO;
 using System.Text.RegularExpressions;
 using QRCoder;
@@ -46,7 +45,7 @@ namespace B4B.Controllers
             var client = new TwilioRestClient(WebConfigurationManager.AppSettings["TWILIO_SID"],
             WebConfigurationManager.AppSettings["TWILIO_AUTHTOKEN"]);
             
-                var result = client.SendMessage(WebConfigurationManager.AppSettings["TWILIO_PHONE"], output, "Emergency button has been activated!");
+            var result = client.SendMessage(WebConfigurationManager.AppSettings["TWILIO_PHONE"], output, "Emergency button has been activated!");
 
             return RedirectToAction("Index");
             
@@ -97,12 +96,18 @@ namespace B4B.Controllers
                 return currentUser;
             }
         }
+        [HttpPost]
+        public ActionResult getLocation(double Latitude, double Longitude)
+        {
+            
+            return Json(new { status = "ok"});
+        }
 
         // GET: Profiles
         public ActionResult Index()
         {
             return View(CurrentUser.Profiles.ToList());
-        }
+        } 
 
         // GET: Profiles/Details/5
         public ActionResult Details(int? id)
