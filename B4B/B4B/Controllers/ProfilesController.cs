@@ -107,7 +107,7 @@ namespace B4B.Controllers
             QRCode qrCode = new QRCode(qrCodeData);
             //Bitmap qrCodeImage = qrCode.GetGraphic(20);
             
-            Bitmap qrCodeImage = qrCode.GetGraphic(20, Color.BlueViolet, Color.Black,true);
+            Bitmap qrCodeImage = qrCode.GetGraphic(20, Color.Black, Color.White,true);
 
             return qrCodeImage;
         }
