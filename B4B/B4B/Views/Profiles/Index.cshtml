@@ -19,7 +19,7 @@
             @Html.DisplayNameFor(model => model.LastName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.StreetAdress)
+            Address
         </th>
         <th>
             @Html.DisplayNameFor(model => model.City)
@@ -30,12 +30,17 @@
         <th>
             @Html.DisplayNameFor(model => model.ZipCode)
         </th>
-        
         <th>
-            Emergency Name
+            Emergency Contact
         </th>
         <th>
-            Emergency Number
+            Emergency Contact Phone
+        </th>
+        <th>
+            Emergency Contact
+        </th>
+        <th>
+            Emergency Contact Phone
         </th>
         <th></th>
     </tr>
@@ -69,7 +74,6 @@
             </td>
          }*@
 
-
         <td>
             @Html.DisplayFor(modelItem => item.EcontactName)
         </td>
@@ -77,15 +81,17 @@
             @Html.DisplayFor(modelItem => item.EmergencyPhone)
         </td>
         <td>
-            @Html.EnumDropDownListFor(model => item.backgroundColor)
-            @Html.EnumDropDownListFor(model => item.forgroundColor)
+            @Html.DisplayFor(modelItem => item.SecondEcontactName)
         </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SecondEmergencyPhone)
+        </td>
+       
 
         <td>
             @Html.ActionLink("Edit", "Edit", new { id = item.ProfileID }) |
             @Html.ActionLink("Details", "Details", new { id = item.ProfileID, medInfos = ViewBag.medInfo }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.ProfileID }) |
-            @Html.ActionLink("Emergency", "SendEmergencyText", "Profiles", new { id = item.ProfileID }, new { @class = "btn btn-primary btn-large" })
+            @Html.ActionLink("Delete", "Delete", new { id = item.ProfileID })
         </td>
     </tr>
 }

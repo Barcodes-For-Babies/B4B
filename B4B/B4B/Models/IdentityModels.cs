@@ -19,6 +19,7 @@ namespace B4B.Models
         {
             get { return LastName + ", " + FirstName; }
         }
+       
         public virtual ICollection<Profile> Profiles { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
