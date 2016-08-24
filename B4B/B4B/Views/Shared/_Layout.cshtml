@@ -19,7 +19,7 @@
     </script>
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div id="navbar" class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -27,7 +27,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Barcodes 4 Babies", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("SafeKeepers QR", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -39,13 +39,15 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid body-content">
+    <div  class="container-fluid body-content">
         @RenderBody()
         <hr />
-        <footer>
-            
-            <p><a href="~/Home/About">About</a>    <a href="~/Home/Contact">Contact</a></p>
-            <p>&copy; @DateTime.Now.Year - Barcodes 4 Babies</p>
+        <footer id="footer">
+            <p>
+                <a href="~/Home/About">About</a> |
+                <a href="~/Home/Contact">Contact</a>
+            </p>
+            <p>&copy; @DateTime.Now.Year - SafeKeepers QR</p>
         </footer>
     </div>
 
