@@ -66,6 +66,38 @@ namespace B4B.Controllers
             return RedirectToAction("Index");
         }
 
+
+
+
+
+
+        //public ActionResult EditProfile(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    Profile profile = db.Profiles.Find(id);
+        //    if (profile == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    if (profile.FirstName != null)
+        //    {
+
+        //        return RedirectToAction("Edit", "Profile");
+        //    }
+           
+        //    return RedirectToAction("Index");
+        //}
+
+
+
+
+
+
+
+
         private Bitmap renderQRCode()
         {
             string url = Request.Url.ToString();
