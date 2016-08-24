@@ -233,7 +233,6 @@
     <Compile Include="Migrations\201608231138242_Colors.Designer.cs">
       <DependentUpon>201608231138242_Colors.cs</DependentUpon>
     </Compile>
-
     <Compile Include="Migrations\201608231817258_Emergency contact display text.cs" />
     <Compile Include="Migrations\201608231817258_Emergency contact display text.Designer.cs">
       <DependentUpon>201608231817258_Emergency contact display text.cs</DependentUpon>
@@ -253,7 +252,6 @@
     <Compile Include="Migrations\201608231855527_registration.cs" />
     <Compile Include="Migrations\201608231855527_registration.Designer.cs">
       <DependentUpon>201608231855527_registration.cs</DependentUpon>
-
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -274,6 +272,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\blue.png" />
+    <Content Include="Images\light-blue.png" />
+    <Content Include="Images\light-blue2.png" />
+    <Content Include="Images\light-green.png" />
     <Content Include="Scripts\ai.0.22.19-build00125.js" />
     <Content Include="Scripts\ai.0.22.19-build00125.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -370,7 +372,6 @@
     <EmbeddedResource Include="Migrations\201608231138242_Colors.resx">
       <DependentUpon>201608231138242_Colors.cs</DependentUpon>
     </EmbeddedResource>
-
     <EmbeddedResource Include="Migrations\201608231817258_Emergency contact display text.resx">
       <DependentUpon>201608231817258_Emergency contact display text.cs</DependentUpon>
     </EmbeddedResource>
@@ -385,7 +386,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201608231855527_registration.resx">
       <DependentUpon>201608231855527_registration.cs</DependentUpon>
-
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
