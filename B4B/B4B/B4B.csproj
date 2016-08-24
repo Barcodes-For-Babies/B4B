@@ -233,6 +233,11 @@
     <Compile Include="Migrations\201608231138242_Colors.Designer.cs">
       <DependentUpon>201608231138242_Colors.cs</DependentUpon>
     </Compile>
+
+    <Compile Include="Migrations\201608231817258_Emergency contact display text.cs" />
+    <Compile Include="Migrations\201608231817258_Emergency contact display text.Designer.cs">
+      <DependentUpon>201608231817258_Emergency contact display text.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\201608231459018_second emergency contact.cs" />
     <Compile Include="Migrations\201608231459018_second emergency contact.Designer.cs">
       <DependentUpon>201608231459018_second emergency contact.cs</DependentUpon>
@@ -248,6 +253,7 @@
     <Compile Include="Migrations\201608231855527_registration.cs" />
     <Compile Include="Migrations\201608231855527_registration.Designer.cs">
       <DependentUpon>201608231855527_registration.cs</DependentUpon>
+
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -364,6 +370,10 @@
     <EmbeddedResource Include="Migrations\201608231138242_Colors.resx">
       <DependentUpon>201608231138242_Colors.cs</DependentUpon>
     </EmbeddedResource>
+
+    <EmbeddedResource Include="Migrations\201608231817258_Emergency contact display text.resx">
+      <DependentUpon>201608231817258_Emergency contact display text.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201608231459018_second emergency contact.resx">
       <DependentUpon>201608231459018_second emergency contact.cs</DependentUpon>
     </EmbeddedResource>
@@ -375,6 +385,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201608231855527_registration.resx">
       <DependentUpon>201608231855527_registration.cs</DependentUpon>
+
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

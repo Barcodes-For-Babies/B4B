@@ -273,6 +273,9 @@ namespace B4B.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+
+
+
             return View(wizardViewModel._profile);
         }
 

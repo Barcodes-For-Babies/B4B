@@ -8,81 +8,110 @@
 
     <h4>Profile</h4>
     <hr />
-    <dl class="col-md-6">
-        
 
-            <dd>
-                <img src="~/File?id=@Model.ProfileID" class="idpicsize img-responsive" />
-            </dd>
-            <dd>
-                @Html.ActionLink("Emergency", "SendEmergencyText", "Profiles", new { id = Model.ProfileID }, new { @class = "btn btn-primary btn-large" })
-            </dd>
-   </dl>
+
+
+<div class="detailsphoto">
+    <img src="~/File?id=@Model.ProfileID" class="idpicsize img-responsive" />
+    <div class="emergbtn">
+    @Html.ActionLink("Emergency", "SendEmergencyText", "Profiles", new { id = Model.ProfileID }, new { @class = "btn btn-primary btn-large" })
+    </div>
+    </div>
+
+
+
+            
+        
+        
+ 
+
+
+
 
     <dl class="infotable" class"col-md-6">
+        @if (Model.FirstName != null)
+        {
+            <dt>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.FirstName)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.FirstName)
+            </dd>
+        }
 
-        <dd>
-            @Html.DisplayFor(model => model.FirstName)
-        </dd>
+        @if (Model.LastName != null)
+        {
+            <dt>
+                @Html.DisplayNameFor(model => model.LastName)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.LastName)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.LastName)
+            </dd>
+        }
 
-        <dd>
-            @Html.DisplayFor(model => model.LastName)
-        </dd>
+        @if (Model.StreetAdress != null)
+        {
+            <dt>
+                @Html.DisplayNameFor(model => model.StreetAdress)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.StreetAdress)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.StreetAdress)
+            </dd>
+        }
 
-        <dd>
-            @Html.DisplayFor(model => model.StreetAdress)
-        </dd>
+        @if (Model.City != null)
+        {
+            <dt>
+                @Html.DisplayNameFor(model => model.City)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.City)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.City)
+            </dd>
+        }
 
-        <dd>
-            @Html.DisplayFor(model => model.City)
-        </dd>
+        @if (Model.State != null)
+        {
+            <dt>
+                @Html.DisplayNameFor(model => model.State)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.State)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.State)
+            </dd>
+        }
 
-        <dd>
-            @Html.DisplayFor(model => model.State)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ZipCode)
-        </dt>
+        @if (Model.ZipCode != null)
+        {
+            <dt>
+                @Html.DisplayNameFor(model => model.ZipCode)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.ZipCode)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.ZipCode)
+            </dd>
+        }
 
-        <dt>
-            @Html.DisplayNameFor(modelItem => modelItem.EcontactName)
-
-        </dt>
-        <dd>
+        
             @if (Model.EmergencyPhone == null)
             {
                 @:No Emergency contact set
             }
             else
             {
-                @Html.DisplayFor(modelItem => modelItem.EcontactName)
+                <dt>
+                @Html.DisplayNameFor(modelItem => modelItem.EcontactName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(modelItem => modelItem.EcontactName)
+                </dd>
             }
-        </dd>
+        
         <dt>
             @Html.DisplayNameFor(modelItem => modelItem.EmergencyPhone)
 
@@ -130,6 +159,9 @@
 @if (Model.Admin == ViewBag.CurrentUser)
 { }
 
+
+=======
+>>>>>>> master
     <p>
         @Html.ActionLink("Edit", "Edit", new { id = Model.ProfileID }) |
         @Html.ActionLink("Back to List", "Index")

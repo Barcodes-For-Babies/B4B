@@ -45,7 +45,11 @@ namespace B4B.Models
         public FileType FileType { get; set; }
 
         [StringLength(100)]
+
+        [Display(Name = "Emergency Contact")]
+
         [Required]
+
         public string EcontactName { get; set; }
                       [DataType(DataType.PhoneNumber)]
         [Display(Name = "Emergency Phone Number")]
