@@ -187,10 +187,6 @@
         </div>
     }
 
-    <div>
-        @Html.ActionLink("Back to List", "Index")
-    </div>
-
 </div>
 
 @section Scripts {
@@ -213,7 +209,20 @@
 
                     // Set the name for the next tab
                     //$('#tab2').html('Hello, ' + $('#name').val());
+                    
+
+                    if ($('#disclaimerCheck').attr('checked', true)) {
+                        $('#submitWiz').removeClass("disabled");
+                    }
+
+                }, onTabShow: function (tab, navigation, index) {
+                    var $total = navigation.find('li').length;
+                    var $current = index + 1;
+                    var $percent = ($current / $total) * 100;
+                    $('#rootwizard .progress-bar').css({ width: $percent + '%' });
+
                     if (index == 2) {
+
                         $('#submitWiz').remove();
                         $(".wizardFooter ul").append('<li><input type="submit" value="Create" class="btn btn-default" /></li>');
 
@@ -230,16 +239,6 @@
                             return false;
                         }
                     }
-
-                    if ($('#disclaimerCheck').attr('checked', true)) {
-                        $('#submitWiz').removeClass("disabled");
-                    }
-
-                }, onTabShow: function (tab, navigation, index) {
-                    var $total = navigation.find('li').length;
-                    var $current = index + 1;
-                    var $percent = ($current / $total) * 100;
-                    $('#rootwizard .progress-bar').css({ width: $percent + '%' });
                 }
             });
         });

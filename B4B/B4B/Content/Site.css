@@ -164,6 +164,9 @@ textarea {
 #wizNavContainer{
     padding: 0;
 }
+#rootwizard{
+    background-color: ghostwhite;
+}
 #rootwizard> .navbar{
     margin-bottom: 0;
 }
@@ -176,7 +179,7 @@ textarea {
 }
 #wiz1left{
     height: 400px;
-    background: gray;
+    /*background: gray;*/
 }
 #wiz1right{
     padding-left: 100px;
