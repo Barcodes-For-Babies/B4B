@@ -367,3 +367,24 @@ a.homeNavBrand{
     font-weight: 900;
     font-size: 100px;
 }
+
+/* --------------------------------------
+                Login Page
+   -------------------------------------- */
+.formPlate{
+    background: white;
+    height: 400px;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 5px 5px 5px 5px #888888;
+}
+.loginBox, .loginBox0{
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+    background: rgb(200,200,200);
+}
+.loginBox0{
+    margin-top: 60px;
+}
