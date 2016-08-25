@@ -4,17 +4,17 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+@*<h2>Details</h2>
 
     <h4>Profile</h4>
-    <hr />
+    <hr />*@
 
 
 
 <div class="detailsphoto">
     <img src="~/File?id=@Model.ProfileID" class="idpicsize img-responsive" />
     <div class="emergbtn">
-    @Html.ActionLink("Emergency", "SendEmergencyText", "Profiles", new { id = Model.ProfileID }, new { @class = "btn btn-primary btn-large" })
+    @Html.ActionLink("Emergency", "SendEmergencyText", "Profiles", new { id = Model.ProfileID }, new { @class = "btn btn-primary btn-large emergbutton" })
     </div>
     </div>
 

@@ -2,10 +2,23 @@
     padding-top: 50px;
     padding-bottom: 20px;
     height: 100%;
-    /*background-image: url('../Images/light-blue2.png');*/
-    background-color: #4ABDAC
-    /*background-size: cover;*/
+    /*background-color: #4ABDAC;*/
+    color: whitesmoke;
+font-family: 'Hind', sans-serif;
+
+background: rgba(65,201,178,1);
+background: -moz-radial-gradient(center, ellipse cover, rgba(65,201,178,1) 0%, rgba(65,201,178,1) 11%, rgba(102,209,191,1) 49%, rgba(85,201,182,1) 67%, rgba(84,201,182,1) 68%, rgba(66,189,170,1) 88%, rgba(67,199,179,1) 97%);
+background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(65,201,178,1)), color-stop(11%, rgba(65,201,178,1)), color-stop(49%, rgba(102,209,191,1)), color-stop(67%, rgba(85,201,182,1)), color-stop(68%, rgba(84,201,182,1)), color-stop(88%, rgba(66,189,170,1)), color-stop(97%, rgba(67,199,179,1)));
+background: -webkit-radial-gradient(center, ellipse cover, rgba(65,201,178,1) 0%, rgba(65,201,178,1) 11%, rgba(102,209,191,1) 49%, rgba(85,201,182,1) 67%, rgba(84,201,182,1) 68%, rgba(66,189,170,1) 88%, rgba(67,199,179,1) 97%);
+background: -o-radial-gradient(center, ellipse cover, rgba(65,201,178,1) 0%, rgba(65,201,178,1) 11%, rgba(102,209,191,1) 49%, rgba(85,201,182,1) 67%, rgba(84,201,182,1) 68%, rgba(66,189,170,1) 88%, rgba(67,199,179,1) 97%);
+background: -ms-radial-gradient(center, ellipse cover, rgba(65,201,178,1) 0%, rgba(65,201,178,1) 11%, rgba(102,209,191,1) 49%, rgba(85,201,182,1) 67%, rgba(84,201,182,1) 68%, rgba(66,189,170,1) 88%, rgba(67,199,179,1) 97%);
+background: radial-gradient(ellipse at center, rgba(65,201,178,1) 0%, rgba(65,201,178,1) 11%, rgba(102,209,191,1) 49%, rgba(85,201,182,1) 67%, rgba(84,201,182,1) 68%, rgba(66,189,170,1) 88%, rgba(67,199,179,1) 97%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#41c9b2', endColorstr='#43c7b3', GradientType=1 );
+
 }
+
+
+
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
@@ -14,11 +27,15 @@
     
 }
 #navbar{
-    color: #D0D8AF;
-    background-color: #FC4A1A
+    color: whitesmoke;
+    background-color: #FC4A1A;
 }
-#button{
-    background-color: #F7B733
+#button {
+    background-color: #F7B733;
+    width: 90px;
+    margin-top: 10px;
+    color: whitesmoke;
+    border-color: #cccccc;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -74,8 +91,8 @@ textarea {
     line-height: 1.5em;
 }
 .wizard>.steps .current a, .wizard>.steps .current a:hover, .wizard>.steps .current a:active{
-    background: blue;
-    color: #fff;
+    background: #FC4A1A;
+    color: Whitesmoke;
     cursor: default
 }
 .wizard>.steps a{
@@ -127,8 +144,8 @@ textarea {
 }
 .wizard>.actions a{
     display: block;
-    color: #fff;
-    background: #2184be;
+    color: whitesmoke;
+    background: #FC4A1A;
     padding: .5em 1em;
     text-decoration: none;
     border-radius: 5px; 
@@ -196,11 +213,19 @@ textarea {
 /* --------------------------------------
              Footer
    -------------------------------------- */
- #footer
-    {
-        position: absolute;
-        bottom: 0px;
-        text-align: center;
-        margin-left: auto;
-        margin-right: auto;
-    }
+#footer {
+    bottom: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    position: fixed;
+    font-family: 'Alegreya Sans SC', sans-serif;
+}
+.row {
+    text-align: center;
+}
+
+.emergbutton{
+        color: whitesmoke;
+    background-color: red;
+    border-color: #cccccc;
+}
