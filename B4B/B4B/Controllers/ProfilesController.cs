@@ -14,26 +14,34 @@ using System.Drawing;
 using System.IO;
 using System.Text.RegularExpressions;
 using QRCoder;
+using System.Xml.Linq;
 
 namespace B4B.Controllers
 {
     public class ProfilesController : Controller
     {
+        static string baseUri = "https://maps.googleapis.com/maps/api/geocode/json?latlng={0},{1}&key=" + WebConfigurationManager.AppSettings["GOOGLE_API_KEY"];
+        string address;
         private ApplicationDbContext db = new ApplicationDbContext();
         private byte[] byteArray;
 
         //This method will send a text to the emergency contact provided by admin
-        public void SendEmergencyText(string output)
+        public void SendEmergencyText(string output, string address)
         {
            var client = new TwilioRestClient(WebConfigurationManager.AppSettings["TWILIO_SID"],
                 WebConfigurationManager.AppSettings["TWILIO_AUTHTOKEN"]);
-
-                var result = client.SendMessage(WebConfigurationManager.AppSettings["TWILIO_PHONE"], output, "Emergency button has been activated!");
+                
+                var result = client.SendMessage(WebConfigurationManager.AppSettings["TWILIO_PHONE"], output, "Emergency button has been activated at :/n" + address);
           
         }
 
-        public ActionResult EmergencyText(int? id)
+        [HttpPost]
+        public ActionResult EmergencyText(int? id, string Latitude, string Longitude)
         {
+            string pattern = "[0-9]";
+            string phoneNumber = "+1";
+            string phoneNumber2 = "+1";
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -44,16 +52,16 @@ namespace B4B.Controllers
                 return HttpNotFound();
             }
 
-            string pattern = "[0-9]";
-            string phoneNumber = "+1";
-            string phoneNumber2 = "+1";
+            GoogleGeoCode(Latitude, Longitude);
+
+
 
             if (profile.EmergencyPhone != null)
             {
                 foreach (Match m in Regex.Matches(profile.EmergencyPhone, pattern))
                     phoneNumber += m.Value;
 
-                SendEmergencyText(phoneNumber);
+                SendEmergencyText(phoneNumber, address);
 
             }
             if (profile.SecondEmergencyPhone != null)
@@ -61,10 +69,24 @@ namespace B4B.Controllers
                 foreach (Match m in Regex.Matches(profile.SecondEmergencyPhone, pattern))
                     phoneNumber2 += m.Value;
 
-                SendEmergencyText(phoneNumber2);
+                SendEmergencyText(phoneNumber2, address);
             }
             return RedirectToAction("Index");
         }
+        void GoogleGeoCode(string lat, string lng)
+        {
+            string url = string.Format(baseUri, lat, lng);
+
+            dynamic googleResults = new Uri(url).GetDynamicJsonObject();
+            //foreach (var result in googleResults.results)
+            //{
+            //    Console.WriteLine("[" + result.geometry.location.lat + "," + result.geometry.location.lng + "] " + result.formatted_address);
+                
+            //}
+            var result = googleResults.results[0];
+            address = result.formatted_address;
+        }
+  
 
         private Bitmap renderQRCode()
         {
@@ -110,16 +132,11 @@ namespace B4B.Controllers
                 return currentUser;
             }
         }
-        [HttpPost]
-        public ActionResult getLocation(double Latitude, double Longitude)
-        {
-            
-            return Json(new { status = "ok"});
-        }
 
         // GET: Profiles
         public ActionResult Index()
         {
+            
             return View(CurrentUser.Profiles.ToList());
         } 
 

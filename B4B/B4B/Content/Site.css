@@ -76,8 +76,9 @@ textarea {
     text-decoration: none;
     border-radius: 5px;
 }
-
-
+#tab2, #tab3{
+    height: 400px;
+}
 .wizard>.content {
     background: #eee;
     display: block;
@@ -123,6 +124,81 @@ textarea {
     text-decoration: none;
     border-radius: 5px; 
 }
+#wizForm{
+    margin-top: 20px;
+}
+#wizNav{
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+}
+#wizNav li{
+    width: 33.3%;
+}
+#wizNav a{
+    border-radius: 0;
+}
+#wizNavContainer{
+    padding: 0;
+}
+#rootwizard> .navbar{
+    margin-bottom: 0;
+}
+.pager.wizard li{
+    display: inline-block;
+    text-align: right;
+}
+.tab-content{
+    height: 472px;
+}
+#wiz1left{
+    height: 400px;
+    background: gray;
+}
+#wiz1right{
+    padding-left: 100px;
+    padding-top: 50px;
+}
+.wizardFooter>ul{
+    text-align: right;
+}
+.wizardFooter>ul> li{
+    text-align: right;
+    padding-left: 20px;
+}
+#submitWiz{
+    width: 88px;
+}
+.footerSeperate{
+    width: 20px;
+}
+
+/* --------------------------------------
+                Images
+   -------------------------------------- */
+.object-fit_fill { object-fit: fill }
+.object-fit_contain { object-fit: contain }
+.object-fit_cover { object-fit: cover }
+.object-fit_none { object-fit: none }
+.object-fit_scale-down { object-fit: scale-down }
+
+.image {
+  float: left;
+  width: 40%;
+  margin: 0 30px 20px 0;
+  
+}
+#createAvartar{
+    position: absolute;
+    top: 50px;
+    right: 90px;
+}
+#Avatar{
+    position: absolute;
+    bottom: 100px;
+    left: 100px;
+}
+
 
 .idpicsize{
     width:300px;

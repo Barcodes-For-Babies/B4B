@@ -5,146 +5,139 @@
     ViewBag.Title = "Create";
 }
 
+<div class="container" id="wizForm">
+    @using (Html.BeginForm("Create", "Profiles", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
 
-@using (Html.BeginForm("Create", "Profiles", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
-{
-    @Html.AntiForgeryToken()
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-    <div class="form-horizontal">
-        <h2>Create</h2>
-        <h4>Profile</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div id="rootwizard" class="clearfix">
+                <div class="navbar">
+                    <div class="navbar-inner">
+                        <div class="container" id="wizNavContainer">
+                            <ul id="wizNav">
+                                <li><a href="#tab1" data-toggle="tab" onclick="">Step 1</a></li>
+                                <li><a href="#tab2" data-toggle="tab" onclick="">Step 2</a></li>
+                                <li><a href="#tab3" data-toggle="tab" onclick="">Step 3</a></li>
+                            </ul>
+                        </div> <!-- end container -->
+                    </div> <!-- end navbar-inner -->
+                </div> <!-- end navbar -->
 
-        <div id="rootwizard">
-            <div class="navbar">
-                <div class="navbar-inner">
-                    <div class="container">
-                        <ul>
-                            <li><a href="#tab1" data-toggle="tab">Personal</a></li>
-                            <li><a href="#tab2" data-toggle="tab">Medical</a></li>
-                            <li><a href="#tab3" data-toggle="tab">Emergency Contact</a></li>
-                        </ul>
-                    </div> <!-- end container -->
-                </div> <!-- end navbar-inner -->
-            </div> <!-- end navbar -->
+                <div id="bar" class="progress">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
+                </div> <!-- end progress bar -->
 
-            <div id="bar" class="progress">
-                <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
-            </div> <!-- end progress bar -->
-
-            <div class="tab-content">
-                <div class="tab-pane" id="tab1">
-
-                    <div class="form-group">
-                        @Html.Label("Avatar", new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            <input type="file" name="upload" id="Avatar" />
+                <div class="tab-content clearfix">
+                    <div class="tab-pane clearfix" id="tab1">
+                        <div class="col-md-4 clearfix" id="wiz1left">
+                            <div class="form-group" style="height: 100%";>
+                                @Html.Label("Avatar", new { @class = "control-label col-md-12", style = "text-align: center; margin-top: 10px" })
+                                <div class="image clearfix">
+                                    <img src="http://www.lavacable.com/assets/images/Products/placeholder_product.jpg" class="object-fit_scale-down" id="createAvartar" width="200" height="200" />
+                                </div>
+                                <input type="file" name="upload" id="Avatar" />
+                            </div> <!-- end Profile Picture -->
                         </div>
-                    </div> <!-- end Profile Picture -->
 
-                    <div class="form-group">
-                        <div class="col-md-10">
-                            <p>Fields marked with an asterisk (*) are required</p>
+                        <div class="col-md-8 clearfix" id="wiz1right">
+                            <div class="form-group">
+                                <div class="col-md-10">
+                                    <div class="requiredWizard">Fields marked with an asterisk (*) are required</div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-5" style="padding-right: 10px">
+                                    @Html.EditorFor(model => model._profile.FirstName, new { htmlAttributes = new { @class = "form-control", style = "width: 95%", @placeholder = "First Name*", @id = "FirstName" } })
+                                    @Html.ValidationMessageFor(model => model._profile.FirstName, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-md-6" style="padding-left: 0">
+                                    @Html.EditorFor(model => model._profile.LastName, new { htmlAttributes = new { @class = "form-control", style = "width: 82%", @placeholder = "Last Name" } })
+                                    @Html.ValidationMessageFor(model => model._profile.LastName, "", new { @class = "text-danger" })
+                                </div>
+                            </div> <!-- end First Name & Last Name -->
+
+                            <div class="form-group">
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model._profile.StreetAdress, new { htmlAttributes = new { @class = "form-control", style = "max-width: 582px;", @placeholder = "Street Address" } })
+                                    @Html.ValidationMessageFor(model => model._profile.StreetAdress, "", new { @class = "text-danger" })
+                                </div>
+                            </div> <!-- end Street Address -->
+
+                            <div class="form-group">
+                                <div class="col-md-4" style="padding-right: 0">
+                                    @Html.EditorFor(model => model._profile.City, new { htmlAttributes = new { @class = "form-control", @placeholder = "City" } })
+                                    @Html.ValidationMessageFor(model => model._profile.City, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-md-3" style="padding-right: 0">
+                                    @Html.EditorFor(model => model._profile.State, new { htmlAttributes = new { @class = "form-control", @placeholder = "State" } })
+                                    @Html.ValidationMessageFor(model => model._profile.State, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-md-3">
+                                    @Html.EditorFor(model => model._profile.ZipCode, new { htmlAttributes = new { @class = "form-control", style = "max-width: 140px;", @placeholder = "Zip Code" } })
+                                    @Html.ValidationMessageFor(model => model._profile.ZipCode, "", new { @class = "text-danger" })
+                                </div>
+                            </div> <!-- end City -->
+
                         </div>
-                    </div>
 
-                    <div class="form-group">
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model._profile.FirstName, new { htmlAttributes = new { @class = "form-control", @placeholder = "First Name*", @id = "name" } })
-                            @Html.ValidationMessageFor(model => model._profile.FirstName, "", new { @class = "text-danger" })
+                    </div> <!-- end Form page 1 Basic Profile details -->
+
+                    <div class="tab-pane" id="tab2">
+
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                <p>Fields marked with an asterisk (*) are required</p>
+                            </div>
                         </div>
-                    </div> <!-- end First Name -->
 
-                    <div class="form-group">
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model._profile.LastName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Last Name" } })
-                            @Html.ValidationMessageFor(model => model._profile.LastName, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model._medicalInfo.MedicalCondition, new { htmlAttributes = new { @class = "form-control", @placeholder = "Medical Condition" } })
+                                @Html.ValidationMessageFor(model => model._medicalInfo.MedicalCondition, "", new { @class = "text-danger" })
+                            </div>
+                        </div> <!-- end Medical Condition -->
+
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model._medicalInfo.Symptoms, new { htmlAttributes = new { @class = "form-control", @placeholder = "Symptoms" } })
+                                @Html.ValidationMessageFor(model => model._medicalInfo.Symptoms, "", new { @class = "text-danger" })
+                            </div>
+                        </div> <!-- end Symptoms -->
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model._medicalInfo.RelatedInformation, new { htmlAttributes = new { @class = "form-control", @placeholder = "Related Information" } })
+                                @Html.ValidationMessageFor(model => model._medicalInfo.RelatedInformation, "", new { @class = "text-danger" })
+                            </div>
+                        </div> <!-- end Related Information -->
+
+
+                    </div> <!-- end Form page 2 Medical Information -->
+
+                    <div class="tab-pane" id="tab3">
+
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                <p>Fields marked with an asterisk (*) are required</p>
+                            </div>
                         </div>
-                    </div> <!-- end Last Name -->
 
-                    <div class="form-group">
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model._profile.StreetAdress, new { htmlAttributes = new { @class = "form-control", @placeholder = "Street Address" } })
-                            @Html.ValidationMessageFor(model => model._profile.StreetAdress, "", new { @class = "text-danger" })
-                        </div>
-                    </div> <!-- end Street Address -->
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model._profile.EcontactName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Emergency Contact Name*", @id = "eName" } })
+                                @Html.ValidationMessageFor(model => model._profile.EcontactName, "", new { @class = "text-danger" })
+                            </div>
+                        </div> <!-- end Emergency Name -->
 
-                    <div class="form-group">
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model._profile.City, new { htmlAttributes = new { @class = "form-control", @placeholder = "City" } })
-                            @Html.ValidationMessageFor(model => model._profile.City, "", new { @class = "text-danger" })
-                        </div>
-                    </div> <!-- end City -->
-
-                    <div class="form-group">
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model._profile.State, new { htmlAttributes = new { @class = "form-control", @placeholder = "State" } })
-                            @Html.ValidationMessageFor(model => model._profile.State, "", new { @class = "text-danger" })
-                        </div>
-                    </div> <!-- end State -->
-
-                    <div class="form-group">
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model._profile.ZipCode, new { htmlAttributes = new { @class = "form-control", @placeholder = "Zip Code" } })
-                            @Html.ValidationMessageFor(model => model._profile.ZipCode, "", new { @class = "text-danger" })
-                        </div>
-                    </div> <!-- end Zip Code -->
-
-                </div> <!-- end Form page 1 Basic Profile details -->
-
-                <div class="tab-pane" id="tab2">
-
-                    <div class="form-group">
-                        <div class="col-md-10">
-                            <p>Fields marked with an asterisk (*) are required</p>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model._medicalInfo.MedicalCondition, new { htmlAttributes = new { @class = "form-control", @placeholder = "Medical Condition" } })
-                            @Html.ValidationMessageFor(model => model._medicalInfo.MedicalCondition, "", new { @class = "text-danger" })
-                        </div>
-                    </div> <!-- end Medical Condition -->
-
-                    <div class="form-group">
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model._medicalInfo.Symptoms, new { htmlAttributes = new { @class = "form-control", @placeholder = "Symptoms" } })
-                            @Html.ValidationMessageFor(model => model._medicalInfo.Symptoms, "", new { @class = "text-danger" })
-                        </div>
-                    </div> <!-- end Symptoms -->
-                    <div class="form-group">
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model._medicalInfo.RelatedInformation, new { htmlAttributes = new { @class = "form-control", @placeholder = "Related Information" } })
-                            @Html.ValidationMessageFor(model => model._medicalInfo.RelatedInformation, "", new { @class = "text-danger" })
-                        </div>
-                    </div> <!-- end Related Information -->
-
-
-                </div> <!-- end Form page 2 Medical Information -->
-
-                <div class="tab-pane" id="tab3">
-
-                    <div class="form-group">
-                        <div class="col-md-10">
-                            <p>Fields marked with an asterisk (*) are required</p>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model._profile.EcontactName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Emergency Contact Name*" } })
-                            @Html.ValidationMessageFor(model => model._profile.EcontactName, "", new { @class = "text-danger" })
-                        </div>
-                    </div> <!-- end Emergency Name -->
-
-                    <div class="form-group">
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model._profile.EmergencyPhone, new { htmlAttributes = new { @class = "form-control", @placeholder = "Emergency Contact Phone Number*" } })
-                            @Html.ValidationMessageFor(model => model._profile.EmergencyPhone, "", new { @class = "text-danger" })
-                        </div>
-                    </div><!-- end Emergency Phone -->
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model._profile.EmergencyPhone, new { htmlAttributes = new { @class = "form-control", @placeholder = "Emergency Contact Phone Number*", @id = "eContact" } })
+                                @Html.ValidationMessageFor(model => model._profile.EmergencyPhone, "", new { @class = "text-danger" })
+                            </div>
+                        </div><!-- end Emergency Phone -->
 
                         <div class="form-group">
                             <div class="col-md-10">
@@ -161,6 +154,9 @@
                         </div> <!-- end SecondEmergency Phone -->
 
                         <div class="form-group">
+                            <div class="col-md-1">
+                                @Html.CheckBoxFor(model => model._profile.disclaimer, new {  htmlAttributes = new { @class = "form-control", @id = "disclaimerCheck", @name = "disclaimer" } })
+                            </div>
                             <div class="col-md-10">
                                 <p>
                                     The content of this profile will not be private and confidential information once created. In no event shall Barcodes 4
@@ -171,56 +167,81 @@
 
                     </div> <!-- end Form page 3 Emergency Information -->
 
+                    <div class="wizardFooter">
+                        <ul class="pager wizard">
+                            <li class="previous" style="display:none;"><a href="#">Previous</a></li>
+                            <li class="next" id="submitWiz"><a href="#" id="submitWizText">Next</a></li>
+                        </ul> <!-- end Wizard Footer Nav Buttons -->
+                    </div> <!-- end Wizard Footer-->
 
-                    <ul class="pager wizard">
-                        <li class="previous first" style="display:none;"><a href="#">First</a></li>
-                        <li class="previous"><a href="#">Previous</a></li>
-                        <li class="next last" style="display:none;"><a href="#">Last</a></li>
-                        <li class="next"><a href="#">Next</a></li>
-                    </ul>  <!-- end pager wizard nav buttons -->
                 </div>   <!-- end tab-content -->
             </div>  <!-- end rootwizard -->
+
             <!-- Add create button to pager wizard -->
-            <div class="form-group">
+            @*<div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
                     <input type="submit" value="Create" class="btn btn-default" />
                 </div>
-            </div>
+            </div>*@
 
         </div>
-        }
+    }
 
-        <div>
-            @Html.ActionLink("Back to List", "Index")
-        </div>
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
 
-        @section Scripts {
-            @Scripts.Render("~/bundles/jqueryval")
-            @Scripts.Render("~/Scripts/jquery.bootstrap.wizard.js");
-            @Scripts.Render("~/Scripts/jquery.bootstrap.wizard.min.js");
-            <script>
-                $(document).ready(function () {
-                    $('#rootwizard').bootstrapWizard({
-                        onNext: function (tab, navigation, index) {
-                            //if (index == 1) {
-                            //    // Make sure we entered the name
-                            //    if (!$('#name').val()) {
-                            //        alert('You must enter your name');
-                            //        $('#name').focus();
-                            //        return false;
-                            //    }
-                            //}
+</div>
 
-                            // Set the name for the next tab
-                            //$('#tab2').html('Hello, ' + $('#name').val());
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/Scripts/jquery.bootstrap.wizard.js");
+    @Scripts.Render("~/Scripts/jquery.bootstrap.wizard.min.js");
+    <script>
+        $(document).ready(function () {
+            $('#rootwizard').bootstrapWizard({
+                onNext: function (tab, navigation, index) {
+                    if (index == 1) {
+                        // Make sure we entered the name
+                        if (!$('#FirstName').val()) {
+                            $('.requiredWizard').addClass("shake-constant");
+                            $('#FirstName').css({"border-color": "red", "background-color": "yellow"});
+                            $('#FirstName').focus();
+                            return false;
+                        }                       
+                    }
 
-                        }, onTabShow: function (tab, navigation, index) {
-                            var $total = navigation.find('li').length;
-                            var $current = index + 1;
-                            var $percent = ($current / $total) * 100;
-                            $('#rootwizard .progress-bar').css({ width: $percent + '%' });
+                    // Set the name for the next tab
+                    //$('#tab2').html('Hello, ' + $('#name').val());
+                    if (index == 2) {
+                        $('#submitWiz').remove();
+                        $(".wizardFooter ul").append('<li><input type="submit" value="Create" class="btn btn-default" /></li>');
+
+                        if (!$('#eName').val()) {
+                            $('.requiredWizard').addClass("shake-constant");
+                            $('#eName').css({ "border-color": "red", "background-color": "yellow" });
+                            $('#eName').focus();
+                            return false;
                         }
-                    });
-                });
-            </script>
-        }
+                        if (!$('#eContact').val()) {
+                            $('.requiredWizard').addClass("shake-constant");
+                            $('#eContact').css({ "border-color": "red", "background-color": "yellow" });
+                            $('#eContact').focus();
+                            return false;
+                        }
+                    }
+
+                    if ($('#disclaimerCheck').attr('checked', true)) {
+                        $('#submitWiz').removeClass("disabled");
+                    }
+
+                }, onTabShow: function (tab, navigation, index) {
+                    var $total = navigation.find('li').length;
+                    var $current = index + 1;
+                    var $percent = ($current / $total) * 100;
+                    $('#rootwizard .progress-bar').css({ width: $percent + '%' });
+                }
+            });
+        });
+    </script>
+}

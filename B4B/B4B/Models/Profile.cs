@@ -33,6 +33,8 @@ namespace B4B.Models
         public Colors forgroundColor { get; set; }
         public Colors backgroundColor { get; set; }
 
+        public bool disclaimer { get; set; }
+
         [Display(Name = "Name")]
         public string FullName {
             get{ return LastName + ", " + FirstName; }
@@ -68,5 +70,10 @@ namespace B4B.Models
         // 1 to Many
         public virtual ICollection<MedicalInfo> MedicalInfos { get; set; }
         public virtual ApplicationUser Admin { get; set; }
+
+        public Profile()
+        {
+            disclaimer = false;
+        }
     }
 }

@@ -6,166 +6,214 @@
 
 <h2>Details</h2>
 
-    <h4>Profile</h4>
-    <hr />
+<h4>Profile</h4>
+<hr />
 
 
 
 <div class="detailsphoto">
     <img src="~/File?id=@Model.ProfileID" class="idpicsize img-responsive" />
     <div class="emergbtn">
-    @Html.ActionLink("Emergency", "SendEmergencyText", "Profiles", new { id = Model.ProfileID }, new { @class = "btn btn-primary btn-large" })
+        <button class="btn btn-primary" id="generateQr" onclick="getLocation()">User Location</button>
+
+        @Html.ActionLink("Emergency", "SendEmergencyText", "Profiles", new { id = Model.ProfileID }, new { @class = "btn btn-primary btn-large" })
     </div>
-    </div>
-
-
-
-            
-        
-        
- 
+</div>
 
 
 
 
-    <dl class="infotable" class"col-md-6">
-        @if (Model.FirstName != null)
-        {
-            <dt>
-                @Html.DisplayNameFor(model => model.FirstName)
-            </dt>
+
+
+
+
+
+
+
+<dl class="infotable" class"col-md-6">
+    @if (Model.FirstName != null)
+    {
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
 
             <dd>
                 @Html.DisplayFor(model => model.FirstName)
             </dd>
-        }
+    }
 
-        @if (Model.LastName != null)
-        {
-            <dt>
-                @Html.DisplayNameFor(model => model.LastName)
-            </dt>
+    @if (Model.LastName != null)
+    {
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
 
             <dd>
                 @Html.DisplayFor(model => model.LastName)
             </dd>
-        }
+    }
 
-        @if (Model.StreetAdress != null)
-        {
-            <dt>
-                @Html.DisplayNameFor(model => model.StreetAdress)
-            </dt>
+    @if (Model.StreetAdress != null)
+    {
+        <dt>
+            @Html.DisplayNameFor(model => model.StreetAdress)
+        </dt>
 
             <dd>
                 @Html.DisplayFor(model => model.StreetAdress)
             </dd>
-        }
+    }
 
-        @if (Model.City != null)
-        {
-            <dt>
-                @Html.DisplayNameFor(model => model.City)
-            </dt>
+    @if (Model.City != null)
+    {
+        <dt>
+            @Html.DisplayNameFor(model => model.City)
+        </dt>
 
             <dd>
                 @Html.DisplayFor(model => model.City)
             </dd>
-        }
+    }
 
-        @if (Model.State != null)
-        {
-            <dt>
-                @Html.DisplayNameFor(model => model.State)
-            </dt>
+    @if (Model.State != null)
+    {
+        <dt>
+            @Html.DisplayNameFor(model => model.State)
+        </dt>
 
             <dd>
                 @Html.DisplayFor(model => model.State)
             </dd>
-        }
+    }
 
 
-        @if (Model.ZipCode != null)
-        {
-            <dt>
-                @Html.DisplayNameFor(model => model.ZipCode)
-            </dt>
+    @if (Model.ZipCode != null)
+    {
+        <dt>
+            @Html.DisplayNameFor(model => model.ZipCode)
+        </dt>
 
             <dd>
                 @Html.DisplayFor(model => model.ZipCode)
             </dd>
-        }
+    }
 
-        
-            @if (Model.EmergencyPhone == null)
+
+    @if (Model.EmergencyPhone == null)
             {
-                @:No Emergency contact set
+        @:No Emergency contact set
             }
             else
             {
-                <dt>
-                @Html.DisplayNameFor(modelItem => modelItem.EcontactName)
-                </dt>
+        <dt>
+            @Html.DisplayNameFor(modelItem => modelItem.EcontactName)
+        </dt>
 
                 <dd>
                     @Html.DisplayFor(modelItem => modelItem.EcontactName)
                 </dd>
-            }
-        
-        <dt>
-            @Html.DisplayNameFor(modelItem => modelItem.EmergencyPhone)
+    }
 
-        </dt>
-        <dd>
-            @if (Model.EmergencyPhone == null)
+    <dt>
+        @Html.DisplayNameFor(modelItem => modelItem.EmergencyPhone)
+
+    </dt>
+    <dd>
+        @if (Model.EmergencyPhone == null)
             {
-                @:No Emergency contact set
+            @:No Emergency contact set
                        }
             else
             {
-                @Html.DisplayFor(modelItem => modelItem.EmergencyPhone)
-            }
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(modelItem => modelItem.SecondEcontactName)
+            @Html.DisplayFor(modelItem => modelItem.EmergencyPhone)
+        }
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(modelItem => modelItem.SecondEcontactName)
 
-        </dt>
-        <dd>
-            @if (Model.SecondEmergencyPhone == null)
+    </dt>
+    <dd>
+        @if (Model.SecondEmergencyPhone == null)
             {
-                @:No Emergency contact set
+            @:No Emergency contact set
             }
             else
             {
-                @Html.DisplayFor(modelItem => modelItem.SecondEcontactName)
-            }
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(modelItem => modelItem.SecondEmergencyPhone)
+            @Html.DisplayFor(modelItem => modelItem.SecondEcontactName)
+        }
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(modelItem => modelItem.SecondEmergencyPhone)
 
-        </dt>
-        <dd>
-            @if (Model.SecondEmergencyPhone == null)
+    </dt>
+    <dd>
+        @if (Model.SecondEmergencyPhone == null)
             {
-                @:No Emergency contact set
+            @:No Emergency contact set
                        }
             else
             {
-                @Html.DisplayFor(modelItem => modelItem.SecondEmergencyPhone)
-            }
-        </dd>
-    </dl>
+            @Html.DisplayFor(modelItem => modelItem.SecondEmergencyPhone)
+        }
+    </dd>
+</dl>
 
 @if (Model.Admin == ViewBag.CurrentUser)
 { }
 
-
-=======
->>>>>>> master
-    <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.ProfileID }) |
-        @Html.ActionLink("Back to List", "Index")
-    </p>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ProfileID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
 
 
+<script>
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+            //some error message
+        }
+    }
+    function showPosition(position) {
 
+        //stores lat and long in array
+        var coordinates = {
+            "id": @Model.ProfileID,
+            "Latitude": position.coords.latitude,
+            "Longitude": position.coords.longitude
+        }
+
+        // send the array to the controller
+        $.ajax({
+            url: '@Url.Action("EmergencyText", "Profiles")',
+            type: 'POST',
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8',
+            data: JSON.stringify(coordinates),
+            success: function (data) {
+                alert(data);
+            },
+            failure: function (errMsg) {
+                alert(errMsg);
+            },
+            //async: true
+        });
+    }
+    function showError(error) {
+        switch (error.code) {
+            case error.PERMISSION_DENIED:
+                x.innerHTML = "User denied the request for Geolocation."
+                break;
+            case error.POSITION_UNAVAILABLE:
+                x.innerHTML = "Location information is unavailable."
+                break;
+            case error.TIMEOUT:
+                x.innerHTML = "The request to get user location timed out."
+                break;
+            case error.UNKNOWN_ERROR:
+                x.innerHTML = "An unknown error occurred."
+                break;
+        }
+    }
+</script>
