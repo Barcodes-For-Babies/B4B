@@ -4,6 +4,12 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC|Ubuntu+Condensed" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Hind|PT+Sans+Narrow|Poiret+One" rel="stylesheet">
+
+
+
+
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
@@ -27,7 +33,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("SafeKeepers QR", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("SQR", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -39,17 +45,18 @@
             </div>
         </div>
     </div>
-    <div  class="container-fluid body-content">
+    <footer class="container-fluid body-content">
         @RenderBody()
-        <hr />
-        <footer id="footer">
-            <p>
-                <a href="~/Home/About">About</a> |
-                <a href="~/Home/Contact">Contact</a>
-            </p>
-            <p>&copy; @DateTime.Now.Year - SafeKeepers QR</p>
-        </footer>
-    </div>
+            <div class="row">
+                <div class="col-md-12" id="footer">
+                    <span .col-md-4>
+                        <a href="~/Home/About">About</a> |
+                        <a href="~/Home/Contact">Contact</a><br/>
+                        &copy; @DateTime.Now.Year - SafeKeepers QR
+                    </span>
+                </div>
+            </div>
+    </footer>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

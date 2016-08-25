@@ -2,9 +2,10 @@
     padding-top: 50px;
     padding-bottom: 20px;
     height: 100%;
-    /*background-image: url('../Images/light-blue2.png');*/
-    background-color: #4ABDAC
-    /*background-size: cover;*/
+    background-color: #4ABDAC;
+    color: whitesmoke;
+font-family: 'Hind', sans-serif;
+
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -14,11 +15,15 @@
     
 }
 #navbar{
-    color: #D0D8AF;
-    background-color: #FC4A1A
+    color: whitesmoke;
+    background-color: #FC4A1A;
 }
-#button{
-    background-color: #F7B733
+#button {
+    background-color: #F7B733;
+    width: 90px;
+    margin-top: 10px;
+    color: whitesmoke;
+    border-color: #cccccc;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -74,8 +79,8 @@ textarea {
     line-height: 1.5em;
 }
 .wizard>.steps .current a, .wizard>.steps .current a:hover, .wizard>.steps .current a:active{
-    background: blue;
-    color: #fff;
+    background: #FC4A1A;
+    color: Whitesmoke;
     cursor: default
 }
 .wizard>.steps a{
@@ -127,8 +132,8 @@ textarea {
 }
 .wizard>.actions a{
     display: block;
-    color: #fff;
-    background: #2184be;
+    color: whitesmoke;
+    background: #FC4A1A;
     padding: .5em 1em;
     text-decoration: none;
     border-radius: 5px; 
@@ -196,11 +201,13 @@ textarea {
 /* --------------------------------------
              Footer
    -------------------------------------- */
- #footer
-    {
-        position: absolute;
-        bottom: 0px;
-        text-align: center;
-        margin-left: auto;
-        margin-right: auto;
-    }
+#footer {
+    bottom: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    position: fixed;
+    font-family: 'Alegreya Sans SC', sans-serif;
+}
+.row {
+    text-align: center;
+}
