@@ -14,6 +14,12 @@ namespace B4B
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "getLocation",
+                url: "Profiles/getLocation",
+                defaults: new { controller = "Profiles", action = "getLocation" }
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }

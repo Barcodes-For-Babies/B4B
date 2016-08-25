@@ -11,7 +11,6 @@ using System;
 using System.Web.Configuration;
 using System.Collections.Generic;
 using System.Drawing;
-//using QRCoder;
 using System.IO;
 using System.Text.RegularExpressions;
 using QRCoder;
@@ -67,6 +66,38 @@ namespace B4B.Controllers
             return RedirectToAction("Index");
         }
 
+
+
+
+
+
+        //public ActionResult EditProfile(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    Profile profile = db.Profiles.Find(id);
+        //    if (profile == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    if (profile.FirstName != null)
+        //    {
+
+        //        return RedirectToAction("Edit", "Profile");
+        //    }
+           
+        //    return RedirectToAction("Index");
+        //}
+
+
+
+
+
+
+
+
         private Bitmap renderQRCode()
         {
             string url = Request.Url.ToString();
@@ -76,7 +107,7 @@ namespace B4B.Controllers
             QRCode qrCode = new QRCode(qrCodeData);
             //Bitmap qrCodeImage = qrCode.GetGraphic(20);
             
-            Bitmap qrCodeImage = qrCode.GetGraphic(20, Color.BlueViolet, Color.Black,true);
+            Bitmap qrCodeImage = qrCode.GetGraphic(20, Color.Black, Color.White,true);
 
             return qrCodeImage;
         }
@@ -111,12 +142,18 @@ namespace B4B.Controllers
                 return currentUser;
             }
         }
+        [HttpPost]
+        public ActionResult getLocation(double Latitude, double Longitude)
+        {
+            
+            return Json(new { status = "ok"});
+        }
 
         // GET: Profiles
         public ActionResult Index()
         {
             return View(CurrentUser.Profiles.ToList());
-        }
+        } 
 
         // GET: Profiles/Details/5
         public ActionResult Details(int? id, List<MedicalInfo> medInfos)

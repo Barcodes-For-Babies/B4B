@@ -1,13 +1,8 @@
 ﻿@*Add the model you want to use*@
 @model IEnumerable<B4B.Models.Profile>
 
-    @{
-    Layout = "~/Views/Shared/_Layout.cshtml";
-    }
 
-
-    @*Go into the controller*@
-
+<<<<<<< HEAD
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
@@ -25,9 +20,35 @@
                         <img src="~/File?id=@item.ProfileID" class="idpicsize img-responsive" />
                     </div>
             }
+=======
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 
+>>>>>>> master
 
+@*Go into the controller*@
+
+<<<<<<< HEAD
             </div>
+=======
+<div class="container-fluid">
+    <div class="row">
+        <div id="adminHome" class="col-lg-12">
+            @Html.ActionLink("+", "Create", "Profiles", null, new { @class = "btn btn-default" })
+            @*<button id="addProfile" class="btn btn-default">+</button>*@
+>>>>>>> master
         </div>
+         
+        @foreach (var item in Model)
+        {
 
+            @*@item.FirstName*@
+            @Html.ActionLink(item.FirstName, "Edit", "Profiles", new { id = item.ProfileID }, null)
+
+        }
+      
+      
     </div>
+
+</div>
