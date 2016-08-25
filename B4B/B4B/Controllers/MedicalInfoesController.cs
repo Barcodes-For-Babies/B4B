@@ -33,6 +33,7 @@ namespace B4B.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.ProfileID = new SelectList(db.Profiles, "ProfileID", "FirstName", medicalInfo.ProfileID);
             return View(medicalInfo);
         }
 

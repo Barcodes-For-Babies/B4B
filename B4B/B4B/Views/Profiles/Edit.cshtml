@@ -8,7 +8,7 @@
 
 @using (Html.BeginForm("Edit", "Profiles", FormMethod.Post, new { enctype = "multipart/form-data", role = "form" }))
 {
-    @Html.AntiForgeryToken()}
+    @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
         <h4>Profile</h4>
@@ -39,6 +39,7 @@
             </div>
         </div>
     </div>
+
     <tr>
         <td>
             <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
@@ -46,7 +47,7 @@
                     <button class="btn btn-primary" id="generateQr" onclick="displayQr()">Generate Qr Code</button>
                     <button class="btn btn-primary" id="generateQr" onclick="printpage()">Print Qr Code</button>
                     <div class="qrCodeTester pull-right target" id="target">
-                        <img src="@Url.Action("myAction", "Profiles")" alt="qr code" id="testQrCode" />
+                        <img src="@Url.Action("myAction", "Profiles", new { id = Model._profile.ProfileID })" alt="qr code" id="testQrCode" />
                     </div>
                 </div>
 
@@ -159,7 +160,7 @@
             </div>
         </div> <!-- end Second Emergency Contact Phone -->
     </div>
-
+}
         <div>
             @Html.ActionLink("Back to List", "Index")
         </div>

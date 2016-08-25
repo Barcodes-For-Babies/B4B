@@ -11,7 +11,7 @@
  */
 ;(function($) {
 var bootstrapWizardCreate = function(element, options) {
-	var element = $(element);
+	var element = $(element);  
 	var obj = this;
 
 	// selector skips any 'li' elements that do not contain a child with a tab data-toggle
