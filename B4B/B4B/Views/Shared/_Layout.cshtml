@@ -19,6 +19,7 @@
     </script>
 </head>
 <body>
+   
     <div id="navbar" class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -39,13 +40,16 @@
             </div>
         </div>
     </div>
+    
+
+   
     <div  class="container-fluid body-content">
         @RenderBody()
         <hr />
         <footer id="footer">
             <p>
-                <a href="~/Home/About">About</a> |
-                <a href="~/Home/Contact">Contact</a>
+                @*<a href="~/Home/About">About</a> |*@
+                @*<a href="~/Home/Contact">Contact</a>*@
             </p>
             <p>&copy; @DateTime.Now.Year - SafeKeepers QR</p>
         </footer>

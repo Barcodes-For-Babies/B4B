@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "Details";
-}
+ }
 
 <h2>Details</h2>
 
@@ -17,16 +17,6 @@
     @Html.ActionLink("Emergency", "SendEmergencyText", "Profiles", new { id = Model._profile.ProfileID }, new { @class = "btn btn-primary btn-large" })
     </div>
     </div>
-
-
-
-            
-        
-        
- 
-
-
-
 
     <dl class="infotable" class"col-md-6">
         @if (Model._profile.FirstName != null)
@@ -136,6 +126,7 @@
             {
                 @:No Emergency contact set
             }
+
             else
             {
                 <dt>
@@ -155,7 +146,7 @@
             @if (Model._profile.EmergencyPhone == null)
             {
                 @:No Emergency contact set
-                       }
+            }
             else
             {
                 @Html.DisplayFor(modelItem => modelItem._profile.EmergencyPhone)
@@ -183,7 +174,8 @@
             @if (Model._profile.SecondEmergencyPhone == null)
             {
                 @:No Emergency contact set
-                       }
+            }
+
             else
             {
                 @Html.DisplayFor(modelItem => modelItem._profile.SecondEmergencyPhone)
@@ -197,7 +189,7 @@
 
 
     <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model._profile.ProfileID }) |
+        @Html.ActionLink("Edit", "Edit", new { id = Model._profile.ProfileID })
         @Html.ActionLink("Back to List", "Index")
     </p>
 

@@ -2,53 +2,32 @@
 @model IEnumerable<B4B.Models.Profile>
 
 
-<<<<<<< HEAD
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="createbutton">
-                    @Html.ActionLink("Click to create a new profile", "Create", "Profiles", null, new { @class = "btn btn-default"})
-                </div>
-
-
-                @*<button id="addProfile" class="btn btn-default">+</button>*@
-
-
-                @foreach (var item in Model)
-            {
-                    <div class="adminHome">
-                        <img src="~/File?id=@item.ProfileID" class="idpicsize img-responsive" />
-                    </div>
-            }
-=======
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
->>>>>>> master
-
-@*Go into the controller*@
-
-<<<<<<< HEAD
-            </div>
-=======
 <div class="container-fluid">
     <div class="row">
-        <div id="adminHome" class="col-lg-12">
-            @Html.ActionLink("+", "Create", "Profiles", null, new { @class = "btn btn-default" })
-            @*<button id="addProfile" class="btn btn-default">+</button>*@
->>>>>>> master
+        <div class="col-lg-12">
+            <div class="createbutton">
+                @Html.ActionLink("+", "Create", "Profiles", null, new { @class = "btn btn-default" })
+            </div>
         </div>
-         
-        @foreach (var item in Model)
-        {
-
-            @*@item.FirstName*@
-            @Html.ActionLink(item.FirstName, "Edit", "Profiles", new { id = item.ProfileID }, null)
-
-        }
-      
-      
     </div>
-
 </div>
+
+
+@*<button id="addProfile" class="btn btn-default">+</button>*@
+
+
+@foreach (var item in Model)
+            {
+    <div class="adminHome">
+        <img src="~/File?id=@item.ProfileID" class="idpicsize img-responsive" />
+    </div>
+                    @Html.ActionLink(item.FirstName, "Edit", "Profiles", new { id = item.ProfileID }, null)
+}
+
+
+
+

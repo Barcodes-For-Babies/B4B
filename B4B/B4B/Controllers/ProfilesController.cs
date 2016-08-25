@@ -156,6 +156,7 @@ namespace B4B.Controllers
         } 
 
         // GET: Profiles/Details/5
+        [AllowAnonymous]
         public ActionResult Details(int? id, List<MedicalInfo> medInfos)
             
         {
@@ -177,12 +178,12 @@ namespace B4B.Controllers
             {
                 return HttpNotFound();
             }
-            if (CurrentUser.Profiles.Contains(profile))
-            {
-                ViewBag.CurrentUser = CurrentUser;
-                return View(wizardViewModel);
-            }
-            return RedirectToAction("Login", "Account");
+            
+            //if(User.Identity.GetUserId() == null && id != null)
+            //{
+            //    var pics = new FileController().Index(Convert.ToInt32(id);
+            //}
+             return View(wizardViewModel);
         }
 
         // GET: Profiles/Create
@@ -366,5 +367,7 @@ namespace B4B.Controllers
             }
             base.Dispose(disposing);
         }
+
+
     }
 }
