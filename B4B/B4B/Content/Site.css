@@ -211,3 +211,9 @@ textarea {
 .row {
     text-align: center;
 }
+
+.emergbutton{
+        color: whitesmoke;
+    background-color: red;
+    border-color: #cccccc;
+}

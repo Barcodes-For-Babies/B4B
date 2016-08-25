@@ -14,7 +14,7 @@
 <div class="detailsphoto">
     <img src="~/File?id=@Model.ProfileID" class="idpicsize img-responsive" />
     <div class="emergbtn">
-    @Html.ActionLink("Emergency", "SendEmergencyText", "Profiles", new { id = Model.ProfileID }, new { @class = "btn btn-primary btn-large" })
+    @Html.ActionLink("Emergency", "SendEmergencyText", "Profiles", new { id = Model.ProfileID }, new { @class = "btn btn-primary btn-large emergbutton" })
     </div>
     </div>
 
