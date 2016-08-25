@@ -29,14 +29,27 @@ textarea {
     position:relative;
    
 }
-#adminHome{
-    height:300px;
+
+/*home/admin*/
+.adminHome{
+   display: inline;
     text-align:center;
     vertical-align:middle;
-    margin-top:50px;
+    
+   
 }
 .infotable{
     float:right;
+}
+
+}
+.plus{
+    height:300px;
+    width:300px;
+}
+
+.createbutton{
+    padding:50px;
 }
 
 
@@ -127,8 +140,9 @@ textarea {
 .idpicsize{
     width:300px;
     height:300px;
-    padding-bottom:15px;
+    padding:15px;
     align-content:center;
+    display:inline-block;
 }
 .detailsphoto{
     margin-left:500px;

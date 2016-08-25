@@ -119,13 +119,23 @@ namespace B4B.Controllers
         }
 
         // GET: Profiles/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(int? id, List<MedicalInfo> medInfos)
+            
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            WizardViewModel wizardViewModel = new WizardViewModel();
             Profile profile = db.Profiles.Find(id);
+            wizardViewModel._profile = profile;
+
+            medInfos = db.MedicalInfoes.ToList();
+            foreach (var mi in medInfos)
+            {
+                if (mi.ProfileID == profile.ProfileID)
+                    wizardViewModel._medicalInfo = db.MedicalInfoes.Find(mi.ProfileID);
+            }
             if (profile == null)
             {
                 return HttpNotFound();
@@ -133,7 +143,7 @@ namespace B4B.Controllers
             if (CurrentUser.Profiles.Contains(profile))
             {
                 ViewBag.CurrentUser = CurrentUser;
-                return View(profile);
+                return View(wizardViewModel);
             }
             return RedirectToAction("Login", "Account");
         }
@@ -251,6 +261,8 @@ namespace B4B.Controllers
                     wizardViewModel._profile.PhotoType = avatar.PhotoType;           //Adds the extension type of photo to db
                     wizardViewModel._profile.PhotoBytes = avatar.PhotoBytes;         //Adds the byte array representation of photo to db
                 }
+
+            
                 wizardViewModel._profile.Admin = CurrentUser;
                 db.Entry(wizardViewModel._profile).State = EntityState.Modified;            //Adds profile object into database
 
