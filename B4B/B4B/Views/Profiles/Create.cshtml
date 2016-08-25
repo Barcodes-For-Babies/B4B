@@ -207,6 +207,22 @@
                         }                       
                     }
 
+                    if (index == 3) {
+
+                        if (!$('#eName').val() || !$('#eContact').val()) {
+                            $('.requiredWizard').addClass("shake-constant");
+                            $('#eName').css({ "border-color": "red", "background-color": "yellow" });
+                            $('#eName').focus();
+                            return false;
+                        }
+                        //if (!$('#eContact').val()) {
+                        //    $('.requiredWizard').addClass("shake-constant");
+                        //    $('#eContact').css({ "border-color": "red", "background-color": "yellow" });
+                        //    $('#eContact').focus();
+                        //    return false;
+                        //}
+                    }
+
                     // Set the name for the next tab
                     //$('#tab2').html('Hello, ' + $('#name').val());
                     
