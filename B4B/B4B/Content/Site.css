@@ -1,5 +1,8 @@
-﻿body {
-    padding-top: 50px;
+﻿html{
+    height: 100%;
+}
+body {
+    /*padding-top: 50px;*/
     padding-bottom: 20px;
     height: 100%;
     /*background-color: #4ABDAC;*/
@@ -36,6 +39,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#41c9b2', end
     margin-top: 10px;
     color: whitesmoke;
     border-color: #cccccc;
+    border-radius: 10px;
+    width: 250px;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -321,4 +326,44 @@ textarea {
         color: whitesmoke;
     background-color: red;
     border-color: #cccccc;
+}
+
+/* --------------------------------------
+                Home Page
+   -------------------------------------- */
+a.homeNavBrand{
+    font-size: 80px;
+    font-weight: 900;
+    text-decoration: none;
+
+}
+#homeNavBrand{
+    font-size: 150px;
+    font-weight: 900;
+    color: #F7B733;
+    position: absolute;
+    bottom: -32px;
+}
+.homeNavBrand :hover{
+    text-decoration: none;
+}
+#homeNavItems li{
+    list-style: none;
+    display: inline-block;
+    float: right;
+    margin: 50px 10px 20px 20px;
+    font-size: 30px;
+    font-weight: 900;
+}
+#homeNavItems li a{
+    color: #F7B733;
+    list-style: none;
+    text-decoration: none;
+}
+#homeNavItems>.lastItem{
+    margin-right: 130px;
+}
+#homeNavTitle{
+    font-weight: 900;
+    font-size: 100px;
 }
