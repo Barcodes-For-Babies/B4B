@@ -103,7 +103,7 @@ textarea {
     border-radius: 5px;
 }
 #tab1, #tab2, #tab3{
-    height: 400px;
+    height: auto;
     padding-left: 20px;
     padding-right: 20px;
 }
@@ -172,6 +172,8 @@ textarea {
 }
 #rootwizard{
     background-color: ghostwhite;
+    height: 750px;
+    width: 800px;
 }
 #rootwizard> .navbar{
     margin-bottom: 0;
@@ -189,7 +191,7 @@ textarea {
 }
 #wiz1right{
     padding-left: 100px;
-    padding-top: 50px;
+    padding-top: 10px;
 }
 .wizardFooter>ul{
     text-align: right;
@@ -226,12 +228,12 @@ textarea {
 #createAvartar{
     position: absolute;
     top: 50px;
-    right: 90px;
+    right: 350px;
 }
 #Avatar{
     position: absolute;
-    bottom: 100px;
-    left: 100px;
+    bottom: 120px;
+    right: 230px;
 }
 
 

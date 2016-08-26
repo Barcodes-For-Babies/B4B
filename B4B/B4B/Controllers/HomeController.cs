@@ -15,6 +15,10 @@ namespace B4B.Controllers
         [AllowAnonymous]
         public ActionResult Index()
         {
+            //if (User.Identity.IsAuthenticated)
+            //{
+            //    return RedirectToAction("Admin", "Home");
+            //}
             return View();
         }
 
