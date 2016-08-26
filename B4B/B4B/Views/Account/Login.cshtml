@@ -7,7 +7,7 @@
     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 clearfix">
         <a href="@Url.Action("Index","Home")" class="homeNavBrand">SQR<span id="homeNavBrand">.</span></a>
     </div> <!-- end Navbar Brand-->
-    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 clearfix" style="height: 114px;">
+    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 clearfix" id="LoginNav" style="height: 114px;">
         <ul id="homeNavItems">
             <li class="lastItem"><a href="~/Account/Login">Login</a></li>
             <li><a href="Home/Contact">Contact</a></li>
@@ -19,9 +19,9 @@
 
 
 <div class="row">
-    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"></div>
-    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-        <div class="formPlate">
+    <div class="col-lg-3 col-md-3 "></div>
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <div class="formPlate col-lg-12 col-md-12 col-sm-12 col-xs-12">
             @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
             {
                 @Html.AntiForgeryToken()
@@ -68,7 +68,7 @@
             </div>
         </div>
     </div>
-    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"></div>
+    <div class="col-lg-3 col-md-3 "></div>
 </div>
 
 

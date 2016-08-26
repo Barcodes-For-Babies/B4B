@@ -326,7 +326,8 @@ textarea {
     margin: 57px auto auto 0;
     /*margin-left: auto;
     margin-right: auto;*/
-    position: relative;
+    position: absolute;
+    bottom: 0;
     font-family: 'Alegreya Sans SC', sans-serif;
     color: red;
 }
@@ -387,13 +388,17 @@ a.homeNavBrand{
     #homeNavItems>.lastItem{
         margin-right: 10px;
     }
+    #homeNavTitle{
+        font-size: 80px;
+        margin-top: 60px;
+    }
 
 }
 
 @media screen and (max-width: 425px) {
     #homeNavTitle{
         font-weight: 900;
-        font-size: 50px;
+        font-size: 40px;
     }
     #homeNavButton{
         background: white;
@@ -434,10 +439,21 @@ a.homeNavBrand{
       margin: 1px 0;
     }
     #homeNavBrand{
-        left: 157px;
+        left: 120px;
+        bottom: -40px;
+    }
+    a.homeNavBrand{
+        font-size: 60px;
     }
     #homeNavItems{
         padding-left: 0;
+    }
+    #homeNavItems li{
+        font-size: 20px;
+        margin-top: 30px;
+    }
+    .clearfix.dropdown{
+        height: 80px !important;
     }
     #homeNavI a{
         color: white;
@@ -451,6 +467,9 @@ a.homeNavBrand{
     #homeNavI li{
         border-bottom-style: groove;
     }
+    #LoginNav{
+        height: 85px !important
+    }
 }
 
 @media screen and (max-width: 375px) {
@@ -461,35 +480,45 @@ a.homeNavBrand{
         left: 100px;
     }
     #homeNavTitle{
-        font-size: 50px;
+        font-size: 35px;
     }
     a.homeNavBrand{
         font-size: 60px;
     }
     #homeNavBrand{
         left: 125px;
-        bottom: -40px;
+        bottom: -17px;
+        font-size: 100px;
+    }
+    #homeNavItems li{
+        margin-right: 0;
+    }
+    #homeNavItems>.lastItem{
+        margin-right: 0;
     }
     div.homeNavbutton.dropdown-toggle{
         bottom: -90px !important;
+    }
+    #LoginNav{
+        height: 85px !important
     }
 }
 
 @media screen and (max-width: 320px) {
     #homeNavTitle{
         font-weight: 900;
-        font-size: 40px;
+        font-size: 30px;
     }
     #homeNavI{
         left: 60px;
         top: 60px;
     }
     a.homeNavBrand{
-        font-size: 60px;
+        font-size:40px;
     }
     #homeNavBrand{
-        left: 122px;
-        bottom: -40px;
+        left: 90px;
+        bottom: -26px;
     }
     div.row.mobileHome{
         margin-bottom: 50px !important;
@@ -498,6 +527,17 @@ a.homeNavBrand{
       top: 22px;
       right: 20px;
     }
+    #homeNavItems li{
+        margin-right: 0;
+        margin-top: 17px;
+    }
+    #homeNavItems>.lastItem{
+        margin-right: 0;
+    }
+    .clearfix.dropdown{
+        height: 57px !important;
+    }
+
 }
 /* --------------------------------------
                 Login Page
