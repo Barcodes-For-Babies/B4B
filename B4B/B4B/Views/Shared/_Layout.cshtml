@@ -50,17 +50,19 @@
         <div class="container-fluid clearfix" id="renderBody">
             @RenderBody()
         </div>
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="footer">
-                    <span>
-                        <a href="~/Home/About">About</a> |
-                        <a href="~/Home/Contact">Contact</a><br/>
-                        &copy; @DateTime.Now.Year - SafeKeepers QR
-                    </span>
-                </div>
-            </div>
+
     </footer>
-    
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="footer">
+                <span>
+                    <a href="~/Home/About">About</a> |
+                    <a href="~/Home/Contact">Contact</a><br />
+                    &copy; @DateTime.Now.Year - SafeKeepers QR
+                </span>
+            </div>
+        </div>
+    </div>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
