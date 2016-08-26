@@ -60,19 +60,17 @@
                 @Html.ActionLink("Forgot your password?", "ForgotPassword")
             </p>*@
             }
+            @*<hr />*@
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+                </div>
+            </div>
         </div>
     </div>
     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"></div>
 </div>
 
-
-
-
-    @*<div class="col-md-4">
-        <section id="socialLoginForm">
-            @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
-        </section>
-    </div>*@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
