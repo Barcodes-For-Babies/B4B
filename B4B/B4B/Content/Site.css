@@ -62,27 +62,6 @@ textarea {
    
 }
 
-/*home/admin*/
-.adminHome{
-   display: inline;
-    text-align:center;
-    vertical-align:middle;
-    
-   
-}
-.infotable{
-    float:right;
-}
-
-}
-.plus{
-    height:300px;
-    width:300px;
-}
-
-.createbutton{
-    padding:50px;
-}
 
 
 /* --------------------------------------
@@ -387,4 +366,48 @@ a.homeNavBrand{
 }
 .loginBox0, .registerBox0{
     margin-top: 60px;
+}
+
+/* --------------------------------------
+                Admin Page
+   -------------------------------------- */
+.profilesAdmin{
+    max-width: 200px;
+    min-width: 84px;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    margin: 0 2vw 0 0;
+    list-style: none;
+}
+.profilesAdmin:hover{
+    color: #F7B733;
+}
+.profilesAdmin img:hover,.profilesAdmin a:hover{
+    border: solid #F7B733;
+}
+.addProfileAdmin{
+    height: 150px;
+    width: 150px;
+    display:block;
+    background-size: contain;
+    background-image:url(http://www.public-domain-photos.com/free-cliparts-4/computer/actions/add.png);
+}
+.adminHome{
+   display: inline;
+   text-align:center;
+   vertical-align:middle;
+}
+.infotable{
+    float:right;
+}
+
+}
+.plus{
+    height:300px;
+    width:300px;
+}
+
+.createbutton{
+    padding:50px;
 }
