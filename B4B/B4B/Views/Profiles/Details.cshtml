@@ -4,160 +4,367 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+@*<h2>Details</h2>
 
     <h4>Profile</h4>
-    <hr />
+    <hr />*@
 
 
 
-<div class="detailsphoto">
-    <img src="~/File?id=@Model._profile.ProfileID" class="idpicsize img-responsive" />
-    <div class="emergbtn">
-    @Html.ActionLink("Emergency", "SendEmergencyText", "Profiles", new { id = Model._profile.ProfileID }, new { @class = "btn btn-primary btn-large" })
-    </div>
-    </div>
-
-
-
+<div class="row" style="margin-top: 40px; margin-left:90px;">
+    <div class="col-sm-6">
+        <div class="form-group col-sm-12" style="margin-left: 85px;">
+            @*<span class="control-label col-sm-2"><strong>Current Avatar</strong></span>*@
+            <div>
+                <img src="~/File?id=@Model._profile.ProfileID" alt="avatar" class="idpicsize img-responsive" />
+            </div>
+        </div> <!-- end Current Avatar -->
+        <div class="form-group col-sm-12" style="margin-left: 0px;">
+            @*@Html.Label("Avatar", new { @class = "control-label col-md-2" })*@
+            <div class="emergbtn">
+                @Html.ActionLink("Emergency", "SendEmergencyText", "Profiles", new { id = Model._profile.ProfileID }, new { @class = "btn btn-primary btn-large" })
+            </div>
             
+        </div>
         
-        
- 
+    </div>
+    @*<div class="detailsphoto">
+        <img src="~/File?id=@Model._profile.ProfileID" class="idpicsize img-responsive" />
+        <div class="emergbtn">
+        @Html.ActionLink("Emergency", "SendEmergencyText", "Profiles", new { id = Model._profile.ProfileID }, new { @class = "btn btn-primary btn-large" })
+        </div>
+        </div>*@
+
+
+    <div class="col-sm-6 clearfix " style="height: 100%; margin-top:10px;">
+        <div class="form-group clearfix" style="display:block">
+            <div class="col-sm-4">
+                @if (Model._profile.FirstName != null)
+                {
+
+                    <div>
+                        <strong>Name:</strong>
+                        <p>@Html.DisplayFor(model => model._profile.FullName)</p>
+                    </div>
+
+                }
+                @*else
+                {
+                    <div>
+                        <strong>Name:</strong>
+                        <p>N/A</p>
+                    </div>
+
+                }*@
+
+                @if (Model._profile.StreetAdress != null)
+                {
+                    <div>
+                        <strong>Address:</strong>
+                        <p>@Html.DisplayFor(model => model._profile.StreetAdress)</p>
+                    </div>
+                }
+                @*else
+                {
+                    <div>
+                        <strong>Address:</strong>
+                        <p>N/A</p>
+                    </div>
+                }*@
+
+                @if (Model._profile.City != null)
+                {
+                    <div>
+                        <strong>City:</strong>
+                        <p>@Html.DisplayFor(model => model._profile.City)</p>
+                    </div>
+                }
+                @*else
+                {
+                    <div>
+                        <strong>City:</strong>
+                        <p>N/A</p>
+                    </div>
+
+                }*@
+
+                @if (Model._profile.State != null)
+                {
+                    <div>
+                        <strong>State:</strong>
+                        <p>@Html.DisplayFor(model => model._profile.State)</p>
+                    </div>
+                }
+                @*else
+                {
+                    <div>
+                        <strong>State:</strong>
+                        <p>N/A</p>
+                    </div>
+
+                }*@
+
+
+                @if (Model._profile.ZipCode != null)
+                {
+                    <div>
+                        <strong>Zip Code:</strong>
+                        <p>@Html.DisplayFor(model => model._profile.ZipCode)</p>
+                    </div>
+                }
+                @*else
+                {
+                    <div>
+                        <strong>Zip Code:</strong>
+                        <p>N/A</p>
+                    </div>
+
+                }*@
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12 clearfix " style="height: 100%; margin-top:25px;">
 
 
 
+        @if (Model._medicalInfo.MedicalCondition != null)
+            {
 
-    <dl class="infotable" class"col-md-6">
-        @if (Model._profile.FirstName != null)
-        {
-            <dt>
-                @Html.DisplayNameFor(model => model._profile.FirstName)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model._profile.FirstName)
-            </dd>
+            <div>
+                <strong>Medical Condition:</strong>
+                <p>@Html.DisplayFor(model => model._medicalInfo.MedicalCondition)</p>
+            </div>
         }
-
-        @if (Model._profile.LastName != null)
-        {
-            <dt>
-                @Html.DisplayNameFor(model => model._profile.LastName)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model._profile.LastName)
-            </dd>
-        }
-
-        @if (Model._profile.StreetAdress != null)
-        {
-            <dt>
-                @Html.DisplayNameFor(model => model._profile.StreetAdress)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model._profile.StreetAdress)
-            </dd>
-        }
-
-        @if (Model._profile.City != null)
-        {
-            <dt>
-                @Html.DisplayNameFor(model => model._profile.City)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model._profile.City)
-            </dd>
-        }
-
-        @if (Model._profile.State != null)
-        {
-            <dt>
-                @Html.DisplayNameFor(model => model._profile.State)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model._profile.State)
-            </dd>
-        }
-
-
-        @if (Model._profile.ZipCode != null)
-        {
-            <dt>
-                @Html.DisplayNameFor(model => model._profile.ZipCode)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model._profile.ZipCode)
-            </dd>
-        }
-
-      @if (Model._medicalInfo.MedicalCondition != null)
-      {
-
-        <dt>
-            @Html.DisplayNameFor(model => model._medicalInfo.MedicalCondition)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model._medicalInfo.MedicalCondition)
-        </dd>
-
-      }
 
         @if (Model._medicalInfo.Symptoms != null)
-        {
-            <dt>
-                @Html.DisplayNameFor(model => model._medicalInfo.Symptoms)
-            </dt>
+            {
+            <div>
+                <strong>Symptoms</strong>
+                <p>@Html.DisplayFor(model => model._medicalInfo.Symptoms)</p>
+            </div>
 
-            <dd>
-                @Html.DisplayFor(model => model._medicalInfo.Symptoms)
-            </dd>
         }
 
         @if (Model._medicalInfo.RelatedInformation != null)
-        {
-            <dt>
-                @Html.DisplayNameFor(model => model._medicalInfo.RelatedInformation)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model._medicalInfo.RelatedInformation)
-            </dd>
+            {
+            <div>
+                <strong>Information</strong>
+                <p>@Html.DisplayFor(model => model._medicalInfo.RelatedInformation)</p>
+            </div>
         }
 
 
+        @if (Model._profile.EmergencyPhone == null)
+        {
+
+            @:No Emergency contact set
+
+        }
+        else
+        {
+            <div>
+                <strong>Emergency Contact</strong>
+                <p>@Html.DisplayFor(modelItem => modelItem._profile.EcontactName)</p>
+            </div>
+        }
+
+
+        <div>
             @if (Model._profile.EmergencyPhone == null)
             {
                 @:No Emergency contact set
             }
             else
             {
-                <dt>
-                @Html.DisplayNameFor(modelItem => modelItem._profile.EcontactName)
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(modelItem => modelItem._profile.EcontactName)
-                </dd>
+                <div>
+                    <strong>Emergency Phone</strong>
+                    <p>@Html.DisplayFor(modelItem => modelItem._profile.EmergencyPhone)</p>
+                </div>
             }
-        
+        </div>
+
+        <div>
+            @if (Model._profile.SecondEmergencyPhone == null)
+            {
+                @:No Emergency contact set
+            }
+            else
+            {
+                <div>
+                    <strong>Emergency Contact</strong>
+                    <p>@Html.DisplayFor(modelItem => modelItem._profile.SecondEcontactName)</p>
+                </div>
+
+            }
+        </div>
+
+        <div>
+            @if (Model._profile.SecondEmergencyPhone == null)
+            {
+                @:No Emergency contact set
+                       }
+            else
+            {
+                <div>
+                    <strong>Emergency Phone</strong>
+                    <p>@Html.DisplayFor(modelItem => modelItem._profile.SecondEmergencyPhone)</p>
+                </div>
+            }
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<dl class="infotable" class"col-md-6">*@
+@*@if (Model._profile.FirstName != null)
+    {
+        <dt>
+            @Html.DisplayNameFor(model => model._profile.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model._profile.FirstName)
+        </dd>
+    }
+
+    @if (Model._profile.LastName != null)
+    {
+        <dt>
+            @Html.DisplayNameFor(model => model._profile.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model._profile.LastName)
+        </dd>
+    }
+
+    @if (Model._profile.StreetAdress != null)
+    {
+        <dt>
+            @Html.DisplayNameFor(model => model._profile.StreetAdress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model._profile.StreetAdress)
+        </dd>
+    }
+
+    @if (Model._profile.City != null)
+    {
+        <dt>
+            @Html.DisplayNameFor(model => model._profile.City)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model._profile.City)
+        </dd>
+    }
+
+    @if (Model._profile.State != null)
+    {
+        <dt>
+            @Html.DisplayNameFor(model => model._profile.State)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model._profile.State)
+        </dd>
+    }
+
+
+    @if (Model._profile.ZipCode != null)
+    {
+        <dt>
+            @Html.DisplayNameFor(model => model._profile.ZipCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model._profile.ZipCode)
+        </dd>
+    }*@
+
+@*@if (Model._medicalInfo.MedicalCondition != null)
+                {
+
+            <dt>
+                @Html.DisplayNameFor(model => model._medicalInfo.MedicalCondition)
+            </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model._medicalInfo.MedicalCondition)
+                    </dd>
+
+        }
+
+        @if (Model._medicalInfo.Symptoms != null)
+                {
+            <dt>
+                @Html.DisplayNameFor(model => model._medicalInfo.Symptoms)
+            </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model._medicalInfo.Symptoms)
+                    </dd>
+        }
+
+        @if (Model._medicalInfo.RelatedInformation != null)
+                {
+            <dt>
+                @Html.DisplayNameFor(model => model._medicalInfo.RelatedInformation)
+            </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model._medicalInfo.RelatedInformation)
+                    </dd>
+        }
+
+
+        @if (Model._profile.EmergencyPhone == null)
+                {
+            @:No Emergency contact set
+                }
+                else
+                {
+            <dt>
+                @Html.DisplayNameFor(modelItem => modelItem._profile.EcontactName)
+            </dt>
+
+                    <dd>
+                        @Html.DisplayFor(modelItem => modelItem._profile.EcontactName)
+                    </dd>
+        }
+
         <dt>
             @Html.DisplayNameFor(modelItem => modelItem._profile.EmergencyPhone)
 
         </dt>
         <dd>
             @if (Model._profile.EmergencyPhone == null)
-            {
+                {
                 @:No Emergency contact set
-                       }
-            else
-            {
+                           }
+                else
+                {
                 @Html.DisplayFor(modelItem => modelItem._profile.EmergencyPhone)
             }
         </dd>
@@ -167,11 +374,11 @@
         </dt>
         <dd>
             @if (Model._profile.SecondEmergencyPhone == null)
-            {
+                {
                 @:No Emergency contact set
-            }
-            else
-            {
+                }
+                else
+                {
                 @Html.DisplayFor(modelItem => modelItem._profile.SecondEcontactName)
             }
         </dd>
@@ -181,25 +388,31 @@
         </dt>
         <dd>
             @if (Model._profile.SecondEmergencyPhone == null)
-            {
+                {
                 @:No Emergency contact set
-                       }
-            else
-            {
+                           }
+                else
+                {
                 @Html.DisplayFor(modelItem => modelItem._profile.SecondEmergencyPhone)
             }
         </dd>
-    </dl>
+    </dl>*@
 
 @if (Model._profile.Admin == ViewBag.CurrentUser)
-{ }
+{
 
 
 
-    <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model._profile.ProfileID }) |
-        @Html.ActionLink("Back to List", "Index")
-    </p>
+}
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model._profile.ProfileID }) |
+@Html.ActionLink("Back to List", "Index")
+</p>
+
+
+
+
 
 
 
