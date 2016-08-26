@@ -3,7 +3,7 @@
 }
 body {
     /*padding-top: 50px;*/
-    padding-bottom: 20px;
+    /*padding-bottom: 20px;*/
     height: 100%;
     /*background-color: #4ABDAC;*/
     color: whitesmoke;
@@ -19,8 +19,9 @@ body {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#41c9b2', endColorstr='#43c7b3', GradientType=1 );
 
 }
-
-
+#renderBody{
+    height: 100%;
+}
 
 
 /* Set padding to keep content from hitting the edges */
@@ -322,11 +323,12 @@ textarea {
              Footer
    -------------------------------------- */
 #footer {
-    bottom: 5px;
-    margin-left: auto;
-    margin-right: auto;
-    position: fixed;
+    margin: 57px auto auto 0;
+    /*margin-left: auto;
+    margin-right: auto;*/
+    position: relative;
     font-family: 'Alegreya Sans SC', sans-serif;
+    color: red;
 }
 .row {
     text-align: center;
