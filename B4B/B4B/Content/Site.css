@@ -320,7 +320,7 @@ textarea {
     margin: 57px auto auto 0;
     /*margin-left: auto;
     margin-right: auto;*/
-    position: absolute;
+    position:page;
     bottom: 0;
     font-family: 'Alegreya Sans SC', sans-serif;
     color: red;
@@ -592,7 +592,11 @@ a.homeNavBrand{
     width: 150px;
     display: block;
     background-size: contain;
-    background-image: url('../User_-_add-512.png');
+    font-size:250%;
+  
+}
+.newplus{
+    padding-bottom:15px;
 }
 .adminHome{
    display: inline;
