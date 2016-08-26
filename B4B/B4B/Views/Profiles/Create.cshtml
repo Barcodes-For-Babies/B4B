@@ -38,7 +38,7 @@
                 <div class="tab-content clearfix">
                     <div class="tab-pane clearfix" id="tab1">
                         <div class="col-md-4 clearfix" id="wiz1left">
-                            <div class="form-group" style="height: 100%";>
+                            <div class="form-group" style="height: 100%" ;>
                                 @Html.Label("Avatar", new { @class = "control-label col-md-12", style = "text-align: center; margin-top: 10px; color: #F7B733" })
                                 <div class="image clearfix">
                                     <img src="http://www.lavacable.com/assets/images/Products/placeholder_product.jpg" class="object-fit_scale-down" id="createAvartar" width="200" height="200" />
@@ -50,7 +50,7 @@
                         <div class="col-md-8 clearfix" id="wiz1right">
                             <div class="form-group">
                                 <div class="col-md-10">
-                                    <div class="requiredWizard"  style="color: #F7B733;">Fields marked with an asterisk (*) are required</div>
+                                    <div class="requiredWizard" style="color: #F7B733;">Fields marked with an asterisk (*) are required</div>
                                 </div>
                             </div>
 
@@ -158,14 +158,17 @@
                         </div> <!-- end SecondEmergency Phone -->
 
                         <div class="form-group">
-                            <div class="col-md-1">
-                                @Html.CheckBoxFor(model => model._profile.disclaimer, new {  htmlAttributes = new { @class = "createBox form-control", @id = "disclaimerCheck", @name = "disclaimer" } })
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                             </div>
-                            <div class="col-md-10">
-                                <p>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                @Html.CheckBoxFor(model => model._profile.disclaimer, new { htmlAttributes = new { @class = "createBox form-control", @style = "display: inline-block", @id = "disclaimerCheck", @name = "disclaimer" } })
+                                <p style="color: #F7B733; display:inline-block">
                                     The content of this profile will not be private and confidential information once created. In no event shall Barcodes 4
                                     Babies be held liable for any improper or incorrect use of the information described and/or contained herein.
                                 </p>
+                            </div>
+
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                             </div>
                         </div>
 
@@ -174,19 +177,18 @@
                     <div class="wizardFooter">
                         <ul class="pager wizard">
                             <li class="previous" style="display:none;"><a href="#">Previous</a></li>
-                            <li class="next" id="submitWiz"><a href="#" id="submitWizText">Next</a></li>
+                            <li class="next" style="margin-right: 20px;" id="submitWiz"><a href="#" id="submitWizText">Next</a></li>
                         </ul> <!-- end Wizard Footer Nav Buttons -->
                     </div> <!-- end Wizard Footer-->
 
                 </div>   <!-- end tab-content -->
             </div>  <!-- end rootwizard -->
-
             <!-- Add create button to pager wizard -->
             @*<div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Create" class="btn btn-default" />
-                </div>
-            </div>*@
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Create" class="btn btn-default" />
+                    </div>
+                </div>*@
 
         </div>
     }
@@ -208,7 +210,7 @@
                             $('#FirstName').css({ "border-color": "red", "background-color": "#F7B733" });
                             $('#FirstName').focus();
                             return false;
-                        }                       
+                        }
                     }
 
                     if (index == 3) {
@@ -229,7 +231,7 @@
 
                     // Set the name for the next tab
                     //$('#tab2').html('Hello, ' + $('#name').val());
-                    
+
 
                     if ($('#disclaimerCheck').attr('checked', true)) {
                         $('#submitWiz').removeClass("disabled");
@@ -244,7 +246,7 @@
                     if (index == 2) {
 
                         $('#submitWiz').remove();
-                        $(".wizardFooter ul").append('<li><input type="submit" value="Create" class="btn btn-default" /></li>');
+                        $(".wizardFooter ul").append('<li><input type="submit" value="Create" style="margin-right: 15px;" class="btn btn-default" /></li>');
 
                         if (!$('#eName').val()) {
                             $('.requiredWizard').addClass("shake-constant");

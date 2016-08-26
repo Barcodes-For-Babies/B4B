@@ -58,11 +58,11 @@ namespace B4B
             //   appId: "",
             //   appSecret: "");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "23489441841-mn26dmma2l5b59pdvsu6ktqllk9tfivp.apps.googleusercontent.com",
+                ClientSecret = "EIuYXCJDGLNgZyStdOw7asLE"
+            });
         }
     }
 }
