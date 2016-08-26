@@ -275,6 +275,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="add-160503_960_720.png" />
     <Content Include="Content\bootstrap-social.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -286,10 +287,14 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\BackgroundOverlay.jpg" />
     <Content Include="Images\blue.png" />
+    <Content Include="Images\family.jpg" />
+    <Content Include="Images\Kids4.jpg" />
     <Content Include="Images\light-blue.png" />
     <Content Include="Images\light-blue2.png" />
     <Content Include="Images\light-green.png" />
+    <Content Include="Portrait_placeholder.png" />
     <Content Include="Scripts\ai.0.22.19-build00125.js" />
     <Content Include="Scripts\ai.0.22.19-build00125.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -321,6 +326,7 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="User_-_add-512.png" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

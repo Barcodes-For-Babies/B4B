@@ -10,11 +10,11 @@
     </div> <!-- end Navbar Brand-->
 </div>
 
-<div class="row">
+@*<div class="row"
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs 12">
         <h1 style="font-size: 70px;">Your Profiles:</h1>
     </div>
-</div>
+</div>*@
 <div class="row">
     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"></div>
     <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
@@ -24,21 +24,23 @@
                 <li class="profilesAdmin">
                     @if (item.PhotoBytes != null)
                     {
-                        <img src="~/File?id=@item.ProfileID" class="img-responsive" width="150" height="150" />
+                        <a  href="@Url.Action("Create", "Profiles")" class="addProfileAdmin"><img src="~/File?id=@item.ProfileID" class="img-responsive adviewpic"/></a>
                     }
                     else
                     {
                         @*<div class="profileIcon" style="background-image:url(http://assignments.ds106.us/files/2011/12/placeholder.png)"></div>*@
-                        <img src="http://assignments.ds106.us/files/2011/12/placeholder.png" class="object-fit_fill" width="150" height="150" />
+
+                        <img src="~/Portrait_placeholder.png" class= "object-fit_fill" width = "150" height = "150" />
                     }
-                    <span style="display:block; font-size: 20px; margin: 10px 0;">@item.FullName</span>
+                    <span style="display:block; font-size: 20px; margin: 10px 0;">@item.FirstName</span>
                 </li>
                 @*@Html.ActionLink(item.FirstName, "Edit", "Profiles", new { id = item.ProfileID }, null)*@
             }
             <li class="profilesAdmin">
                 <div>
-                    <a href="@Url.Action("Create", "Profiles")" class="addProfileAdmin"></a>
-                    <span style="display:block; font-size: 20px; margin: 10px 0;">Create Profile</span>
+                   
+                    <a href="@Url.Action("Create", "Profiles")" class="addProfileAdmin"><i class="fa fa-plus-square-o fa-5x adviewpic " aria-hidden="true"></i></a>
+                    <span style="display:block; font-size: 20px; margin: 10px 0; padding-top:15px;">Create Profile</span>
                 </div>
                 @*@Html.ActionLink("+", "Create", "Profiles", null, new { @class = "btn btn-default" })*@
             </li>
