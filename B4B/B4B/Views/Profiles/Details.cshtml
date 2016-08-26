@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "Details";
-}
+ }
 
 @*<h2>Details</h2>
 
@@ -129,6 +129,7 @@
     </div>
 </div>
 
+<<<<<<< HEAD
 <div class="row">
     <div class="col-sm-12 clearfix " style="height: 100%; margin-top:25px;">
 
@@ -151,6 +152,14 @@
             </div>
 
         }
+=======
+    <dl class="infotable" class"col-md-6">
+        @if (Model._profile.FirstName != null)
+        {
+            <dt>
+                @Html.DisplayNameFor(model => model._profile.FirstName)
+            </dt>
+>>>>>>> Cleanup
 
         @if (Model._medicalInfo.RelatedInformation != null)
             {
@@ -341,6 +350,7 @@
         }
 
 
+<<<<<<< HEAD
         @if (Model._profile.EmergencyPhone == null)
                 {
             @:No Emergency contact set
@@ -348,6 +358,16 @@
                 else
                 {
             <dt>
+=======
+            @if (Model._profile.EmergencyPhone == null)
+            {
+                @:No Emergency contact set
+            }
+
+            else
+            {
+                <dt>
+>>>>>>> Cleanup
                 @Html.DisplayNameFor(modelItem => modelItem._profile.EcontactName)
             </dt>
 
@@ -364,9 +384,15 @@
             @if (Model._profile.EmergencyPhone == null)
                 {
                 @:No Emergency contact set
+<<<<<<< HEAD
                            }
                 else
                 {
+=======
+            }
+            else
+            {
+>>>>>>> Cleanup
                 @Html.DisplayFor(modelItem => modelItem._profile.EmergencyPhone)
             }
         </dd>
@@ -392,9 +418,16 @@
             @if (Model._profile.SecondEmergencyPhone == null)
                 {
                 @:No Emergency contact set
+<<<<<<< HEAD
                            }
                 else
                 {
+=======
+            }
+
+            else
+            {
+>>>>>>> Cleanup
                 @Html.DisplayFor(modelItem => modelItem._profile.SecondEmergencyPhone)
             }
         </dd>
@@ -415,6 +448,13 @@
 
 
 
+<<<<<<< HEAD
+=======
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model._profile.ProfileID })
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+>>>>>>> Cleanup
 
 
 

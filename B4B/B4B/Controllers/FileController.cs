@@ -12,6 +12,7 @@ namespace B4B.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: File
+        [AllowAnonymous]
         public ActionResult Index(int id)
         {
             var fileToRetrieve = db.Profiles.Find(id);
