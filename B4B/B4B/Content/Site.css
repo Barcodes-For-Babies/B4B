@@ -379,12 +379,12 @@ a.homeNavBrand{
     margin-right: auto;
     box-shadow: 5px 5px 5px 5px #888888;
 }
-.loginBox, .loginBox0{
+.loginBox, .loginBox0, .registerBox, .registerBox0{
     margin-left: auto;
     margin-right: auto;
     color: white;
     background: rgb(200,200,200);
 }
-.loginBox0{
+.loginBox0, .registerBox0{
     margin-top: 60px;
 }
