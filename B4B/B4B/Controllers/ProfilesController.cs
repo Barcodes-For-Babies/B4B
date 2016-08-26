@@ -120,9 +120,9 @@ namespace B4B.Controllers
 
 
 
-        private Bitmap renderQRCode()
+        private Bitmap renderQRCode(int id)
         {
-            string url = Request.Url.ToString();
+            string url = "https://localhost:44378/Profiles/Details/" + id;
             PayloadGenerator.Url myUrl = new PayloadGenerator.Url(url);
             QRCodeGenerator qrGenerator = new QRCodeGenerator();
             QRCodeData qrCodeData = qrGenerator.CreateQrCode(myUrl.ToString(), QRCodeGenerator.ECCLevel.Q);
@@ -135,9 +135,9 @@ namespace B4B.Controllers
         }
 
 
-        public FileContentResult myAction()
+        public FileContentResult myAction(int id)
         {
-            Bitmap qrCodeImage = renderQRCode();
+            Bitmap qrCodeImage = renderQRCode(id);
             byteArray = ImageToByte2(qrCodeImage);
             return new FileContentResult(byteArray, "image/jpg");
         }
@@ -182,6 +182,11 @@ namespace B4B.Controllers
             }
             WizardViewModel wizardViewModel = new WizardViewModel();
             Profile profile = db.Profiles.Find(id);
+
+            if(profile == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
             wizardViewModel._profile = profile;
 
             medInfos = db.MedicalInfoes.ToList();
