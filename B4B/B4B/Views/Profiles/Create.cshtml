@@ -4,6 +4,11 @@
 @{
     ViewBag.Title = "Create";
 }
+<div class="row" style="margin-bottom: 40px;">
+    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 clearfix">
+        <a href="@Url.Action("Index", "Home")" class="homeNavBrand">SQR<span id="homeNavBrand">.</span></a>
+    </div> <!-- end Navbar Brand-->
+</div>
 
 <div class="container" id="wizForm">
     @using (Html.BeginForm("Create", "Profiles", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
@@ -18,9 +23,9 @@
                     <div class="navbar-inner">
                         <div class="container" id="wizNavContainer">
                             <ul id="wizNav">
-                                <li><a href="#tab1" data-toggle="tab" onclick="">Step 1</a></li>
-                                <li><a href="#tab2" data-toggle="tab" onclick="">Step 2</a></li>
-                                <li><a href="#tab3" data-toggle="tab" onclick="">Step 3</a></li>
+                                <li><a href="#tab1" data-toggle="tab" style="color:#F7B733;">Step 1</a></li>
+                                <li><a href="#tab2" data-toggle="tab" style="color:#F7B733;">Step 2</a></li>
+                                <li><a href="#tab3" data-toggle="tab" style="color:#F7B733;">Step 3</a></li>
                             </ul>
                         </div> <!-- end container -->
                     </div> <!-- end navbar-inner -->
@@ -34,7 +39,7 @@
                     <div class="tab-pane clearfix" id="tab1">
                         <div class="col-md-4 clearfix" id="wiz1left">
                             <div class="form-group" style="height: 100%";>
-                                @Html.Label("Avatar", new { @class = "control-label col-md-12", style = "text-align: center; margin-top: 10px" })
+                                @Html.Label("Avatar", new { @class = "control-label col-md-12", style = "text-align: center; margin-top: 10px; color: #F7B733" })
                                 <div class="image clearfix">
                                     <img src="http://www.lavacable.com/assets/images/Products/placeholder_product.jpg" class="object-fit_scale-down" id="createAvartar" width="200" height="200" />
                                 </div>
@@ -45,7 +50,7 @@
                         <div class="col-md-8 clearfix" id="wiz1right">
                             <div class="form-group">
                                 <div class="col-md-10">
-                                    <div class="requiredWizard">Fields marked with an asterisk (*) are required</div>
+                                    <div class="requiredWizard"  style="color: #F7B733;">Fields marked with an asterisk (*) are required</div>
                                 </div>
                             </div>
 
@@ -87,75 +92,74 @@
                     </div> <!-- end Form page 1 Basic Profile details -->
 
                     <div class="tab-pane" id="tab2">
-
-                        <div class="form-group">
-                            <div class="col-md-10">
-                                <p>Fields marked with an asterisk (*) are required</p>
+                        <div class="form" style="margin-left: auto; margin-right: auto;">
+                            <div class="form-group">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="text-align: center">
+                                    <p style="color: #F7B733;">Fields marked with an asterisk (*) are required</p>
+                                </div>
                             </div>
+
+                            <div class="form-group">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    @Html.EditorFor(model => model._medicalInfo.MedicalCondition, new { htmlAttributes = new { @class = "createBox form-control", @placeholder = "Medical Condition" } })
+                                    @Html.ValidationMessageFor(model => model._medicalInfo.MedicalCondition, "", new { @class = "text-danger" })
+                                </div>
+                            </div> <!-- end Medical Condition -->
+
+                            <div class="form-group">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    @Html.EditorFor(model => model._medicalInfo.Symptoms, new { htmlAttributes = new { @class = "createBox form-control", @placeholder = "Symptoms" } })
+                                    @Html.ValidationMessageFor(model => model._medicalInfo.Symptoms, "", new { @class = "text-danger" })
+                                </div>
+                            </div> <!-- end Symptoms -->
+                            <div class="form-group">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    @Html.EditorFor(model => model._medicalInfo.RelatedInformation, new { htmlAttributes = new { @class = "createBox form-control", @placeholder = "Related Information" } })
+                                    @Html.ValidationMessageFor(model => model._medicalInfo.RelatedInformation, "", new { @class = "text-danger" })
+                                </div>
+                            </div> <!-- end Related Information -->
                         </div>
-
-                        <div class="form-group">
-                            <div class="col-md-10">
-                                @Html.EditorFor(model => model._medicalInfo.MedicalCondition, new { htmlAttributes = new { @class = "form-control", @placeholder = "Medical Condition" } })
-                                @Html.ValidationMessageFor(model => model._medicalInfo.MedicalCondition, "", new { @class = "text-danger" })
-                            </div>
-                        </div> <!-- end Medical Condition -->
-
-                        <div class="form-group">
-                            <div class="col-md-10">
-                                @Html.EditorFor(model => model._medicalInfo.Symptoms, new { htmlAttributes = new { @class = "form-control", @placeholder = "Symptoms" } })
-                                @Html.ValidationMessageFor(model => model._medicalInfo.Symptoms, "", new { @class = "text-danger" })
-                            </div>
-                        </div> <!-- end Symptoms -->
-                        <div class="form-group">
-                            <div class="col-md-10">
-                                @Html.EditorFor(model => model._medicalInfo.RelatedInformation, new { htmlAttributes = new { @class = "form-control", @placeholder = "Related Information" } })
-                                @Html.ValidationMessageFor(model => model._medicalInfo.RelatedInformation, "", new { @class = "text-danger" })
-                            </div>
-                        </div> <!-- end Related Information -->
-
-
                     </div> <!-- end Form page 2 Medical Information -->
 
                     <div class="tab-pane" id="tab3">
 
                         <div class="form-group">
-                            <div class="col-md-10">
-                                <p>Fields marked with an asterisk (*) are required</p>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <p style="color: #F7B733;">Fields marked with an asterisk (*) are required</p>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <div class="col-md-10">
-                                @Html.EditorFor(model => model._profile.EcontactName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Emergency Contact Name*", @id = "eName" } })
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                @Html.EditorFor(model => model._profile.EcontactName, new { htmlAttributes = new { @class = "createBox form-control", @placeholder = "Emergency Contact Name*", @id = "eName" } })
                                 @Html.ValidationMessageFor(model => model._profile.EcontactName, "", new { @class = "text-danger" })
                             </div>
                         </div> <!-- end Emergency Name -->
 
                         <div class="form-group">
-                            <div class="col-md-10">
-                                @Html.EditorFor(model => model._profile.EmergencyPhone, new { htmlAttributes = new { @class = "form-control", @placeholder = "Emergency Contact Phone Number*", @id = "eContact" } })
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                @Html.EditorFor(model => model._profile.EmergencyPhone, new { htmlAttributes = new { @class = "createBox form-control", @placeholder = "Emergency Contact Phone Number*", @id = "eContact" } })
                                 @Html.ValidationMessageFor(model => model._profile.EmergencyPhone, "", new { @class = "text-danger" })
                             </div>
                         </div><!-- end Emergency Phone -->
 
                         <div class="form-group">
-                            <div class="col-md-10">
-                                @Html.EditorFor(model => model._profile.SecondEcontactName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Emergency Contact Name" } })
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                @Html.EditorFor(model => model._profile.SecondEcontactName, new { htmlAttributes = new { @class = "createBox form-control", @placeholder = "Emergency Contact Name" } })
                                 @Html.ValidationMessageFor(model => model._profile.SecondEcontactName, "", new { @class = "text-danger" })
                             </div>
                         </div> <!-- end Second Emergency Name -->
 
                         <div class="form-group">
-                            <div class="col-md-10">
-                                @Html.EditorFor(model => model._profile.SecondEmergencyPhone, new { htmlAttributes = new { @class = "form-control", @placeholder = "Emergency Contact Phone Number" } })
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                @Html.EditorFor(model => model._profile.SecondEmergencyPhone, new { htmlAttributes = new { @class = "createBox form-control", @placeholder = "Emergency Contact Phone Number" } })
                                 @Html.ValidationMessageFor(model => model._profile.SecondEmergencyPhone, "", new { @class = "text-danger" })
                             </div>
                         </div> <!-- end SecondEmergency Phone -->
 
                         <div class="form-group">
                             <div class="col-md-1">
-                                @Html.CheckBoxFor(model => model._profile.disclaimer, new {  htmlAttributes = new { @class = "form-control", @id = "disclaimerCheck", @name = "disclaimer" } })
+                                @Html.CheckBoxFor(model => model._profile.disclaimer, new {  htmlAttributes = new { @class = "createBox form-control", @id = "disclaimerCheck", @name = "disclaimer" } })
                             </div>
                             <div class="col-md-10">
                                 <p>
@@ -201,7 +205,7 @@
                         // Make sure we entered the name
                         if (!$('#FirstName').val()) {
                             $('.requiredWizard').addClass("shake-constant");
-                            $('#FirstName').css({"border-color": "red", "background-color": "yellow"});
+                            $('#FirstName').css({ "border-color": "red", "background-color": "#F7B733" });
                             $('#FirstName').focus();
                             return false;
                         }                       

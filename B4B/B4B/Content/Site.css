@@ -100,9 +100,12 @@ textarea {
     text-decoration: none;
     border-radius: 5px;
 }
-#tab2, #tab3{
+#tab1, #tab2, #tab3{
     height: 400px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
+
 .wizard>.content {
     background: #eee;
     display: block;
@@ -150,6 +153,7 @@ textarea {
 }
 #wizForm{
     margin-top: 20px;
+    box-shadow: 5px 5px 5px 5px #888888;
 }
 #wizNav{
     text-align: center;
@@ -192,6 +196,9 @@ textarea {
 .wizardFooter>ul> li{
     text-align: right;
     padding-left: 20px;
+}
+.nav-pills > li.active > a {
+    color:white !important;
 }
 #submitWiz{
     width: 88px;
@@ -358,7 +365,7 @@ a.homeNavBrand{
     margin-right: auto;
     box-shadow: 5px 5px 5px 5px #888888;
 }
-.loginBox, .loginBox0, .registerBox, .registerBox0{
+.loginBox, .loginBox0, .registerBox, .registerBox0, .createBox{
     margin-left: auto;
     margin-right: auto;
     color: white;
