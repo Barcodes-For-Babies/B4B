@@ -470,9 +470,13 @@ a.homeNavBrand{
     #LoginNav{
         height: 85px !important
     }
+   
 }
 
 @media screen and (max-width: 375px) {
+    .formPlate{
+        width: 340px !important;
+    }
     div.row.mobileHome{
         margin-bottom: 50px !important;
     }
@@ -537,7 +541,15 @@ a.homeNavBrand{
     .clearfix.dropdown{
         height: 57px !important;
     }
-
+    .formPlate{
+        width: 290px !important;
+    }
+    #submitLogin{
+        width: 250px !important;
+    }
+    #LoginNav{
+        height: 57px !important
+    }
 }
 /* --------------------------------------
                 Login Page
