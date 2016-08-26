@@ -309,7 +309,7 @@ textarea {
 }
 
 .emergbutton{
-        color: whitesmoke;
+    color: whitesmoke;
     background-color: red;
     border-color: #cccccc;
 }
@@ -321,7 +321,6 @@ a.homeNavBrand{
     font-size: 80px;
     font-weight: 900;
     text-decoration: none;
-
 }
 #homeNavBrand{
     font-size: 150px;
@@ -353,7 +352,128 @@ a.homeNavBrand{
     font-weight: 900;
     font-size: 100px;
 }
+@media screen and (max-width: 1024px) {
+    #homeNavItems>.lastItem{
+        margin-right: 10px;
+    }
+}
+@media screen and (max-width: 768px) {
+    #homeNavItems>.lastItem{
+        margin-right: 10px;
+    }
 
+}
+
+@media screen and (max-width: 425px) {
+    #homeNavTitle{
+        font-weight: 900;
+        font-size: 50px;
+    }
+    #homeNavButton{
+        background: white;
+    }
+    #homeNavI{
+        background-color: #F7B733;
+        position: absolute;
+        top: 65px;
+        left: 140px;
+    }
+    #homeNavI ul li{
+        font-size: 20px;
+        display: block;
+    }
+    .homeNavbutton {
+      display: flex;
+      position: absolute;
+      top: 30px;
+      right: 20px;
+      width: 30px;
+      height: 30px;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: #F7B733;
+      z-index: 2;
+      box-shadow: .5px .5px .5px .5px #888888;
+    }
+    .homeNavbutton:active {
+
+      box-shadow: 0;
+    }
+
+    .button__line {
+      background: white;
+      width: 20px;
+      height: 3px;
+      margin: 1px 0;
+    }
+    #homeNavBrand{
+        left: 157px;
+    }
+    #homeNavItems{
+        padding-left: 0;
+    }
+    #homeNavI a{
+        color: white;
+        font-weight: 700;
+        font-size: 20px;
+    }
+    #homeNavI ul{
+        color: #F7B733;
+        padding-left: 0;
+    }
+    #homeNavI li{
+        border-bottom-style: groove;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    div.row.mobileHome{
+        margin-bottom: 50px !important;
+    }
+    #homeNavI{
+        left: 100px;
+    }
+    #homeNavTitle{
+        font-size: 50px;
+    }
+    a.homeNavBrand{
+        font-size: 60px;
+    }
+    #homeNavBrand{
+        left: 125px;
+        bottom: -40px;
+    }
+    div.homeNavbutton.dropdown-toggle{
+        bottom: -90px !important;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    #homeNavTitle{
+        font-weight: 900;
+        font-size: 40px;
+    }
+    #homeNavI{
+        left: 60px;
+        top: 60px;
+    }
+    a.homeNavBrand{
+        font-size: 60px;
+    }
+    #homeNavBrand{
+        left: 122px;
+        bottom: -40px;
+    }
+    div.row.mobileHome{
+        margin-bottom: 50px !important;
+    }
+    .homeNavbutton {
+      top: 22px;
+      right: 20px;
+    }
+}
 /* --------------------------------------
                 Login Page
    -------------------------------------- */
