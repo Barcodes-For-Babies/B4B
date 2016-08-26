@@ -258,6 +258,29 @@ textarea {
 }
 
 
+
+/* --------------------------------------
+            Edit Page View
+   -------------------------------------- */
+.editcity{
+    padding-right: 0px;
+}
+#AvatarEdit{
+    
+}
+.generateQr{
+    padding-left: 114px;
+    padding-right: 50px;
+}
+.printQr{
+    padding-left: 106px;
+}
+
+
+
+
+
+
 /* --------------------------------------
                 Qr Code
    -------------------------------------- */
@@ -273,6 +296,7 @@ textarea {
     width: 250px;
     margin-top: 20px;
 }
+
 
 
 /* --------------------------------------
