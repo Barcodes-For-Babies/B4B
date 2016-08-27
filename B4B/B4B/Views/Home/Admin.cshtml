@@ -24,7 +24,7 @@
                 <li class="profilesAdmin">
                     @if (item.PhotoBytes != null)
                     {
-                        <a  href="@Url.Action("Create", "Profiles")" class="addProfileAdmin"><img src="~/File?id=@item.ProfileID" class="img-responsive adviewpic"/></a>
+                        <a  href="@Url.Action("Create", "Profiles")" class="addProfileAdmin"><img src="~/File?id=@item.ProfileID" class="img-responsive adviewpic1"/></a>
                     }
                     else
                     {
@@ -36,12 +36,9 @@
                 </li>
                 @*@Html.ActionLink(item.FirstName, "Edit", "Profiles", new { id = item.ProfileID }, null)*@
             }
-            <li class="profilesAdmin">
-                <div>
-                   
+            <li class="profilesAdmin">                   
                     <a href="@Url.Action("Create", "Profiles")" class="addProfileAdmin"><i class="fa fa-plus-square-o fa-5x adviewpic " aria-hidden="true"></i></a>
-                    <span style="display:block; font-size: 20px; margin: 10px 0; padding-top:15px;">Create Profile</span>
-                </div>
+                    <span style="display:block; font-size: 20px; margin: 10px 0;">Create Profile</span>
                 @*@Html.ActionLink("+", "Create", "Profiles", null, new { @class = "btn btn-default" })*@
             </li>
         </ul>

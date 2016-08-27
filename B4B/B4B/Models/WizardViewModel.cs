@@ -12,6 +12,6 @@ namespace B4B.Models
     {
         public Profile _profile { get; set; }                       // Sets the Profile model as a property
         public MedicalInfo _medicalInfo { get; set; }               // Sets the MedicalInfo model as a property
-        //public List<MedicalInfo> _medicalInfo { get; set; }
+        public List<MedicalInfo> medInfoList { get; set; }
     }
 }

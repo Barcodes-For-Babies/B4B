@@ -161,7 +161,7 @@
                             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                @Html.CheckBoxFor(model => model._profile.disclaimer, new { htmlAttributes = new { @class = "createBox form-control", @style = "display: inline-block", @id = "disclaimerCheck", @name = "disclaimer" } })
+                                @Html.CheckBoxFor(model => model._profile.disclaimer, new { @class = "createBox form-control", @style = "display: inline-block", @id = "disclaimerCheck", @name = "disclaimer" })
                                 <p style="color: #F7B733; display:inline-block">
                                     The content of this profile will not be private and confidential information once created. In no event shall Barcodes 4
                                     Babies be held liable for any improper or incorrect use of the information described and/or contained herein.
@@ -233,10 +233,6 @@
                     //$('#tab2').html('Hello, ' + $('#name').val());
 
 
-                    if ($('#disclaimerCheck').attr('checked', true)) {
-                        $('#submitWiz').removeClass("disabled");
-                    }
-
                 }, onTabShow: function (tab, navigation, index) {
                     var $total = navigation.find('li').length;
                     var $current = index + 1;
@@ -246,7 +242,7 @@
                     if (index == 2) {
 
                         $('#submitWiz').remove();
-                        $(".wizardFooter ul").append('<li><input type="submit" value="Create" style="margin-right: 15px;" class="btn btn-default" /></li>');
+                        $(".wizardFooter ul").append('<li><input type="submit" id="submitWiz" value="Create" style="margin-right: 15px;" class="btn btn-default" /></li>');
 
                         if (!$('#eName').val()) {
                             $('.requiredWizard').addClass("shake-constant");
@@ -262,7 +258,22 @@
                         }
                     }
                 }
+
+
             });
+
+
+            $('#disclaimerCheck').click(function () {
+                //$('#submitWiz').addClass("disabled");
+                if ($('#disclaimerCheck').prop('checked') == true) {
+                    console.log(true);
+                    $('#submitWiz').removeClass("disabled");
+                } else {
+                    console.log(false);
+                    $('#submitWiz').addClass("disabled");
+                }
+            });
+            
         });
     </script>
 }

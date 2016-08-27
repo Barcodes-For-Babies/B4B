@@ -25,7 +25,7 @@
         appInsights.trackPageView();
     </script>
 </head>
-<body>
+<body class="container-fluid">
     @*<div id="navbar" class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -46,13 +46,14 @@
             </div>
         </div>
     </div>*@
-    <footer class="container-fluid body-content clearfix">
-        <div class="container-fluid clearfix" id="renderBody">
-            @RenderBody()
+    @*<div class="container-fluid body-content clearfix">*@
+        <div class="row clearfix" id="renderBody">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs 12" style="padding-left: 45px;">
+                @RenderBody()
+            </div>
         </div>
 
-    </footer>
-    <div class="container-fluid">
+    @*</div>*@
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="footer">
                 <span>
@@ -62,9 +63,9 @@
                 </span>
             </div>
         </div>
-    </div>
+
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
-</body>
+    <script type="text/javascript" src="~/Scripts/bootstrap-filestyle.js"></script></body>
 </html>
