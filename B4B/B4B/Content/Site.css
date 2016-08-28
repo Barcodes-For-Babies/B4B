@@ -176,8 +176,10 @@ textarea {
 }
 #rootwizard{
     background-color: ghostwhite;
-    height: 750px;
-    width: 800px;
+    height: 600px;
+    width: 500px;
+    margin-left: auto;
+    margin-right:auto;
 }
 #rootwizard> .navbar{
     margin-bottom: 0;
@@ -190,11 +192,10 @@ textarea {
     height: 472px;
 }
 #wiz1left{
-    height: 400px;
+    height: 250px;
     /*background: gray;*/
 }
 #wiz1right{
-    padding-left: 100px;
     padding-top: 10px;
 }
 .wizardFooter>ul{
@@ -224,22 +225,23 @@ textarea {
 .object-fit_scale-down { object-fit: scale-down }
 
 .image {
-  float: left;
   width: 40%;
-  margin: 0 30px 20px 0;
+  margin: 0 auto 0 auto;
   
 }
 #createAvartar{
-    position: absolute;
-    top: 50px;
-    right: 350px;
+    position: relative;
+    margin: 0 auto 0 auto;
 }
 #Avatar{
     position: absolute;
     bottom: 120px;
     right: 230px;
 }
-
+.createImage{
+    top: 50px !important;
+    right: 130px !important;
+}
 
 .idpicsize{
     width:200px;
@@ -270,7 +272,7 @@ textarea {
 .bootstrap-filestyle.input-group{
     position: absolute;
     top: 50px;
-    right: 60px;
+    right: 94px;
 }
 .generateQr{
     padding-left: 114px;
@@ -357,16 +359,16 @@ textarea {
                 Home Page
    -------------------------------------- */
 a.homeNavBrand{
-    font-size: 80px;
+    font-size: 40px;
     font-weight: 900;
     text-decoration: none;
 }
 #homeNavBrand{
-    font-size: 150px;
+    font-size: 90px;
     font-weight: 900;
     color: #F7B733;
     position: absolute;
-    bottom: -32px;
+    bottom: -22px;
 }
 .homeNavBrand :hover{
     text-decoration: none;
@@ -416,6 +418,30 @@ a.homeNavBrand{
         margin-top: 15px;
         margin-right: 10px;
     }
+
+    .form-control{
+        max-width: 582px !important;
+    }
+    #FirstName{
+        width: 100% !important;
+    }
+    #LastName{
+        padding-left: 15px !important;
+        margin-bottom: 15px;
+    }
+    #FirstNameCreate{
+        padding-right: 0 !important;
+    }
+    .form-group{
+        margin-bottom: 0 !important;
+    }
+    .form-group div{
+        margin-bottom: 15px;
+    }
+    #streedAddressCreate{
+        margin-top: -4px;
+    }
+    
 }
 
 @media screen and (max-width: 425px) {
@@ -463,7 +489,7 @@ a.homeNavBrand{
     }
     #homeNavBrand{
         left: 120px;
-        bottom: -40px;
+        bottom: -13px;
     }
     a.homeNavBrand{
         font-size: 60px;
@@ -492,6 +518,15 @@ a.homeNavBrand{
     }
     #LoginNav{
         height: 85px !important
+    }
+    #createAvartar{
+        position:absolute;
+        top: 32px;
+        left: 60px;
+    }
+    .createImage{
+        top: 50px !important;
+        right: 68px !important;
     }
    
 }
@@ -581,6 +616,14 @@ a.homeNavBrand{
     }
     #LoginNav{
         height: 57px !important
+    }
+    #createAvartar{
+        position:absolute;
+        top: 32px;
+        left: 5px;
+    }
+    .createImage{
+        right: 20px !important;
     }
 }
 /* --------------------------------------

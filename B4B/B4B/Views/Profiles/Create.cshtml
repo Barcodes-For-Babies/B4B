@@ -4,7 +4,7 @@
 @{
     ViewBag.Title = "Create";
 }
-<div class="row" style="margin-bottom: 40px;">
+<div class="row" style="margin-bottom: 20px; background-color: #FC4A1A;">
     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 clearfix">
         <a href="@Url.Action("Index", "Home")" class="homeNavBrand">SQR<span id="homeNavBrand">.</span></a>
     </div> <!-- end Navbar Brand-->
@@ -38,50 +38,52 @@
                 <div class="tab-content clearfix">
                     <div class="tab-pane clearfix" id="tab1">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearfix" id="wiz1left">
-                            <div class="form-group" style="height: 100%; margin-left:auto; margin-right: auto;">
+                            <div class="form-group" style="height: 80%; margin-left:auto; margin-right: auto;">
                                 @Html.Label("Avatar", new { @class = "control-label col-md-12", style = "text-align: center; margin-top: 10px; color: #F7B733" })
-                                <div class="image clearfix">
-                                    <img src="http://www.lavacable.com/assets/images/Products/placeholder_product.jpg" class="object-fit_scale-down" id="createAvartar" width="200" height="200" />
+                                <div class="image">
+                                    <div>
+                                        <img src="http://www.lavacable.com/assets/images/Products/placeholder_product.jpg" class="object-fit_scale-down" id="createAvartar" width="200" height="200" />
+                                        <input type="file" class="filestyle" data-iconName="fa fa-camera" data-input="false" id="Avatar" data-buttonText="" name="upload" />
+                                    </div>
                                 </div>
-                                <input type="file" name="upload" id="Avatar" />
                             </div> <!-- end Profile Picture -->
                         </div>
 
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearfix" id="wiz1right">
                             <div class="form-group">
-                                <div class="col-md-10">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
                                     <div class="requiredWizard" style="color: #F7B733;">Fields marked with an asterisk (*) are required</div>
                                 </div>
                             </div>
 
-                            <div class="form-group">
-                                <div class="col-md-5" style="padding-right: 10px">
+                            <div class="form-group" style="margin: 0 auto 15px auto;">>
+                                <div class="col-md-6 col-sm-12 col-xs-12" id="FirstNameCreate" style="padding-right: 10px">
                                     @Html.EditorFor(model => model._profile.FirstName, new { htmlAttributes = new { @class = "form-control", style = "width: 95%", @placeholder = "First Name*", @id = "FirstName" } })
                                     @Html.ValidationMessageFor(model => model._profile.FirstName, "", new { @class = "text-danger" })
                                 </div>
-                                <div class="col-md-6" style="padding-left: 0">
-                                    @Html.EditorFor(model => model._profile.LastName, new { htmlAttributes = new { @class = "form-control", style = "width: 82%", @placeholder = "Last Name" } })
+                                <div class="col-md-5 col-sm-12 col-xs-12" style="padding: 0" id = "LastName" >
+                                    @Html.EditorFor(model => model._profile.LastName, new { htmlAttributes = new { @class = "form-control", style = "width: 100%", @placeholder = "Last Name"} })
                                     @Html.ValidationMessageFor(model => model._profile.LastName, "", new { @class = "text-danger" })
                                 </div>
                             </div> <!-- end First Name & Last Name -->
 
-                            <div class="form-group">
-                                <div class="col-md-10">
+                            <div class="form-group" style="margin: 0 auto 15px auto;" id="streedAddressCreate">
+                                <div class="col-md-11 col-sm-12 col-xs-12" style="padding-right: 0;">
                                     @Html.EditorFor(model => model._profile.StreetAdress, new { htmlAttributes = new { @class = "form-control", style = "max-width: 582px;", @placeholder = "Street Address" } })
                                     @Html.ValidationMessageFor(model => model._profile.StreetAdress, "", new { @class = "text-danger" })
                                 </div>
                             </div> <!-- end Street Address -->
 
-                            <div class="form-group">
-                                <div class="col-md-4" style="padding-right: 0">
+                            <div class="form-group" style="margin: 0 auto 15px auto;">
+                                <div class="col-md-4 col-sm-12 col-xs-12" style="padding-right: 0">
                                     @Html.EditorFor(model => model._profile.City, new { htmlAttributes = new { @class = "form-control", @placeholder = "City" } })
                                     @Html.ValidationMessageFor(model => model._profile.City, "", new { @class = "text-danger" })
                                 </div>
-                                <div class="col-md-3" style="padding-right: 0">
+                                <div class="col-md-4 col-sm-12 col-xs-12" style="padding-right: 0">
                                     @Html.EditorFor(model => model._profile.State, new { htmlAttributes = new { @class = "form-control", @placeholder = "State" } })
                                     @Html.ValidationMessageFor(model => model._profile.State, "", new { @class = "text-danger" })
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-3 col-sm-12 col-xs-12" style="padding-right: 0">
                                     @Html.EditorFor(model => model._profile.ZipCode, new { htmlAttributes = new { @class = "form-control", style = "max-width: 140px;", @placeholder = "Zip Code" } })
                                     @Html.ValidationMessageFor(model => model._profile.ZipCode, "", new { @class = "text-danger" })
                                 </div>
@@ -197,8 +199,8 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
-    @Scripts.Render("~/Scripts/jquery.bootstrap.wizard.js");
-    @Scripts.Render("~/Scripts/jquery.bootstrap.wizard.min.js");
+    @Scripts.Render("~/Scripts/jquery.bootstrap.wizard.js")
+    @Scripts.Render("~/Scripts/jquery.bootstrap.wizard.min.js")
     <script>
         $(document).ready(function () {
             $('#rootwizard').bootstrapWizard({
@@ -273,7 +275,27 @@
                     $('#submitWiz').addClass("disabled");
                 }
             });
-            
+        });
+    </script>
+    <script>
+        $(window).load(function () {
+            if (window.location.pathname == "/Profiles/Create") {
+                $('div.bootstrap-filestyle.input-group').addClass("createImage");
+                $('#renderBody').css("height", "760px")
+                if (window.screen.width <= 768) {
+                    $('#rootwizard').css("height", "770px")
+                    $('#renderBody').css("height", "860px")
+                }
+                if (window.screen.width <= 425) {
+                    $('#rootwizard').css("width", "350px")
+                    $('#renderBody').css("height", "890px")
+                }
+                if (window.screen.width <= 320) {
+                    $('#rootwizard').css("width", "250px")
+                    $('#renderBody').css("height", "890px")
+                }
+            }
+
         });
     </script>
 }
