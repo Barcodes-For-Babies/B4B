@@ -275,16 +275,7 @@ namespace B4B.Controllers
 
             wizardViewModel.medInfoList = profile.MedicalInfos.ToList();
             wizardViewModel._profile = profile;
-            //wizardViewModel._profile = profile;
-            //medInfos = db.MedicalInfoes.ToList();
-            //wizardViewModel.medInfoList = medInfos;          
-            //foreach (var mi in medInfos)
-            //{
-            //    if (mi.ProfileID == profile.ProfileID)
-            //        wizardViewModel._medicalInfo = db.MedicalInfoes.Find(mi.ProfileID);
-            //}
-            ViewData["Profile"] = profile;
-            ViewData["MedicalInfo"] = profile.MedicalInfos;
+
             if (profile == null)
             {
                 return HttpNotFound();
@@ -341,8 +332,6 @@ namespace B4B.Controllers
                     db.Entry(medicalInfoDB).CurrentValues.SetValues(wizardViewModel.medInfoList[i]);
                     db.Entry(medicalInfoDB).State = EntityState.Modified;
                 }
-
-
 
                 db.SaveChanges();
                 return RedirectToAction("Index");
