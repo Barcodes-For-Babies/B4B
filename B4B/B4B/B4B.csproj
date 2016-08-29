@@ -275,6 +275,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="1024px-Gnome-stock_person.svg.png" />
     <Content Include="add-160503_960_720.png" />
     <Content Include="Content\bootstrap-social.css" />
     <Content Include="Content\bootstrap.css" />
@@ -294,6 +295,8 @@
     <Content Include="Images\light-blue.png" />
     <Content Include="Images\light-blue2.png" />
     <Content Include="Images\light-green.png" />
+    <Content Include="plus button2.jpg" />
+    <Content Include="pluswhite_480.png" />
     <Content Include="Portrait_placeholder.png" />
     <Content Include="Scripts\ai.0.22.19-build00125.js" />
     <Content Include="Scripts\ai.0.22.19-build00125.min.js" />
