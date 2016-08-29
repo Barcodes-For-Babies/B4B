@@ -17,7 +17,7 @@ namespace B4B.Controllers
         // GET: MedicalInfoes
         public ActionResult Index()
         {
-            var medicalInfoes = db.MedicalInfoes.Include(m => m.Profiles);
+            var medicalInfoes = db.MedicalInfoes.Include(m => m.Profile);
             return View(medicalInfoes.ToList());
         }
 
