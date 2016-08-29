@@ -361,6 +361,19 @@ textarea {
 /* --------------------------------------
                 Home Page
    -------------------------------------- */
+.mobileHome{
+    margin-bottom: 30px;
+    background-color:#FC4A1A;
+}
+.clearfix{
+    height: 50px;
+
+}
+.glyphicon-user{
+    font-size: 30px; 
+    margin-top:5px; 
+    margin-left:145px;
+}
 a.homeNavBrand{
     font-size: 40px;
     font-weight: 900;
@@ -371,7 +384,7 @@ a.homeNavBrand{
     font-weight: 900;
     color: #F7B733;
     position: absolute;
-    bottom: -22px;
+    bottom: -29px;
 }
 .homeNavBrand :hover{
     text-decoration: none;
