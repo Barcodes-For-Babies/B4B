@@ -264,7 +264,7 @@ namespace B4B.Controllers
         }
 
         // GET: Profiles/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int? id, List<MedicalInfo> medInfos)
         {
             if (id == null)
             {
@@ -273,8 +273,14 @@ namespace B4B.Controllers
             WizardViewModel wizardViewModel = new WizardViewModel();
             Profile profile = db.Profiles.Find(id);
             wizardViewModel._profile = profile;
-            wizardViewModel.medInfoList = profile.MedicalInfos.ToList();          
-
+            medInfos = db.MedicalInfoes.ToList();
+            wizardViewModel.medInfoList = medInfos;          
+            //foreach (var mi in medInfos)
+            //{
+            //    if (mi.ProfileID == profile.ProfileID)
+            //        wizardViewModel._medicalInfo = db.MedicalInfoes.Find(mi.ProfileID);
+            //}
+            
             if (profile == null)
             {
                 return HttpNotFound();
