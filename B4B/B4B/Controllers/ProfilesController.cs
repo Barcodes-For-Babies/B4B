@@ -326,11 +326,16 @@ namespace B4B.Controllers
 
                 for(int i = 0; i < wizardViewModel.medInfoList.Count; i++)
                 {
-                    var medicalInfoDB = db.MedicalInfoes.Find(wizardViewModel.medInfoList[i].MedicalInfoID);
-
-                    wizardViewModel.medInfoList[i].Profile = db.Profiles.Find(wizardViewModel._profile.ProfileID);
-                    db.Entry(medicalInfoDB).CurrentValues.SetValues(wizardViewModel.medInfoList[i]);
-                    db.Entry(medicalInfoDB).State = EntityState.Modified;
+                    if(wizardViewModel.medInfoList[i].MedicalInfoID == 0 && db.MedicalInfoes.First() != wizardViewModel.medInfoList[i])
+                    {
+                        db.MedicalInfoes.Add(wizardViewModel.medInfoList[i]);
+                    } else
+                    {
+                         var medicalInfoDB = db.MedicalInfoes.Find(wizardViewModel.medInfoList[i].MedicalInfoID);
+                        wizardViewModel.medInfoList[i].Profile = db.Profiles.Find(wizardViewModel._profile.ProfileID);
+                        db.Entry(medicalInfoDB).CurrentValues.SetValues(wizardViewModel.medInfoList[i]);
+                        db.Entry(medicalInfoDB).State = EntityState.Modified;
+                    }                 
                 }
 
                 db.SaveChanges();
