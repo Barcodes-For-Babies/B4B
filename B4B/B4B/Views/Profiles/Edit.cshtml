@@ -1,8 +1,13 @@
-﻿@model B4B.Models.WizardViewModel
+﻿@using B4B.Models;
+@model WizardViewModel
 @{
     ViewBag.Title = "Edit";
 }
-
+@{
+//Profile profile = ViewData["Profile"] as Profile;
+//IEnumerable<MedicalInfo> medicalInfos = ViewData["MedicalInfo"] as IEnumerable<MedicalInfo>;
+////List<MedicalInfo> medicalInfo = medicalInfos.ToList();
+}
 @*<h2>Edit</h2>*@
 
 <div class="row mobileHome" style="margin-bottom: 30px; background-color: transparent;">
@@ -19,7 +24,7 @@
             @Html.AntiForgeryToken()
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             @Html.HiddenFor(model => model._profile.ProfileID)
-            @Html.HiddenFor(model => model._profile.Admin)
+            @*@Html.HiddenFor(model => model._profile.Admin)*@
 
             <div class="container">
                 <div class="row thumbnail">
@@ -93,22 +98,22 @@
                     </div>
                 </div>
                 <div class="row" id="Medical">
-                    @foreach (var item in Model.medInfoList)
+                    @for(int i = 0; i < Model.medInfoList.Count(); i++)
                     {
-                        @Html.HiddenFor(model => item.MedicalInfoID)
-                        @Html.HiddenFor(model => item.ProfileID)
-                        @Html.HiddenFor(model => item.Profiles)
+                        @Html.HiddenFor(model => model.medInfoList[i].MedicalInfoID)
+                        @Html.HiddenFor(model => model.medInfoList[i].ProfileID)
+                        @*@Html.HiddenFor(model => model.medInfoList[i].Profile)*@
                         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12" style="padding-left: 0; margin-top: 15px;">
                             <div class="thumbnail" style="height: 200px;">
                                 <div class="form-group clearfix" style="display:block">
                                     <div class="col-sm-1"></div>
                                     <div class="col-sm-4" style="margin-left:94px;">
-                                        @Html.EditorFor(model => item.MedicalCondition, new { htmlAttributes = new { @class = "form-control", style = "max-width: 400px;", @placeholder = "Medical Condition" } })
-                                        @Html.ValidationMessageFor(model => item.MedicalCondition, "", new { @class = "text-danger" })
+                                        @Html.EditorFor(model => model.medInfoList[i].MedicalCondition, new { htmlAttributes = new { @class = "form-control", style = "max-width: 400px;", @placeholder = "Medical Condition" } })
+                                        @Html.ValidationMessageFor(model => model.medInfoList[i].MedicalCondition, "", new { @class = "text-danger" })
                                     </div>
                                     <div class="col-sm-4">
-                                        @Html.EditorFor(model => item.Symptoms, new { htmlAttributes = new { @class = "form-control", style = "max-width: 400px;", @placeholder = "Symptoms" } })
-                                        @Html.ValidationMessageFor(model => item.Symptoms, "", new { @class = "text-danger" })
+                                        @Html.EditorFor(model => model.medInfoList[i].Symptoms, new { htmlAttributes = new { @class = "form-control", style = "max-width: 400px;", @placeholder = "Symptoms" } })
+                                        @Html.ValidationMessageFor(model => model.medInfoList[i].Symptoms, "", new { @class = "text-danger" })
                                     </div>
 
                                 </div> <!-- end Medical Condition  & Symptoms -->
@@ -116,8 +121,8 @@
                                 <div class="form-group clearfix" style="display:block">
                                     <div class="col-sm-1"></div>
                                     <div class="col-sm-8" style="margin-left:94px;">
-                                        @Html.EditorFor(model => item.RelatedInformation, new { htmlAttributes = new { @class = "form-control", style = "max-width: 840px;", @placeholder = "Related Information" } })
-                                        @Html.ValidationMessageFor(model => item.RelatedInformation, "", new { @class = "text-danger" })
+                                        @Html.EditorFor(model => model.medInfoList[i].RelatedInformation, new { htmlAttributes = new { @class = "form-control", style = "max-width: 840px;", @placeholder = "Related Information" } })
+                                        @Html.ValidationMessageFor(model => model.medInfoList[i].RelatedInformation, "", new { @class = "text-danger" })
                                     </div>
                                     <div class="col-sm-2"></div>
                                 </div> <!-- Related Information -->
@@ -213,7 +218,8 @@
     }
 
     function addNewMedCard() {
-        var medCard = '<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12" style="padding-left: 0; margin-top: 15px;"><div class="thumbnail" style="height: 200px;"><div class="form-group clearfix" style="display:block"><div class="col-sm-1"></div><div class="col-sm-4" style="margin-left:94px;">@Html.EditorFor(model => model._medicalInfo.MedicalCondition, new { htmlAttributes = new { @class = "form-control", style = "max-width: 400px;", @placeholder = "Medical Condition" } })@Html.ValidationMessageFor(model => model._medicalInfo.MedicalCondition, "", new { @class = "text-danger" })</div><div class="col-sm-4">@Html.EditorFor(model => model._medicalInfo.Symptoms, new { htmlAttributes = new { @class = "form-control", style = "max-width: 400px;", @placeholder = "Symptoms" } })@Html.ValidationMessageFor(model => model._medicalInfo.Symptoms, "", new { @class = "text-danger" })</div></div> <!-- end Medical Condition  & Symptoms --><div class="form-group clearfix" style="display:block"><div class="col-sm-1"></div><div class="col-sm-8" style="margin-left:94px;">@Html.EditorFor(model => model._medicalInfo.RelatedInformation, new { htmlAttributes = new { @class = "form-control", style = "max-width: 840px;", @placeholder = "Related Information" } })@Html.ValidationMessageFor(model => model._medicalInfo.RelatedInformation, "", new { @class = "text-danger" })</div><div class="col-sm-2"></div></div> <!-- Related Information --></div></div>'
+        var num = @Model.medInfoList.Count;
+        var medCard = '<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12" style="padding-left: 0; margin-top: 15px;"><div class="thumbnail" style="height: 200px;"><div class="form-group clearfix" style="display:block"><div class="col-sm-1"></div><div class="col-sm-4" style="margin-left:94px;"><input class="form-control text-box single-line" data-val="true" data-val-length="The field MedicalCondition must be a string with a maximum length of 50." data-val-length-max="50" id=""medInfoList_'+num+'__MedicalCondition" name="medInfoList['+num+'].MedicalCondition" placeholder="Medical Condition" style="max-width: 400px;" type="text" value=""><span class="field-validation-valid text-danger" data-valmsg-for="medInfoList['+num+'].MedicalCondition" data-valmsg-replace="true"></span><input class="form-control text-box single-line" data-val="true" data-val-length="The field Symptoms must be a string with a maximum length of 150." data-val-length-max="150" id= "medInfoList_'+num+'__Symptoms" name="medInfoList['+num+'].Symptoms" placeholder="Symptoms" style="max-width: 400px;" type="text" value=""><span class="field-validation-valid text-danger" data-valmsg-for="medInfoList['+num+'].Symptoms" data-valmsg-replace="true"></span></div></div> <!-- end Medical Condition  & Symptoms --><div class="form-group clearfix" style="display:block"><div class="col-sm-1"></div><div class="col-sm-8" style="margin-left:94px;"><input class="form-control text-box single-line" data-val="true" data-val-length="The field RelatedInformation must be a string with a maximum length of 150." data-val-length-max="150" id=""medInfoList_'+num+'__RelatedInformation"" name="medInfoList['+num+'].RelatedInformation" placeholder="Related Information" style="max-width: 840px;" type="text" value=""><span class="field-validation-valid text-danger" data-valmsg-for="medInfoList['+num+'].RelatedInformation" data-valmsg-replace="true"></span></div><div class="col-sm-2"></div></div> <!-- Related Information --></div></div>'
         $("#Medical").prepend(medCard);
     }
 </script>

@@ -264,7 +264,7 @@ namespace B4B.Controllers
         }
 
         // GET: Profiles/Edit/5
-        public ActionResult Edit(int? id, List<MedicalInfo> medInfos)
+        public ActionResult Edit(int? id)
         {
             if (id == null)
             {
@@ -272,15 +272,19 @@ namespace B4B.Controllers
             }
             WizardViewModel wizardViewModel = new WizardViewModel();
             Profile profile = db.Profiles.Find(id);
+
+            wizardViewModel.medInfoList = profile.MedicalInfos.ToList();
             wizardViewModel._profile = profile;
-            medInfos = db.MedicalInfoes.ToList();
-            wizardViewModel.medInfoList = medInfos;          
+            //wizardViewModel._profile = profile;
+            //medInfos = db.MedicalInfoes.ToList();
+            //wizardViewModel.medInfoList = medInfos;          
             //foreach (var mi in medInfos)
             //{
             //    if (mi.ProfileID == profile.ProfileID)
             //        wizardViewModel._medicalInfo = db.MedicalInfoes.Find(mi.ProfileID);
             //}
-            
+            ViewData["Profile"] = profile;
+            ViewData["MedicalInfo"] = profile.MedicalInfos;
             if (profile == null)
             {
                 return HttpNotFound();
@@ -299,8 +303,13 @@ namespace B4B.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "_profile, _medicalInfo")] WizardViewModel wizardViewModel, HttpPostedFileBase upload)
+        public ActionResult Edit(WizardViewModel wizardViewModel, HttpPostedFileBase upload)
         {
+            wizardViewModel._profile.Admin = CurrentUser;
+            for (int i = 0; i < wizardViewModel.medInfoList.Count; i++)
+            {
+                wizardViewModel.medInfoList[i].ProfileID = wizardViewModel._profile.ProfileID;
+            }
             if (ModelState.IsValid)
             {
                 if (upload != null && upload.ContentLength > 0)
@@ -321,25 +330,18 @@ namespace B4B.Controllers
                     wizardViewModel._profile.PhotoType = avatar.PhotoType;           //Adds the extension type of photo to db
                     wizardViewModel._profile.PhotoBytes = avatar.PhotoBytes;         //Adds the byte array representation of photo to db
                 }
-
-            
-                wizardViewModel._profile.Admin = CurrentUser;
                 db.Entry(wizardViewModel._profile).State = EntityState.Modified;            //Adds profile object into database
 
-                wizardViewModel._medicalInfo.ProfileID = wizardViewModel._profile.ProfileID;
-                var medicalInfoList = db.MedicalInfoes.ToList();
-                foreach(var mi in medicalInfoList)
-                {
-                    if(mi.ProfileID == wizardViewModel._profile.ProfileID)
-                    {
-                        wizardViewModel._medicalInfo.MedicalInfoID = mi.MedicalInfoID;
-                    }
-                }
-                var medicalInfoDB = db.MedicalInfoes.Find(wizardViewModel._medicalInfo.MedicalInfoID);
 
-                wizardViewModel._medicalInfo.Profiles = db.Profiles.Find(wizardViewModel._profile.ProfileID);
-                db.Entry(medicalInfoDB).CurrentValues.SetValues(wizardViewModel._medicalInfo);
-                db.Entry(medicalInfoDB).State = EntityState.Modified;
+                for(int i = 0; i < wizardViewModel.medInfoList.Count; i++)
+                {
+                    var medicalInfoDB = db.MedicalInfoes.Find(wizardViewModel.medInfoList[i].MedicalInfoID);
+
+                    wizardViewModel.medInfoList[i].Profile = db.Profiles.Find(wizardViewModel._profile.ProfileID);
+                    db.Entry(medicalInfoDB).CurrentValues.SetValues(wizardViewModel.medInfoList[i]);
+                    db.Entry(medicalInfoDB).State = EntityState.Modified;
+                }
+
 
 
                 db.SaveChanges();
@@ -348,7 +350,7 @@ namespace B4B.Controllers
 
 
 
-            return View(wizardViewModel._profile);
+            return View(wizardViewModel);
         }
 
         // GET: Profiles/Delete/5

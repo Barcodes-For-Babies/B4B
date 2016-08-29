@@ -17,7 +17,7 @@ namespace B4B.Models
 
         //navigatoin properties
         // 1 to manny
-        public virtual Profile Profiles { get; set; }
+        public virtual Profile Profile { get; set; }
 
     }
 }
