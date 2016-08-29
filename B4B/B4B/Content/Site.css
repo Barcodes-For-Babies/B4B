@@ -655,6 +655,7 @@ a.homeNavBrand{
 
 .rowmargin{
     margin-top:200px;
+    align-content:center;
 }
 
 .profilesAdmin{
@@ -666,7 +667,7 @@ a.homeNavBrand{
     list-style: none;
     justify-content:center;
 }
-.adviewpic, .adviewpic1{
+.adviewpic1,.adviewpic{
     width:150px;
     height:150px;
     object-fit:cover;
@@ -676,13 +677,12 @@ a.homeNavBrand{
 }
 .adviewpic1{
     top:0;
-
 }
 .profilesAdmin:hover{
     color: #F7B733;
 }
-/*.profilesAdmin img:hover,.profilesAdmin a:hover{
-    border: solid #F7B733;*/
+.profilesAdmin img:hover{
+    border: solid #F7B733;
 }
 .addProfileAdmin {
     height: 150px;
@@ -692,7 +692,7 @@ a.homeNavBrand{
     font-size:250%; 
 }
 .plus{
-    font-size:200%;
+    justify-content:center;
 }
 .adminHome{
    display: inline;

@@ -26,51 +26,62 @@
         </div>
     </div>
 </div>
-               
-                    
 
-                    @*<div class="row"
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs 12">
-                            <h1 style="font-size: 70px;">Your Profiles:</h1>
-                        </div>
-                    </div>*@
-                <div class="row rowmargin">
-                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"></div>
-                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
-                        <ul>
-                            @foreach (var item in Model)
+
+
+@*<div class="row"
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs 12">
+            <h1 style="font-size: 70px;">Your Profiles:</h1>
+        </div>
+    </div>*@
+<div class="row rowmargin">
+    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"></div>
+    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+        <ul>
+            @foreach (var item in Model)
             {
-                                <li class="profilesAdmin">
-                                    @if (item.PhotoBytes != null)
-                                    {
+                <li class="profilesAdmin">
+                    @if (item.PhotoBytes != null)
+                    {
 
-                                        <a href="@Url.Action("Edit", "Profiles",new { id = item.ProfileID })" class="addProfileAdmin"><img src="~/File?id=@item.ProfileID" class="img-responsive adviewpic" /></a>
+                        <a href="@Url.Action("Edit", "Profiles",new { id = item.ProfileID })" class="addProfileAdmin"><img src="~/File?id=@item.ProfileID" class="img-responsive adviewpic1" /></a>
 
-                                    }
-                                    else
-                                    {
-                                        @*<div class="profileIcon" style="background-image:url(http://assignments.ds106.us/files/2011/12/placeholder.png)"></div>*@
+                    }
+                    else
+                    {
+                        @*<div class="profileIcon" style="background-image:url(http://assignments.ds106.us/files/2011/12/placeholder.png)"></div>*@
 
-                                        <a href="@Url.Action("Edit", "Profiles",new { id = item.ProfileID })" class="addProfileAdmin">
-                                            <img src="~/Portrait_placeholder.png" class="object-fit_fill" width="150" height="150" /></a>
-                                      }
-                                            <span style="display:block; font-size: 20px; margin: 10px 0;">@item.FirstName</span>
-</li>
+                        <a href="@Url.Action("Edit", "Profiles",new { id = item.ProfileID })" class="addProfileAdmin">
+                            <img src="~/Portrait_placeholder.png" class="object-fit_fill" width="150" height="150" />
+                        </a>
+                    }
+                    <span style="display:block; font-size: 20px; margin: 10px 0;">@item.FirstName</span>
+                </li>
 
-                            }
-                            <li class="profilesAdmin addProfileAdmin">
-                                <div>
+            }
+            <li class="profilesAdmin">
+                <div>
 
-                                    <a href="@Url.Action("Create", "Profiles")" class="addProfileAdmin">
-                                      
-                                        <img src="~/pluswhite_480.png" class="object-fit_fill" width="150" height="150"/>
-                                    </a>
-                                    <span style="display:block; font-size: 20px; margin: 10px 0; padding-top:15px;">Create Profile</span>
-                                </div>
-                                @*@Html.ActionLink("+", "Create", "Profiles", null, new { @class = "btn btn-default" })*@
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"></div>
+
+                    <a href="@Url.Action("Create", "Profiles")" class="addProfileAdmin">
+                        <img src="~/pluswhite_480.png" width="150" height="150" />                        
+                    </a>
+                    @*<a href="@Url.Action("Create", "Profiles")" class="addProfileAdmin"></a>*@
+                    @*<span style="display:block; font-size: 20px; margin: 10px 0;">Create Profile</span>*@
+                    <span style="display:block; font-size: 20px; margin: 10px 0; padding-top:15px;">Create Profile</span>
                 </div>
+            </li>
+        </ul>
+    </div>
+    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"></div>
+</div>
 
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+<script>
+    $(window).load(function () {
+        var body = $('#ContentBody').height();
+        if (window.location.pathname == "/Home/Admin")
+            $('#renderBody').css("height", body + 300)
+    });
+</script>
