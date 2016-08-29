@@ -41,7 +41,8 @@ body {
 #loginbutton {
     background-color: #F7B733;
     width: 90px;
-    margin-top: 25px;
+    margin-top: 15px;
+    margin-right: 12px;
     color: whitesmoke;
     border-color: #cccccc;
     border-radius: 10px;
@@ -361,6 +362,11 @@ textarea {
                 Home Page
    -------------------------------------- */
 a.homeNavBrand{
+    font-size: 55px;
+    font-weight: 900;
+    text-decoration: none;
+}
+a.loginNavBrand{
     font-size: 40px;
     font-weight: 900;
     text-decoration: none;
@@ -372,7 +378,14 @@ a.homeNavBrand{
     position: absolute;
     bottom: -22px;
 }
+#loginNavBrand{
+    font-size: 65px;
+    font-weight: 900;
+}
 .homeNavBrand :hover{
+    text-decoration: none;
+}
+.loginNavBrand :hover{
     text-decoration: none;
 }
 #homeNavItems li{
@@ -390,6 +403,23 @@ a.homeNavBrand{
 }
 #homeNavItems>.lastItem{
     margin-right: 130px;
+}
+#navItems li{
+    list-style: none;
+    display: inline-block;
+    float: right;
+    margin: 10px;
+    font-size: 30px;
+    font-weight: 900;
+}
+#navItems li a{
+    color: white;
+    list-style: none;
+    text-decoration: none;
+    font-size: 25px;
+}
+#navItems>.lastItem{
+    margin-right: 17px;
 }
 #homeNavTitle{
     font-weight: 900;
@@ -576,6 +606,8 @@ a.homeNavBrand{
 }
     #loginbutton {
         margin-top: 10px;
+        width: 75px;
+        font-size:16px;
     }
 
     #homeNavTitle{
@@ -605,6 +637,13 @@ a.homeNavBrand{
         margin-top: 17px;
     }
     #homeNavItems>.lastItem{
+        margin-right: 0;
+    }
+     #navItems li{
+        margin-right: 0;
+        margin-top: 17px;
+    }
+    #navItems>.lastItem{
         margin-right: 0;
     }
     .clearfix.dropdown{
