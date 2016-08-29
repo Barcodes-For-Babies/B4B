@@ -572,6 +572,7 @@ ul,
 ol {
   margin-top: 0;
   margin-bottom: 10px;
+  list-style: none;
 }
 
 ul ul,
@@ -1272,6 +1273,7 @@ pre code {
   }
   .col-lg-3 {
     width: 25%;
+    text-align:left;
   }
   .col-lg-4 {
     width: 33.33333333333333%;
@@ -1671,8 +1673,9 @@ input[type="search"] {
 
 input[type="radio"],
 input[type="checkbox"] {
-  margin: 4px 0 0;
-  margin-top: 1px \9;
+  margin-right: 12px;
+  margin-top: 2px;
+  resize:50%;
   /* IE8-9 */
 
   line-height: normal;
@@ -6824,4 +6827,7 @@ td.visible-print {
 }
 .glyphicon-cog {
     font-size: 19px;
+}
+#create{
+    text-align:left;
 }
