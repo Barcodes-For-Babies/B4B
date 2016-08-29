@@ -221,7 +221,7 @@ namespace B4B.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(HttpPostedFileBase upload, WizardViewModel wizardViewModel)
         {            
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && wizardViewModel._profile.disclaimer)
             {
                 // if user uploaded a photo this runs (gets picture)
                 if (upload != null && upload.ContentLength > 0)
@@ -273,13 +273,13 @@ namespace B4B.Controllers
             WizardViewModel wizardViewModel = new WizardViewModel();
             Profile profile = db.Profiles.Find(id);
             wizardViewModel._profile = profile;
-
-            medInfos = db.MedicalInfoes.ToList();          
-            foreach (var mi in medInfos)
-            {
-                if (mi.ProfileID == profile.ProfileID)
-                    wizardViewModel._medicalInfo = db.MedicalInfoes.Find(mi.ProfileID);
-            }
+            medInfos = db.MedicalInfoes.ToList();
+            wizardViewModel.medInfoList = medInfos;          
+            //foreach (var mi in medInfos)
+            //{
+            //    if (mi.ProfileID == profile.ProfileID)
+            //        wizardViewModel._medicalInfo = db.MedicalInfoes.Find(mi.ProfileID);
+            //}
             
             if (profile == null)
             {

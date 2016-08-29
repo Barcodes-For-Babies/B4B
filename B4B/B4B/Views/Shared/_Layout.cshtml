@@ -8,7 +8,6 @@
     <link href="https://fonts.googleapis.com/css?family=Hind|PT+Sans+Narrow|Poiret+One" rel="stylesheet">
 
 
-
     @Styles.Render("~/Content/css")
     <link href="~/Content/csshake.css" rel="stylesheet" />
     <link href="~/Content/font-awesome.css" rel="stylesheet" />
@@ -26,12 +25,8 @@
         appInsights.trackPageView();
     </script>
 </head>
-<body>
+<body class="container-fluid">
     @*<div id="navbar" class="navbar navbar-inverse navbar-fixed-top">
-=======
-   
-    <div id="navbar" class="navbar navbar-inverse navbar-fixed-top">
->>>>>>> Cleanup
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -50,25 +45,29 @@
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
-<<<<<<< HEAD
     </div>*@
-    <footer class="container-fluid body-content">
-        <div class="container-fluid" id="renderBody">
-            @RenderBody()
-        </div>
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="footer">
-                    <span>
-                        <a href="~/Home/About">About</a> |
-                        <a href="~/Home/Contact">Contact</a><br/>
-                        &copy; @DateTime.Now.Year - SafeKeepers QR
-                    </span>
-                </div>
+
+    @*<div class="container-fluid body-content clearfix">*@
+        <div class="row clearfix" id="renderBody">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs 12" id="ContentBody" style="padding-left: 30px;">
+                @RenderBody()
             </div>
-    </footer>
-    
+
+        </div>
+
+    @*</div>*@
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="footer">
+                <span>
+                    <a href="~/Home/About">About</a> |
+                    <a href="~/Home/Contact">Contact</a><br />
+                    &copy; @DateTime.Now.Year - SafeKeepers QR
+                </span>
+            </div>
+        </div>
+
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
-</body>
+    <script type="text/javascript" src="~/Scripts/bootstrap-filestyle.js"></script></body>
 </html>

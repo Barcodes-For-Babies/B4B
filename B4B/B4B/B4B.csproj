@@ -288,7 +288,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\BackgroundOverlay.jpg" />
     <Content Include="Images\blue.png" />
+    <Content Include="Images\family.jpg" />
+    <Content Include="Images\Kids4.jpg" />
     <Content Include="Images\light-blue.png" />
     <Content Include="Images\light-blue2.png" />
     <Content Include="Images\light-green.png" />
@@ -297,6 +300,7 @@
     <Content Include="Portrait_placeholder.png" />
     <Content Include="Scripts\ai.0.22.19-build00125.js" />
     <Content Include="Scripts\ai.0.22.19-build00125.min.js" />
+    <Content Include="Scripts\bootstrap-filestyle.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="fonts\fontawesome-webfont.eot" />

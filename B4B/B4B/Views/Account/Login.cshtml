@@ -20,7 +20,7 @@
 
 <div class="row">
     <div class="col-lg-3 col-md-3 "></div>
-    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" style="position: relative;">
         <div class="formPlate col-lg-12 col-md-12 col-sm-12 col-xs-12">
             @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
             {
@@ -49,7 +49,7 @@
                 </div>
                 <div class="form-group">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <input type="submit" value="Log in" class="btn btn-default" style="width:280px; color: white;" />
+                        <input id="submitLogin" type="submit" value="Log in" class="btn btn-default" style="width:280px; color: white;" />
                     </div>
                 </div>
                 <p style="color:rgb(128,128,128);">
