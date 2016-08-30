@@ -3,18 +3,6 @@
     ViewBag.Title = "Register";
 }
 
-<div class="row" style="margin-bottom: 100px; background-color:#FC4A1A;">
-    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 clearfix" style="height:50px;">
-        <a href="@Url.Action("Index","Home")" align="pull-left" class="loginNavBrand">SQR<span id="homeNavBrand">.</span></a>
-    </div> <!-- end Navbar Brand-->
-    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 clearfix" id="LoginNav" style="height: 50px;">
-        <ul id="navItems">
-            <li class="lastItem"><a href="~/Account/Login">Sign In</a></li>
-        </ul>
-    </div> <!-- end Navbar Items-->
-</div> <!-- end NavBar-->
-
-
 <div class="row">
     <div class="col-lg-3 col-md-3 "></div>
     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
@@ -67,4 +55,16 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+
+<script>
+    if (window.location.pathname == "/Account/Register") {
+        $('#NavBarLayout').css("height", "50px")
+        var button = '<ul id="navItems"><li class="lastItem" style="margin-top: 4px"><a href="@Url.Action("Login", "Account")">Login</a></li></ul>'
+        $('#leftNav').append(button);
+        $('#userIcon').remove();
+        $('.homeNavBrand').css("font-size", "40px"); //SQR
+        $('#homeNavBrand').css({ "font-size": "90px", "bottom": "-29px" }); //DOT
+        $('#renderBody').css({"height":"70%"});
+    }
+</script>  
 }

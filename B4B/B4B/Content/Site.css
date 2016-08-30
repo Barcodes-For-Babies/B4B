@@ -438,13 +438,20 @@ a.loginNavBrand{
 #homeNavTitle{
     font-weight: 900;
     font-size: 100px;
+    margin-top: 50px;
 }
 @media screen and (max-width: 1024px) {
+    #relatedInfo{
+        display: block;
+        position: absolute;
+        bottom: 70px;
+        right: 15px;
+    }
     #homeNavItems>.lastItem{
         margin-right: 10px;
     }
     div.row.mobileHome{
-        margin-bottom: 20px !important;
+        margin-bottom: 100px;
     }
 }
 @media screen and (max-width: 768px) {
@@ -534,7 +541,7 @@ a.loginNavBrand{
       margin: 1px 0;
     }
     #homeNavBrand{
-        left: 120px;
+        left: 106px;
         bottom: -13px;
     }
     a.homeNavBrand{
@@ -594,7 +601,7 @@ a.loginNavBrand{
         font-size: 60px;
     }
     #homeNavBrand{
-        left: 125px;
+        left: 106px;
         bottom: -17px;
         font-size: 100px;
     }
@@ -636,7 +643,7 @@ a.loginNavBrand{
         font-size:40px;
     }
     #homeNavBrand{
-        left: 90px;
+        left: 106px;
         bottom: -26px;
     }
     div.row.mobileHome{

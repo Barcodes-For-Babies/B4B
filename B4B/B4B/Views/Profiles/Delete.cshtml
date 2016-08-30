@@ -89,8 +89,8 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" style="background-color: red"  value="Delete" class="btn btn-default" /> 
+            <a class="btn btn-danger" role="button" href="@Url.Action("Edit", "Profiles",  new { id = Model.ProfileID })">Cancle</a>
         </div>
     }
 </div>

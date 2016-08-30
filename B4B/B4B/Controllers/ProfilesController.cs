@@ -86,39 +86,6 @@ namespace B4B.Controllers
             var result = googleResults.results[0];
             address = result.formatted_address;
         }
-  
-
-
-
-
-
-
-        //public ActionResult EditProfile(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    Profile profile = db.Profiles.Find(id);
-        //    if (profile == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    if (profile.FirstName != null)
-        //    {
-
-        //        return RedirectToAction("Edit", "Profile");
-        //    }
-           
-        //    return RedirectToAction("Index");
-        //}
-
-
-
-
-
-
-
 
         private Bitmap renderQRCode(int id)
         {

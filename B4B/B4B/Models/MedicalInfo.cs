@@ -11,6 +11,7 @@ namespace B4B.Models
         [StringLength(150)]
         public string Symptoms { get; set; }
         [StringLength(150)]
+        [Display(Name = "Related Information")]
         public string RelatedInformation { get; set; }
 
         public int ProfileID { get; set; }
