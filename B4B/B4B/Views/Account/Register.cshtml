@@ -3,18 +3,16 @@
     ViewBag.Title = "Register";
 }
 
-<div class="row" style="margin-bottom: 100px;">
-    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 clearfix">
-        <a href="@Url.Action("Index", "Home")" class="homeNavBrand">SQR<span id="homeNavBrand">.</span></a>
+<div class="row" style="margin-bottom: 100px; background-color:#FC4A1A;">
+    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 clearfix" style="height:50px;">
+        <a href="@Url.Action("Index","Home")" align="pull-left" class="loginNavBrand">SQR<span id="homeNavBrand">.</span></a>
     </div> <!-- end Navbar Brand-->
-    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 clearfix" style="height: 114px;">
-        <ul id="homeNavItems">
-            <li class="lastItem"><a href="~/Account/Login">Login</a></li>
-            <li><a href="Home/Contact">Contact</a></li>
-            <li><a href="Home/About">Us</a></li>
+    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 clearfix" id="LoginNav" style="height: 50px;">
+        <ul id="navItems">
+            <li class="lastItem"><a href="~/Account/Login">Sign In</a></li>
         </ul>
     </div> <!-- end Navbar Items-->
-</div>
+</div> <!-- end NavBar-->
 
 
 <div class="row">
@@ -58,7 +56,7 @@
                     </div>
                 </div>
                 <p style="color:rgb(128,128,128);">
-                    Already Registered? <a href="Login" style="color:#F7B733;">Login</a>
+                    Already Registered? <a href="Login" style="color:#F7B733;">Sign in</a>
                 </p>
             }
         </div>

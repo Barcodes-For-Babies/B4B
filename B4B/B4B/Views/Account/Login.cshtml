@@ -4,18 +4,15 @@
     ViewBag.Title = "Log in";
 }
 <div class="row" style="margin-bottom: 100px; background-color:#FC4A1A;">
-    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 clearfix">
-        <a href="@Url.Action("Index","Home")" class="homeNavBrand">SQR<span id="homeNavBrand">.</span></a>
+    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 clearfix" style="height:50px;">
+        <a href="@Url.Action("Index","Home")" align="pull-left" class="loginNavBrand">SQR<span id="homeNavBrand">.</span></a>
     </div> <!-- end Navbar Brand-->
-    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 clearfix" id="LoginNav" style="height: 114px;">
-        <ul id="homeNavItems">
-            <li class="lastItem"><a href="~/Account/Login">Login</a></li>
-            <li><a href="Home/Contact">Contact</a></li>
-            <li><a href="Home/About">Us</a></li>
+    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 clearfix" id="LoginNav" style="height: 50px;">
+        <ul id="navItems">
+            <li class="lastItem"><a href="~/Account/Register">Register</a></li>
         </ul>
     </div> <!-- end Navbar Items-->
 </div> <!-- end NavBar-->
-
 
 
 <div class="row">
@@ -49,7 +46,7 @@
                 </div>
                 <div class="form-group">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <input id="submitLogin" type="submit" value="Log in" class="btn btn-default" style="width:280px; color: white;" />
+                        <input id="submitLogin" type="submit" value="Sign in" class="btn btn-default" style="width:280px; color: white;" />
                     </div>
                 </div>
                 <p style="color:rgb(128,128,128);">
