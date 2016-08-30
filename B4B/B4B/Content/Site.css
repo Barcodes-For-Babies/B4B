@@ -444,7 +444,7 @@ a.loginNavBrand{
     #relatedInfo{
         display: block;
         position: absolute;
-        bottom: 70px;
+        bottom: 90px;
         right: 15px;
     }
     #homeNavItems>.lastItem{
