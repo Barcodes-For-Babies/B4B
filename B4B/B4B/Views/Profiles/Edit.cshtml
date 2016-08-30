@@ -18,7 +18,14 @@
                         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                             <div class="form-group col-sm-12">
                                 <div>
-                                    <img src="~/File?id=@Model._profile.ProfileID" alt="avatar" class="idpicsize img-responsive" />
+                                    @if (Model._profile.PhotoBytes == null)
+                                    {
+                                        <img src="~/Portrait_placeholder.png" alt="avatar" class="idpicsize img-responsive" />
+                                    }
+                                    else
+                                    {
+                                        <img src="~/File?id=@Model._profile.ProfileID" alt="avatar" class="idpicsize img-responsive" />
+                                    }
                                     <input type="file" class="filestyle" data-iconName="fa fa-camera" data-input="false" id="AvatarEdit" data-buttonText="" name="upload" />
                                     <button class="btn btn-primary" type="button" id="generateQr" onclick="printpage()">Print Qr Code</button>
                                 </div>
@@ -27,11 +34,11 @@
                         <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" style="padding-top: 15px;">
                             <div class="form-group clearfix" style="display:block">
                                 <div class="col-sm-6">
-                                    @Html.EditorFor(model => model._profile.FirstName, new { htmlAttributes = new { @class = "form-control", style = "max-width: 350px", @placeholder = "First Name*" } })
+                                    @Html.EditorFor(model => model._profile.FirstName, new { htmlAttributes = new { @class = "form-control", style = "max-width: 350px; width: 95%;",  @placeholder = "First Name*" } })
                                     @Html.ValidationMessageFor(model => model._profile.FirstName, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="col-sm-6">
-                                    @Html.EditorFor(model => model._profile.LastName, new { htmlAttributes = new { @class = "form-control", style = "max-width: 350px", @placeholder = "Last Name" } })
+                                    @Html.EditorFor(model => model._profile.LastName, new { htmlAttributes = new { @class = "form-control", style = "max-width: 350px; width: 93%;", @placeholder = "Last Name" } })
                                     @Html.ValidationMessageFor(model => model._profile.LastName, "", new { @class = "text-danger" })
                                 </div>
                             </div> <!-- end First Name & Last Name -->
@@ -44,49 +51,49 @@
                             </div> <!-- end Street Address -->
 
                             <div class="form-group editcity clearfix" style="display:block">
-                                <div class="col-sm-4">
+                                <div class="col-sm-5">
                                     @Html.EditorFor(model => model._profile.City, new { htmlAttributes = new { @class = "form-control", @placeholder = "City" } })
                                     @Html.ValidationMessageFor(model => model._profile.City, "", new { @class = "text-danger" })
                                 </div>
-                                <div class="col-sm-2">
+                                <div class="col-sm-3">
                                     @Html.EditorFor(model => model._profile.State, new { htmlAttributes = new { @class = "form-control", @placeholder = "State" } })
                                     @Html.ValidationMessageFor(model => model._profile.State, "", new { @class = "text-danger" })
                                 </div>
-                                <div class="col-sm-2">
-                                    @Html.EditorFor(model => model._profile.ZipCode, new { htmlAttributes = new { @class = "form-control", style = "max-width: 140px;", @placeholder = "Zip Code" } })
+                                <div class="col-sm-4">
+                                    @Html.EditorFor(model => model._profile.ZipCode, new { htmlAttributes = new { @class = "form-control", style = "max-width: 150px;", @placeholder = "Zip Code" } })
                                     @Html.ValidationMessageFor(model => model._profile.ZipCode, "", new { @class = "text-danger" })
                                 </div>
                             </div> <!-- end City -->
 
                             <div class="emergencyContacts">
-                                <p>Emergency contacnt header or title or something here maybe</p>
+                                <h4 style="color:black;">Emergency Contacts</h4>
                             </div>
 
                             <div class="form-group clearfix" style="display:block">
-                                <div class="col-sm-4">
-                                    @Html.EditorFor(model => model._profile.EcontactName, new { htmlAttributes = new { @class = "form-control", style = "max-width: 400px;", @placeholder = "Emergency Conatact" } })
+                                <div class="col-sm-6">
+                                    @Html.EditorFor(model => model._profile.EcontactName, new { htmlAttributes = new { @class = "form-control", style = "max-width: 250px;", @placeholder = "Name" } })
                                     @Html.ValidationMessageFor(model => model._profile.EcontactName, "", new { @class = "text-danger" })
                                 </div>
-                                <div class="col-sm-4">
-                                    @Html.EditorFor(model => model._profile.EmergencyPhone, new { htmlAttributes = new { @class = "form-control", style = "max-width: 400px;", @placeholder = "Emergency Contact Phone" } })
+                                <div class="col-sm-6">
+                                    @Html.EditorFor(model => model._profile.EmergencyPhone, new { htmlAttributes = new { @class = "form-control", style = "max-width: 250px;", @placeholder = "Phone" } })
                                     @Html.ValidationMessageFor(model => model._profile.EmergencyPhone, "", new { @class = "text-danger" })
                                 </div>
                             </div> <!--end Emergency Contact Name & Emergency Contact Phone -->
 
                             <div class="form-group clearfix" style="display:block">
-                                <div class="col-sm-4">
-                                    @Html.EditorFor(model => model._profile.SecondEcontactName, new { htmlAttributes = new { @class = "form-control", style = "max-width: 400px;", @placeholder = "Emergency Conatact" } })
+                                <div class="col-sm-6">
+                                    @Html.EditorFor(model => model._profile.SecondEcontactName, new { htmlAttributes = new { @class = "form-control", style = "max-width: 250px;", @placeholder = "Name" } })
                                     @Html.ValidationMessageFor(model => model._profile.SecondEcontactName, "", new { @class = "text-danger" })
                                 </div>
-                                <div class="col-sm-4">
-                                    @Html.EditorFor(model => model._profile.SecondEmergencyPhone, new { htmlAttributes = new { @class = "form-control", style = "max-width: 400px;", @placeholder = "Emergency Contact Phone" } })
+                                <div class="col-sm-6">
+                                    @Html.EditorFor(model => model._profile.SecondEmergencyPhone, new { htmlAttributes = new { @class = "form-control", style = "max-width: 250px;", @placeholder = "Phone" } })
                                     @Html.ValidationMessageFor(model => model._profile.SecondEmergencyPhone, "", new { @class = "text-danger" })
                                 </div>
                             </div> <!--end Second Emergency Contact Name & Second Emergency Contact Phone -->
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="row" id="Medical">
                     @for (int i = 0; i < Model.medInfoList.Count(); i++)
                     {
@@ -122,10 +129,11 @@
                     }
 
                     <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12" style="padding-left: 0; margin-top: 15px;">
-                        <div class="thumbnail" id="addNewMedThumb" onclick="addNewMedCard()" style="height: 300px;">
+                        <div class="thumbnail" id="addNewMedThumb" onclick="addNewMedCard()" style="height: 300px; cursor:pointer; background: transparent; border: none;">
                             <div class="row">
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                    <h3 class="addNewMedCard">Add A New Medical Card</h3>
+                                    <h3 class="addNewMedCard" style="margin-bottom: 15px;">Add Med Card</h3>
+                                    <img src="~/pluswhite_480.png" width="150" height="150" />
                                 </div>
                             </div>
                         </div>
@@ -144,22 +152,8 @@
     </div>
 </div>
 <div class="qrCodeTester pull-right target" id="target" style="visibility: hidden;">
-    <img src="@Url.Action("myAction", "Profiles", new { id = Model._profile.ProfileID })" alt="qr code" id="testQrCode" />
+    <img src="@Url.Action("myAction", "Profiles", new { id = Model._profile.ProfileID })" alt="qr code" id="testQrCode" width="50" height="50" />
 </div>
-@*<div class="col-sm-8">
-        <div class="form-group clearfix" style="display:block">
-            <div class="form-group col-sm-4 clearfix generateQr" style="display:block">
-                <button class="btn btn-primary" id="generateQr" onclick="displayQr()">Generate Qr Code</button>
-            </div>
-
-            <div class="form-group col-sm-4 clearfix printQr" style="display:block">
-                <button class="btn btn-primary" id="generateQr" onclick="printpage()">Print Qr Code</button>
-            </div>
-            <div class="qrCodeTester pull-right target" id="target">
-                <img src="@Url.Action("myAction", "Profiles", new { id = Model._profile.ProfileID })" alt="qr code" id="testQrCode" />
-            </div>
-        </div>
-    </div>*@
 <div>
 </div>
 
