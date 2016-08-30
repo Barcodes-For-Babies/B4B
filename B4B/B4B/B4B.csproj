@@ -224,7 +224,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\JsonObject .cs" />
+    <Compile Include="Controllers\JsonObject.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MedicalInfoesController.cs" />
     <Compile Include="Controllers\ProfilesController.cs" />

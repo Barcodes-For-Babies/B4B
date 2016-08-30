@@ -10,418 +10,108 @@
     <hr />*@
 
 
-<div class="row" style="margin-top: 40px; margin-left:90px;">
-    <div class="col-sm-6">
-        <div class="form-group col-sm-12" style="margin-left: 85px;">
-            @*<span class="control-label col-sm-2"><strong>Current Avatar</strong></span>*@
-            <div>
-                <img src="~/File?id=@Model._profile.ProfileID" alt="avatar" class="idpicsize img-responsive" />
-            </div>
-        </div> <!-- end Current Avatar -->
-        <div class="form-group col-sm-12" style="margin-left: 0px;">
-            @*@Html.Label("Avatar", new { @class = "control-label col-md-2" })*@
-            <div class="emergbtn">
-                @Html.ActionLink("Emergency", "SendEmergencyText", "Profiles", new { id = Model._profile.ProfileID }, new { @class = "btn btn-primary btn-large" })
-            </div>
-            
-        </div>
-        
-
-    </div>
-    @*<div class="detailsphoto">
-        <img src="~/File?id=@Model._profile.ProfileID" class="idpicsize img-responsive" />
-        <div class="emergbtn">
-        @Html.ActionLink("Emergency", "SendEmergencyText", "Profiles", new { id = Model._profile.ProfileID }, new { @class = "btn btn-primary btn-large" })
-        </div>
-        </div>*@
-
-
-    <div class="col-sm-6 clearfix " style="height: 100%; margin-top:10px;">
-        <div class="form-group clearfix" style="display:block">
-            <div class="col-sm-4">
-                @if (Model._profile.FirstName != null)
-                {
-
-                    <div>
-                        <strong>Name:</strong>
-                        <p>@Html.DisplayFor(model => model._profile.FullName)</p>
-                    </div>
-
-                }
-                @*else
-                {
-                    <div>
-                        <strong>Name:</strong>
-                        <p>N/A</p>
-                    </div>
-
-                }*@
-
-                @if (Model._profile.StreetAdress != null)
-                {
-                    <div>
-                        <strong>Address:</strong>
-                        <p>@Html.DisplayFor(model => model._profile.StreetAdress)</p>
-                    </div>
-                }
-                @*else
-                {
-                    <div>
-                        <strong>Address:</strong>
-                        <p>N/A</p>
-                    </div>
-                }*@
-
-                @if (Model._profile.City != null)
-                {
-                    <div>
-                        <strong>City:</strong>
-                        <p>@Html.DisplayFor(model => model._profile.City)</p>
-                    </div>
-                }
-                @*else
-                {
-                    <div>
-                        <strong>City:</strong>
-                        <p>N/A</p>
-                    </div>
-
-                }*@
-
-                @if (Model._profile.State != null)
-                {
-                    <div>
-                        <strong>State:</strong>
-                        <p>@Html.DisplayFor(model => model._profile.State)</p>
-                    </div>
-                }
-                @*else
-                {
-                    <div>
-                        <strong>State:</strong>
-                        <p>N/A</p>
-                    </div>
-
-                }*@
-
-
-                @if (Model._profile.ZipCode != null)
-                {
-                    <div>
-                        <strong>Zip Code:</strong>
-                        <p>@Html.DisplayFor(model => model._profile.ZipCode)</p>
-                    </div>
-                }
-                @*else
-                {
-                    <div>
-                        <strong>Zip Code:</strong>
-                        <p>N/A</p>
-                    </div>
-
-                }*@
-
-            </div>
-
-        </div>
-    </div>
-</div>
-
-<<<<<<< HEAD
 <div class="row">
-    <div class="col-sm-12 clearfix " style="height: 100%; margin-top:25px;">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 thumbnail" style="height:355px; margin-right: 16px;">
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                            <div class="form-group col-sm-12">
+                                <div>
+                                    <img src="~/File?id=@Model._profile.ProfileID" alt="avatar" class="idpicsize img-responsive" />
+                                    <a class="btn btn-primary btn-large" href="/Profiles/EmergencyText/1">Emergency</a>                                </div>
+                            </div> <!-- end Current Avatar -->
+                        </div>
+                        <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" style="padding-top: 15px;">
+                            <div class="form-group clearfix" style="display:block">
+                                <div class="col-sm-4">
+                                    @Html.EditorFor(model => model._profile.FirstName, new { htmlAttributes = new { disabled = "disabled", @readonly = "readonly", @class = "form-control", style = "max-width: 350px", @placeholder = "First Name*" } })
+                                    @Html.ValidationMessageFor(model => model._profile.FirstName, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-sm-4">
+                                    @Html.EditorFor(model => model._profile.LastName, new { htmlAttributes = new { disabled = "disabled", @readonly = "readonly", @class = "form-control", style = "max-width: 350px", @placeholder = "Last Name" } })
+                                    @Html.ValidationMessageFor(model => model._profile.LastName, "", new { @class = "text-danger" })
+                                </div>
+                            </div> <!-- end First Name & Last Name -->
 
+                            <div class="form-group clearfix" style="display:block">
+                                <div class="col-sm-8">
+                                    @Html.EditorFor(model => model._profile.StreetAdress, new { htmlAttributes = new { disabled = "disabled", @readonly = "readonly", @class = "form-control", style = "max-width: 550px;", @placeholder = "Street Address" } })
+                                </div>
+                            </div> <!-- end Street Address -->
 
-        @if (Model._medicalInfo.MedicalCondition != null)
-            {
+                            <div class="form-group editcity clearfix" style="display:block">
+                                <div class="col-sm-4">
+                                    @Html.EditorFor(model => model._profile.City, new { htmlAttributes = new { disabled = "disabled", @readonly = "readonly", @class = "form-control", @placeholder = "City" } })
+                                </div>
+                                <div class="col-sm-2">
+                                    @Html.EditorFor(model => model._profile.State, new { htmlAttributes = new { disabled = "disabled", @readonly = "readonly", @class = "form-control", @placeholder = "State" } })
+                                </div>
+                                <div class="col-sm-2">
+                                    @Html.EditorFor(model => model._profile.ZipCode, new { htmlAttributes = new { disabled = "disabled", @readonly = "readonly", @class = "form-control", style = "max-width: 140px;", @placeholder = "Zip Code" } })
+                                    @Html.ValidationMessageFor(model => model._profile.ZipCode, "", new { @class = "text-danger" })
+                                </div>
+                            </div> <!-- end City -->
 
-            <div>
-                <strong>Medical Condition:</strong>
-                <p>@Html.DisplayFor(model => model._medicalInfo.MedicalCondition)</p>
-            </div>
-        }
+                            <div class="emergencyContacts">
+                                <p>Emergency contacnt header or title or something here maybe</p>
+                            </div>
 
-        @if (Model._medicalInfo.Symptoms != null)
-            {
-            <div>
-                <strong>Symptoms</strong>
-                <p>@Html.DisplayFor(model => model._medicalInfo.Symptoms)</p>
-            </div>
+                            <div class="form-group clearfix" style="display:block">
+                                <div class="col-sm-4">
+                                    @Html.EditorFor(model => model._profile.EcontactName, new { htmlAttributes = new { disabled = "disabled", @readonly = "readonly", @class = "form-control", style = "max-width: 400px;", @placeholder = "Emergency Conatact" } })
+                                </div>
+                                <div class="col-sm-4">
+                                    @Html.EditorFor(model => model._profile.EmergencyPhone, new { htmlAttributes = new { disabled = "disabled", @readonly = "readonly", @class = "form-control", style = "max-width: 400px;", @placeholder = "Emergency Contact Phone" } })
+                                </div>
+                            </div> <!--end Emergency Contact Name & Emergency Contact Phone -->
 
-        }
-
-        @if (Model._medicalInfo.RelatedInformation != null)
-            {
-            <div>
-                <strong>Information</strong>
-                <p>@Html.DisplayFor(model => model._medicalInfo.RelatedInformation)</p>
-            </div>
-        }
-
-
-        @if (Model._profile.EmergencyPhone == null)
-        {
-
-            @:No Emergency contact set
-
-        }
-        else
-        {
-            <div>
-                <strong>Emergency Contact</strong>
-                <p>@Html.DisplayFor(modelItem => modelItem._profile.EcontactName)</p>
-            </div>
-        }
-
-
-        <div>
-            @if (Model._profile.EmergencyPhone == null)
-            {
-                @:No Emergency contact set
-            }
-            else
-            {
-                <div>
-                    <strong>Emergency Phone</strong>
-                    <p>@Html.DisplayFor(modelItem => modelItem._profile.EmergencyPhone)</p>
-                </div>
-            }
-        </div>
-
-        <div>
-            @if (Model._profile.SecondEmergencyPhone == null)
-            {
-                @:No Emergency contact set
-            }
-            else
-            {
-                <div>
-                    <strong>Emergency Contact</strong>
-                    <p>@Html.DisplayFor(modelItem => modelItem._profile.SecondEcontactName)</p>
+                            <div class="form-group clearfix" style="display:block">
+                                <div class="col-sm-4">
+                                    @Html.EditorFor(model => model._profile.SecondEcontactName, new { htmlAttributes = new { disabled = "disabled", @readonly = "readonly", @class = "form-control", style = "max-width: 400px;", @placeholder = "Emergency Conatact" } })
+                                </div>
+                                <div class="col-sm-4">
+                                    @Html.EditorFor(model => model._profile.SecondEmergencyPhone, new { htmlAttributes = new { disabled = "disabled", @readonly = "readonly", @class = "form-control", style = "max-width: 400px;", @placeholder = "Emergency Contact Phone" } })
+                                </div>
+                            </div> <!--end Second Emergency Contact Name & Second Emergency Contact Phone -->
+                        </div>
+                    </div>
                 </div>
 
-            }
-        </div>
+                <div class="row" id="Medical">
+                    @for (int i = 0; i < Model.medInfoList.Count(); i++)
+                    {
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12" style="padding-left: 0; margin-top: 15px;">
+                            <div class="thumbnail" style="height: 300px;">
+                                <div class="form-group clearfix" style="display:block">
+                                    <div class="col-sm-12" style="margin: 10px 0;">
+                                        <h5 style="color: black;">Medical Conditions:</h5>
+                                        @Html.EditorFor(model => model.medInfoList[i].MedicalCondition, new { htmlAttributes = new { disabled = "disabled", @readonly = "readonly", @class = "form-control", style = "max-width: 400px;" } })
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <h5 style="color: black;">Symptoms:</h5>
+                                        @Html.EditorFor(model => model.medInfoList[i].Symptoms, new { htmlAttributes = new { disabled = "disabled", @readonly = "readonly", @class = "form-control", style = "max-width: 400px;" } })
+                                    </div>
+                                </div> <!-- end Medical Condition  & Symptoms -->
 
-        <div>
-            @if (Model._profile.SecondEmergencyPhone == null)
-            {
-                @:No Emergency contact set
-            }
-            else
-            {
-                <div>
-                    <strong>Emergency Phone</strong>
-                    <p>@Html.DisplayFor(modelItem => modelItem._profile.SecondEmergencyPhone)</p>
+
+                                <div class="form-group clearfix" id="relatedInfo">
+                                    <div class="col-lg-12 col-md-12 col-sm-12" style="margin:0 auto; text-align:center;">
+                                        <h5 style="color: black;">Related Information:</h5>
+                                        @Html.TextAreaFor(model => model.medInfoList[i].RelatedInformation, 4, 35, new { disabled = "disabled", @readonly = "readonly", htmlAttributes = new { @class = "form-control", style = "max-width: 840px;" } })
+                                    </div>
+                                </div> <!-- Related Information -->
+                            </div>
+
+                        </div>
+                    }
+
                 </div>
-            }
+            </div>
 
-        </div>
     </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-@*<dl class="infotable" class"col-md-6">*@
-@*@if (Model._profile.FirstName != null)
-    {
-        <dt>
-            @Html.DisplayNameFor(model => model._profile.FirstName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model._profile.FirstName)
-        </dd>
-    }
-
-    @if (Model._profile.LastName != null)
-    {
-        <dt>
-            @Html.DisplayNameFor(model => model._profile.LastName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model._profile.LastName)
-        </dd>
-    }
-
-    @if (Model._profile.StreetAdress != null)
-    {
-        <dt>
-            @Html.DisplayNameFor(model => model._profile.StreetAdress)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model._profile.StreetAdress)
-        </dd>
-    }
-
-    @if (Model._profile.City != null)
-    {
-        <dt>
-            @Html.DisplayNameFor(model => model._profile.City)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model._profile.City)
-        </dd>
-    }
-
-    @if (Model._profile.State != null)
-    {
-        <dt>
-            @Html.DisplayNameFor(model => model._profile.State)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model._profile.State)
-        </dd>
-    }
-
-
-    @if (Model._profile.ZipCode != null)
-    {
-        <dt>
-            @Html.DisplayNameFor(model => model._profile.ZipCode)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model._profile.ZipCode)
-        </dd>
-    }*@
-
-@*@if (Model._medicalInfo.MedicalCondition != null)
-                {
-
-            <dt>
-                @Html.DisplayNameFor(model => model._medicalInfo.MedicalCondition)
-            </dt>
-
-                    <dd>
-                        @Html.DisplayFor(model => model._medicalInfo.MedicalCondition)
-                    </dd>
-
-        }
-
-        @if (Model._medicalInfo.Symptoms != null)
-                {
-            <dt>
-                @Html.DisplayNameFor(model => model._medicalInfo.Symptoms)
-            </dt>
-
-                    <dd>
-                        @Html.DisplayFor(model => model._medicalInfo.Symptoms)
-                    </dd>
-        }
-
-        @if (Model._medicalInfo.RelatedInformation != null)
-                {
-            <dt>
-                @Html.DisplayNameFor(model => model._medicalInfo.RelatedInformation)
-            </dt>
-
-                    <dd>
-                        @Html.DisplayFor(model => model._medicalInfo.RelatedInformation)
-                    </dd>
-        }
-
-
-<<<<<<< HEAD
-        @if (Model._profile.EmergencyPhone == null)
-                {
-            @:No Emergency contact set
-                }
-                else
-                {
-            <dt>
-=======
-            @if (Model._profile.EmergencyPhone == null)
-            {
-                @:No Emergency contact set
-            }
-
-            else
-            {
-                <dt>
->>>>>>> Cleanup
-                @Html.DisplayNameFor(modelItem => modelItem._profile.EcontactName)
-            </dt>
-
-                    <dd>
-                        @Html.DisplayFor(modelItem => modelItem._profile.EcontactName)
-                    </dd>
-        }
-
-        <dt>
-            @Html.DisplayNameFor(modelItem => modelItem._profile.EmergencyPhone)
-
-        </dt>
-        <dd>
-            @if (Model._profile.EmergencyPhone == null)
-                {
-                @:No Emergency contact set
-<<<<<<< HEAD
-                           }
-                else
-                {
-=======
-            }
-            else
-            {
->>>>>>> Cleanup
-                @Html.DisplayFor(modelItem => modelItem._profile.EmergencyPhone)
-            }
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(modelItem => modelItem._profile.SecondEcontactName)
-
-        </dt>
-        <dd>
-            @if (Model._profile.SecondEmergencyPhone == null)
-                {
-                @:No Emergency contact set
-                }
-                else
-                {
-                @Html.DisplayFor(modelItem => modelItem._profile.SecondEcontactName)
-            }
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(modelItem => modelItem._profile.SecondEmergencyPhone)
-
-        </dt>
-        <dd>
-            @if (Model._profile.SecondEmergencyPhone == null)
-                {
-                @:No Emergency contact set
-<<<<<<< HEAD
-                           }
-                else
-                {
-=======
-            }
-
-            else
-            {
->>>>>>> Cleanup
-                @Html.DisplayFor(modelItem => modelItem._profile.SecondEmergencyPhone)
-            }
-        </dd>
-    </dl>*@
 
 
 <p>
@@ -430,6 +120,55 @@
 </p>
 
 
+<script>
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+            x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+    }
+    function showPosition(position) {
+
+        //stores lat and long in array
+        var coordinates = {
+            "Latitude": position.coords.latitude,
+            "Longitude": position.coords.longitude
+        }
+
+        // send the array to the controller
+        $.ajax({
+            url: '@Url.Action("EmergencyText", "Profiles", new { id = Model._profile.ProfileID })',
+            type: 'POST',
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8',
+            data: JSON.stringify(coordinates),
+            success: function (data) {
+                alert(data);
+            },
+            failure: function (errMsg) {
+                alert(errMsg);
+            },
+            async: true
+        });
+    }
+    function showError(error) {
+        switch (error.code) {
+            case error.PERMISSION_DENIED:
+                x.innerHTML = "User denied the request for Geolocation."
+                break;
+            case error.POSITION_UNAVAILABLE:
+                x.innerHTML = "Location information is unavailable."
+                break;
+            case error.TIMEOUT:
+                x.innerHTML = "The request to get user location timed out."
+                break;
+            case error.UNKNOWN_ERROR:
+                x.innerHTML = "An unknown error occurred."
+                break;
+        }
+    }
+</script>
 
 
 

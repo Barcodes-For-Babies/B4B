@@ -31,7 +31,7 @@ namespace B4B.Controllers
            var client = new TwilioRestClient(WebConfigurationManager.AppSettings["TWILIO_SID"],
                 WebConfigurationManager.AppSettings["TWILIO_AUTHTOKEN"]);
                 
-                var result = client.SendMessage(WebConfigurationManager.AppSettings["TWILIO_PHONE"], output, "Emergency button has been activated at :/n" + address);
+                var result = client.SendMessage(WebConfigurationManager.AppSettings["TWILIO_PHONE"], output, "Emergency button has been activated at:\n" + address);
           
         }
 
@@ -141,8 +141,7 @@ namespace B4B.Controllers
 
         // GET: Profiles/Details/5
         [AllowAnonymous]
-        public ActionResult Details(int? id, List<MedicalInfo> medInfos)
-            
+        public ActionResult Details(int? id)          
         {
             if (id == null)
             {
@@ -156,23 +155,14 @@ namespace B4B.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             wizardViewModel._profile = profile;
-
-            medInfos = db.MedicalInfoes.ToList();
-            foreach (var mi in medInfos)
-            {
-                if (mi.ProfileID == profile.ProfileID)
-                    wizardViewModel._medicalInfo = db.MedicalInfoes.Find(mi.ProfileID);
-            }
+            wizardViewModel.medInfoList = profile.MedicalInfos.ToList();
+           
             if (profile == null)
             {
                 return HttpNotFound();
             }
-            
-            //if(User.Identity.GetUserId() == null && id != null)
-            //{
-            //    var pics = new FileController().Index(Convert.ToInt32(id);
-            //}
-             return View(wizardViewModel);
+
+            return View(wizardViewModel);
         }
 
         // GET: Profiles/Create
