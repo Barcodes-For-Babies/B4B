@@ -38,8 +38,8 @@
 
         </div>
     </div> <!-- end Register Button-->
-    @*@section Scripts {
-        @Scripts.Render("~/bundles/jqueryval")*@
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
 
     @*<script>
             var width = $(window).width();
@@ -52,5 +52,9 @@
             //}
 
         </script>*@
-    @*}*@
-   
+<script>
+    if(window.location.pathname == "/"){
+        $('#NavBarLayout').css("background-color", "transparent")
+    }
+</script>   
+    }
