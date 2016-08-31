@@ -1,31 +1,8 @@
-﻿@*Add the model you want to use*@
-@model IEnumerable<B4B.Models.Profile>
+﻿@model IEnumerable<B4B.Models.Profile>
 
-
-
-@{
+@*@{
     Layout = "~/Views/Shared/_Layout.cshtml";
-}
-
-@*<div id="navbar" class="navbar navbar-inverse navbar-fixed-top">
-
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            @Html.ActionLink("SQR", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-        </div>
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li>@Html.ActionLink("Home", "Admin", "Home")</li>
-            </ul>
-            @Html.Partial("_LoginPartial")
-        </div>
-    </div>
-</div>*@
+}*@
 
 <div class="row rowmargin">
     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"></div>
@@ -42,8 +19,6 @@
                     }
                     else
                     {
-                        @*<div class="profileIcon" style="background-image:url(http://assignments.ds106.us/files/2011/12/placeholder.png)"></div>*@
-
                         <a href="@Url.Action("Edit", "Profiles",new { id = item.ProfileID })" class="addProfileAdmin">
                             <img src="~/Portrait_placeholder.png" class="object-fit_fill" width="150" height="150" />
                         </a>
@@ -59,8 +34,6 @@
                     <a href="@Url.Action("Create", "Profiles")" class="addProfileAdmin">
                         <img src="~/pluswhite_480.png" width="150" height="150" />                        
                     </a>
-                    @*<a href="@Url.Action("Create", "Profiles")" class="addProfileAdmin"></a>*@
-                    @*<span style="display:block; font-size: 20px; margin: 10px 0;">Create Profile</span>*@
                     <span style="display:block; font-size: 20px; margin: 10px 0; padding-top:15px;">Create Profile</span>
                 </div>
             </li>
@@ -69,22 +42,3 @@
     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"></div>
 </div>
 
-@Scripts.Render("~/bundles/jquery")
-@Scripts.Render("~/bundles/bootstrap")
-<script>
-    $(window).load(function () {
-        var body = $('#ContentBody').height();
-        if (window.location.pathname == "/Home/Admin")
-            $('#renderBody').css("height", body + 30)
-    });
-
-    if (window.location.pathname == "/Home/Admin") {
-        $('#NavBarLayout').css({ "height": "50px", "margin-bottom": "100px" })
-        $('.rowmargin').css({ "margin-top": "0" })
-        var button = '<ul id="navItems"><li class="lastItem" style="margin-top: 4px"><span class="glyphicon glyphicon-user" style="margin-top: 3px"></span></li></ul>'
-        $('#leftNav').append(button);
-        $('#userIcon').remove();
-        $('.homeNavBrand').css("font-size", "40px"); //SQR
-        $('#homeNavBrand').css({ "font-size": "90px", "bottom": "-29px" }); //DOT
-    }
-</script>

@@ -15,8 +15,37 @@ body {
     background-size: cover;
     background-color: transparent;
 }
-
+#logoff{
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: normal;
+    line-height: 1.428571429;
+    color: #333333;
+    white-space: nowrap;
+}
+#SQRnavbar{
+    background-color: #FC4A1A;
+}
+.navbar-brand.homeNavBrand{
+    color: white;
+    margin-top: 10px;
+}
+.navbar-brand.homeNavBrand:hover{
+    color: white;
+}
+.glyphicon-user{
+    color: white;
+}
+.dropdown-toggle{
+    padding-top: 5px !important;
+}
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus{
+    background-color: #FC4A1A;
+}
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus
 #renderBody{
+    background-color: #FC4A1A;
     height: 95%;
 }
 
@@ -25,10 +54,10 @@ body {
     padding-left: 15px;
     padding-right: 15px;
 }
-#navbar{
+/*#navbar{
     color: whitesmoke;
     background-color: #FC4A1A;
-}
+}*/
 #button {
     background-color: #F7B733;
     width: 90px;
@@ -378,11 +407,11 @@ a.loginNavBrand{
     text-decoration: none;
 }
 #homeNavBrand{
-    font-size: 90px;
+    font-size: 90px;    
     font-weight: 900;
     color: #F7B733;
     position: absolute;
-    bottom: -29px;
+    bottom: 28px !important;
 }
 #loginNavBrand{
     font-size: 65px;

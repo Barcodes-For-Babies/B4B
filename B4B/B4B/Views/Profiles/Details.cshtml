@@ -178,19 +178,7 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
-    <script>
-        if (window.location.pathname.substring(0, 17) == "/Profiles/Details") {
-            $('#NavBarLayout').css({ "height": "50px", "margin-bottom": "28px" })
-            var button = '<ul id="navItems"><li class="lastItem" style="margin-top: 4px"><span class="glyphicon glyphicon-user" style="margin-top: 3px"></span></li></ul>'
-            $('#leftNav').append(button);
-            $('#userIcon').remove();
-            $('.homeNavBrand').css("font-size", "40px"); //SQR
-            $('#homeNavBrand').css({ "font-size": "90px", "bottom": "-29px" }); //DOT
 
-            var body = $(window).height();
-            $('#renderBody').css("height", body + 100)
-        }
-    </script>
 }
 
 

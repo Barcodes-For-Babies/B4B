@@ -20,12 +20,10 @@
 
 <script>
     if (window.location.pathname == "/" || window.location.pathname == "/Home/Index") {
-        $('#NavBarLayout').css("background-color", "transparent")
-        var button = '<p align="right" style = "display: inline-block; float: right;"><a id="loginbutton" class="btn btn-default" href="/Account/Login">Sign In</a></p>'
-        $('#leftNav').append(button);
-        $('#userIcon').remove();
-        $('.homeNavBrand').css("font-size", "75px"); //SQR
-        $('#homeNavBrand').css({"font-size": "130px", "bottom": "-80px"}); //DOT
+        $('#SQRnavbar').css("background-color", "transparent")
     }
+    $("li.dropdown").click(function () {
+        $("a.dropdown-toggle").css("background-color", "transparent");
+    });
 </script>   
     }

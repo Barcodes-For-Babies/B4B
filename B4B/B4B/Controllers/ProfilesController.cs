@@ -15,6 +15,7 @@ using System.IO;
 using System.Text.RegularExpressions;
 using QRCoder;
 using System.Xml.Linq;
+using System.Web.Security;
 
 namespace B4B.Controllers
 {
@@ -33,6 +34,12 @@ namespace B4B.Controllers
                 
                 var result = client.SendMessage(WebConfigurationManager.AppSettings["TWILIO_PHONE"], output, "Emergency button has been activated at:\n" + address);
           
+        }
+        public ActionResult Logout()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Index", "Home", null);    //home is Controller,and index is page where you want to redirect
+
         }
 
         [HttpPost]
