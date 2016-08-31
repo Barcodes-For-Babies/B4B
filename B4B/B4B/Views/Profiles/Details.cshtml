@@ -35,16 +35,16 @@
                     <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" style="padding-top: 15px;">
                         <div class="form-group clearfix" id="formName" style="display:block">
                             <div class="col-sm-6">
-                                @Html.EditorFor(model => model._profile.FirstName, new { htmlAttributes = new { disabled = "disabled", @id = "editFirstName", @readonly = "readonly", @class = "form-control", style = "max-width: 350px; width: 95%;", @placeholder = "First Name*" } })
+                                @Html.EditorFor(model => model._profile.FirstName, new { htmlAttributes = new { disabled = "disabled", @id = "editFirstName", @readonly = "readonly", @class = "form-control", @placeholder = "First Name*" } })
                             </div>
                             <div class="col-sm-6">
-                                @Html.EditorFor(model => model._profile.LastName, new { htmlAttributes = new { disabled = "disabled", @id = "editLastName", @readonly = "readonly", @class = "form-control", style = "max-width: 350px; width: 93%;", @placeholder = "Last Name" } })
+                                @Html.EditorFor(model => model._profile.LastName, new { htmlAttributes = new { disabled = "disabled", @id = "editLastName", @readonly = "readonly", @class = "form-control", @placeholder = "Last Name" } })
                             </div>
                         </div> <!-- end First Name & Last Name -->
 
                         <div class="form-group clearfix" id="formAddress" style="display:block">
                             <div class="col-sm-12">
-                                @Html.EditorFor(model => model._profile.StreetAdress, new { htmlAttributes = new { disabled = "disabled", @id = "editStreetAddress", @readonly = "readonly", @class = "form-control", style = "max-width: 550px;", @placeholder = "Street Address" } })
+                                @Html.EditorFor(model => model._profile.StreetAdress, new { htmlAttributes = new { disabled = "disabled", @id = "editStreetAddress", @readonly = "readonly", @class = "form-control", @placeholder = "Street Address" } })
                             </div>
                         </div> <!-- end Street Address -->
 
@@ -56,7 +56,7 @@
                                 @Html.EditorFor(model => model._profile.State, new { htmlAttributes = new { disabled = "disabled", @id = "editState", @readonly = "readonly", @class = "form-control", @placeholder = "State" } })
                             </div>
                             <div class="col-sm-4">
-                                @Html.EditorFor(model => model._profile.ZipCode, new { htmlAttributes = new { disabled = "disabled", @id = "editZipCode", @readonly = "readonly", @class = "form-control", style = "max-width: 150px;", @placeholder = "Zip Code" } })
+                                @Html.EditorFor(model => model._profile.ZipCode, new { htmlAttributes = new { disabled = "disabled", @id = "editZipCode", @readonly = "readonly", @class = "form-control", @placeholder = "Zip Code" } })
                             </div>
                         </div> <!-- end City -->
 
@@ -66,19 +66,19 @@
 
                         <div class="form-group clearfix" id="Econtact1" style="display:block">
                             <div class="col-sm-6">
-                                @Html.EditorFor(model => model._profile.EcontactName, new { htmlAttributes = new { disabled = "disabled", @id = "editEName", @readonly = "readonly", @class = "form-control", style = "max-width: 250px;", @placeholder = "Name" } })
+                                @Html.EditorFor(model => model._profile.EcontactName, new { htmlAttributes = new { disabled = "disabled", @id = "editEName", @readonly = "readonly", @class = "form-control", @placeholder = "Name" } })
                             </div>
                             <div class="col-sm-6">
-                                @Html.EditorFor(model => model._profile.EmergencyPhone, new { htmlAttributes = new { disabled = "disabled", @id = "editEPhone", @readonly = "readonly", @class = "form-control", style = "max-width: 250px;", @placeholder = "Phone" } })
+                                @Html.EditorFor(model => model._profile.EmergencyPhone, new { htmlAttributes = new { disabled = "disabled", @id = "editEPhone", @readonly = "readonly", @class = "form-control", @placeholder = "Phone" } })
                             </div>
                         </div> <!--end Emergency Contact Name & Emergency Contact Phone -->
 
                         <div class="form-group clearfix" id="Econtact2"  style="display:block">
                             <div class="col-sm-6">
-                                @Html.EditorFor(model => model._profile.SecondEcontactName, new { htmlAttributes = new { disabled = "disabled", @id = "editEName", @readonly = "readonly", @class = "form-control", style = "max-width: 250px;", @placeholder = "Name" } })
+                                @Html.EditorFor(model => model._profile.SecondEcontactName, new { htmlAttributes = new { disabled = "disabled", @id = "editEName", @readonly = "readonly", @class = "form-control", @placeholder = "Name" } })
                             </div>
                             <div class="col-sm-6">
-                                @Html.EditorFor(model => model._profile.SecondEmergencyPhone, new { htmlAttributes = new { disabled = "disabled", @id = "editEPhone", @readonly = "readonly", @class = "form-control", style = "max-width: 250px;", @placeholder = "Phone" } })
+                                @Html.EditorFor(model => model._profile.SecondEmergencyPhone, new { htmlAttributes = new { disabled = "disabled", @id = "editEPhone", @readonly = "readonly", @class = "form-control", @placeholder = "Phone" } })
                             </div>
                         </div> <!--end Second Emergency Contact Name & Second Emergency Contact Phone -->
                     </div>
@@ -93,11 +93,11 @@
                             <div class="form-group clearfix" style="display:block">
                                 <div class="col-sm-12" style="margin: 10px 0;">
                                     <h5 style="color: black;">Medical Conditions:</h5>
-                                    @Html.EditorFor(model => model.medInfoList[i].MedicalCondition, new { htmlAttributes = new { disabled = "disabled", @readonly = "readonly", @class = "form-control", style = "max-width: 400px;" } })
+                                    @Html.EditorFor(model => model.medInfoList[i].MedicalCondition, new { htmlAttributes = new { disabled = "disabled", @readonly = "readonly", @class = "form-control"} })
                                 </div>
                                 <div class="col-sm-12">
                                     <h5 style="color: black;">Symptoms:</h5>
-                                    @Html.EditorFor(model => model.medInfoList[i].Symptoms, new { htmlAttributes = new { disabled = "disabled", @readonly = "readonly", @class = "form-control", style = "max-width: 400px;" } })
+                                    @Html.EditorFor(model => model.medInfoList[i].Symptoms, new { htmlAttributes = new { disabled = "disabled", @readonly = "readonly", @class = "form-control" } })
                                 </div>
 
                             </div> <!-- end Medical Condition  & Symptoms -->
@@ -106,7 +106,7 @@
                             <div class="form-group clearfix" id="relatedInfo">
                                 <div class="col-lg-12 col-md-12 col-sm-12" style="margin:0 auto; text-align:center;">
                                     <h5 style="color: black;">Related Information:</h5>
-                                    @Html.TextAreaFor(model => model.medInfoList[i].RelatedInformation, 4, 35, new { @readonly = "readonly", @class = "form-control", style = "max-width: 840px;" })
+                                    @Html.TextAreaFor(model => model.medInfoList[i].RelatedInformation, 4, 35, new { @readonly = "readonly", @class = "form-control" })
                                 </div>
                             </div> <!-- Related Information -->
                         </div>
