@@ -14,7 +14,7 @@
 
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-12 thumbnail" style="height:355px; margin-right: 16px;">
+                    <div class="col-lg-12 thumbnail" id="cardEditDetail" style="height:355px; margin-right: 16px;">
                         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                             <div class="form-group col-sm-12">
                                 <div>
@@ -32,7 +32,7 @@
                             </div> <!-- end Current Avatar -->
                         </div>
                         <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" style="padding-top: 15px;">
-                            <div class="form-group clearfix" style="display:block">
+                            <div class="form-group clearfix" id="formName" style="display:block">
                                 <div class="col-sm-6">
                                     @Html.EditorFor(model => model._profile.FirstName, new { htmlAttributes = new { @id="editFirstName", @class = "form-control", @placeholder = "First Name*" } })
                                     @Html.ValidationMessageFor(model => model._profile.FirstName, "", new { @class = "text-danger" })
@@ -43,14 +43,14 @@
                                 </div>
                             </div> <!-- end First Name & Last Name -->
 
-                            <div class="form-group clearfix" style="display:block">
+                            <div class="form-group clearfix" id="formAddress" style="display:block">
                                 <div class="col-sm-12">
                                     @Html.EditorFor(model => model._profile.StreetAdress, new { htmlAttributes = new { @id = "editStreetAddress", @class = "form-control", @placeholder = "Street Address" } })
                                     @Html.ValidationMessageFor(model => model._profile.StreetAdress, "", new { @class = "text-danger" })
                                 </div>
                             </div> <!-- end Street Address -->
 
-                            <div class="form-group editcity clearfix" style="display:block">
+                            <div class="form-group editcity clearfix" id="formAddress1" style="display:block">
                                 <div class="col-sm-5">
                                     @Html.EditorFor(model => model._profile.City, new { htmlAttributes = new { @id = "editCity", @class = "form-control", @placeholder = "City" } })
                                     @Html.ValidationMessageFor(model => model._profile.City, "", new { @class = "text-danger" })
@@ -69,7 +69,7 @@
                                 <h4 style="color:black;">Emergency Contacts</h4>
                             </div>
 
-                            <div class="form-group clearfix" style="display:block">
+                            <div class="form-group clearfix" id="Econtact1" style="display:block">
                                 <div class="col-sm-6">
                                     @Html.EditorFor(model => model._profile.EcontactName, new { htmlAttributes = new { @id = "editEName", @class = "form-control", @placeholder = "Name" } })
                                     @Html.ValidationMessageFor(model => model._profile.EcontactName, "", new { @class = "text-danger" })
@@ -80,7 +80,7 @@
                                 </div>
                             </div> <!--end Emergency Contact Name & Emergency Contact Phone -->
 
-                            <div class="form-group clearfix" style="display:block">
+                            <div class="form-group clearfix" id="Econtact2" style="display:block">
                                 <div class="col-sm-6">
                                     @Html.EditorFor(model => model._profile.SecondEcontactName, new { htmlAttributes = new { @id = "editEName", @class = "form-control", @placeholder = "Name" } })
                                     @Html.ValidationMessageFor(model => model._profile.SecondEcontactName, "", new { @class = "text-danger" })

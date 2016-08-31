@@ -460,7 +460,7 @@ a.loginNavBrand{
     }
 
     #editZipCode{
-        max-width: 150px;
+        max-width: 200px;
     }
     #editEName{
         max-width: 320px;
@@ -581,7 +581,64 @@ a.loginNavBrand{
     #streedAddressCreate{
         margin-top: -4px;
     }
-    
+        .idpicsize{
+        width:200px;
+        height:200px;
+        object-fit:cover;
+        padding:15px;
+        align-content:center;
+        display:block;
+        margin: 30px auto 0;
+    }
+    .bootstrap-filestyle.input-group{
+        position: absolute;
+        top: 20px;
+        right: 270px;
+    }   
+     #editFirstName{
+        max-width: 350px;
+        width: 95%;
+    }
+    #editLastName{
+        max-width: 350px;
+        width: 93%;
+    }
+    #editStreetAddress{
+        max-width: 640px !important;
+    }
+
+    #editZipCode{
+        max-width: 180px !important;
+    }
+    #editEName{
+        max-width: 295px !important;
+    }
+    #editEPhone{
+        max-width: 295px !important;
+    }
+    #editMedCondition{
+        max-width: 660px !important;
+    }
+    #editSymptoms{
+        max-width: 660px !important;
+    }
+    #editRelatedInfo{
+        max-width: 840px !important;
+    }
+    #relatedInfo{
+        display: block;
+        position: absolute;
+        bottom: 90px;
+        right: 55px;
+    }
+    #cardEditDetail{
+        height: 600px !important;
+    }
+    #relatedInfo textarea{
+        resize: none;
+        width: 660px;
+        max-width: 1000px;
+    }
 }
 
 @media screen and (max-width: 425px) {
@@ -668,10 +725,94 @@ a.loginNavBrand{
         top: 50px !important;
         right: 68px !important;
     }
-   
+           .idpicsize{
+        width:200px;
+        height:200px;
+        object-fit:cover;
+        padding:15px;
+        align-content:center;
+        display:block;
+        margin: 30px auto 0;
+    }
+    .bootstrap-filestyle.input-group{
+        position: absolute;
+        top: 20px;
+        right: 70px;
+    }   
+     #editFirstName{
+        max-width: 350px;
+        width: 100%;
+    }
+    #editLastName{
+        max-width: 350px;
+        width: 100%;
+    }
+    #editStreetAddress{
+        max-width: 640px !important;
+    }
+
+    #editZipCode{
+        max-width: 340px !important;
+    }
+    #editEName{
+        max-width: 340px !important;
+    }
+    #editEPhone{
+        max-width: 340px !important;
+    }
+    #editMedCondition{
+        max-width: 660px !important;
+    }
+    #editSymptoms{
+        max-width: 660px !important;
+    }
+    #editRelatedInfo{
+        max-width: 840px !important;
+    }
+    #relatedInfo{
+        display: block;
+        position: absolute;
+        bottom: 90px;
+        right: 20px;
+    }
+    #cardEditDetail{
+        height: 835px !important;
+    }
+    #relatedInfo textarea{
+        resize: none;
+        width: 305px;
+        max-width: 1000px;
+    }
+    #formName{
+        height: 100px;
+    }
+    #formAddress{
+        height: 50px;
+    }
+    #formAddress1{
+        height: 140px;
+    }
+    #Econtact2{
+        height: 100px;
+    }
+    #Econtact1{
+        height: 100px;
+    }
+
+
 }
 
 @media screen and (max-width: 375px) {
+        #relatedInfo textarea{
+        resize: none;
+        width: 250px;
+        max-width: 1000px;
+    }
+    .bootstrap-filestyle.input-group{
+        position: absolute;
+        top: 20px;
+        right: 45px;
+    }   
     .formPlate{
         width: 340px !important;
     }
