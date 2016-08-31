@@ -4,11 +4,7 @@
 @{
     ViewBag.Title = "Create";
 }
-<div class="row" style="margin-bottom: 20px; background-color: #FC4A1A;">
-    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 clearfix">
-        <a href="@Url.Action("Index", "Home")" class="homeNavBrand">SQR<span id="homeNavBrand">.</span></a>
-    </div> <!-- end Navbar Brand-->
-</div>
+
 
 <div class="container clearfix" id="wizForm">
     @using (Html.BeginForm("Create", "Profiles", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
