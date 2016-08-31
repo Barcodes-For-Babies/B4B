@@ -245,15 +245,7 @@ textarea {
     right: 130px !important;
 }
 
-.idpicsize{
-    width:200px;
-    height:200px;
-    object-fit:cover;
-    padding:15px;
-    align-content:center;
-    display:inline-block;
-    margin-top: 30px;
-}
+
 .detailsphoto{
     margin-left:500px;
 }
@@ -271,11 +263,11 @@ textarea {
 }
 #AvatarEdit{
 }
-.bootstrap-filestyle.input-group{
+/*.bootstrap-filestyle.input-group{
     position: absolute;
     top: 50px;
     right: 64px;
-}
+}*/
 .generateQr{
     padding-left: 114px;
     padding-right: 50px;
@@ -440,7 +432,102 @@ a.loginNavBrand{
     font-size: 100px;
     margin-top: 50px;
 }
+@media screen and (max-width: 2560px) {
+    .idpicsize{
+        width:200px;
+        height:200px;
+        object-fit:cover;
+        padding:15px;
+        align-content:center;
+        display:block;
+        margin: 30px auto 0;
+    }
+    .bootstrap-filestyle.input-group{
+        position: absolute;
+        top: 20px;
+        right: 104px;
+    }   
+     #editFirstName{
+        max-width: 350px;
+        width: 95%;
+    }
+    #editLastName{
+        max-width: 350px;
+        width: 93%;
+    }
+    #editStreetAddress{
+        max-width: 690px;
+    }
+
+    #editZipCode{
+        max-width: 150px;
+    }
+    #editEName{
+        max-width: 320px;
+    }
+    #editEPhone{
+        max-width: 320px;
+    }
+    #editMedCondition{
+        max-width: 400px;
+    }
+    #editSymptoms{
+        max-width: 400px;
+    }
+    #editRelatedInfo{
+        max-width: 840px;
+    }
+    #relatedInfo{
+        display: block;
+        position: absolute;
+        bottom: 90px;
+        right: 55px;
+    }
+}
 @media screen and (max-width: 1024px) {
+    .idpicsize{
+        width:200px;
+        height:200px;
+        object-fit:cover;
+        padding:15px;
+        align-content:center;
+        display:inline-block;
+        margin: 30px;
+    }
+    .bootstrap-filestyle.input-group{
+    position: absolute;
+    top: 50px;
+    right: 64px;
+    }
+    #editFirstName{
+        max-width: 350px;
+        width: 95%;
+    }
+    #editLastName{
+        max-width: 350px;
+        width: 93%;
+    }
+    #editStreetAddress{
+        max-width: 550px;
+    }
+    #editZipCode{
+        max-width: 150px;
+    }
+    #editEName{
+        max-width: 250px;
+    }
+    #editEPhone{
+        max-width: 250px;
+    }
+    #editMedCondition{
+        max-width: 400px;
+    }
+    #editSymptoms{
+        max-width: 400px;
+    }
+    #editRelatedInfo{
+        max-width: 840px;
+    }
     #relatedInfo{
         display: block;
         position: absolute;
