@@ -59,7 +59,8 @@
                             <span class="glyphicon glyphicon-user"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Page 1-1</a></li>
+                            <li><a href="@Url.Action("About", "Home")">About</a></li>
+                            <li><a href="@Url.Action("Contact", "Home")">Contact</a></li>               
                             <li><a href="/Manage">Settings</a></li>
                             @if (User.Identity.IsAuthenticated)
                             {
