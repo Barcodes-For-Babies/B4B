@@ -130,28 +130,28 @@
 
                     <div class="form-group">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            @Html.EditorFor(model => model._profile.EcontactName, new { htmlAttributes = new { @class = "createBox form-control", @placeholder = "Emergency Contact Name*", @id = "eName" } })
+                            @Html.EditorFor(model => model._profile.EcontactName, new { htmlAttributes = new { @class = "createBox form-control", @placeholder = "Emergency Contact*", @id = "eName" } })
                             @Html.ValidationMessageFor(model => model._profile.EcontactName, "", new { @class = "text-danger" })
                         </div>
                     </div> <!-- end Emergency Name -->
 
                     <div class="form-group">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            @Html.EditorFor(model => model._profile.EmergencyPhone, new { htmlAttributes = new { @class = "createBox form-control", @placeholder = "Emergency Contact Phone Number*", @id = "eContact" } })
+                            @Html.EditorFor(model => model._profile.EmergencyPhone, new { htmlAttributes = new { @class = "createBox form-control", @placeholder = "Emergency Phone*", @id = "eContact" } })
                             @Html.ValidationMessageFor(model => model._profile.EmergencyPhone, "", new { @class = "text-danger" })
                         </div>
                     </div><!-- end Emergency Phone -->
 
                     <div class="form-group">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            @Html.EditorFor(model => model._profile.SecondEcontactName, new { htmlAttributes = new { @class = "createBox form-control", @placeholder = "Emergency Contact Name" } })
+                            @Html.EditorFor(model => model._profile.SecondEcontactName, new { htmlAttributes = new { @class = "createBox form-control", @placeholder = "Emergency Contact" } })
                             @Html.ValidationMessageFor(model => model._profile.SecondEcontactName, "", new { @class = "text-danger" })
                         </div>
                     </div> <!-- end Second Emergency Name -->
 
                     <div class="form-group">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            @Html.EditorFor(model => model._profile.SecondEmergencyPhone, new { htmlAttributes = new { @class = "createBox form-control", @placeholder = "Emergency Contact Phone Number" } })
+                            @Html.EditorFor(model => model._profile.SecondEmergencyPhone, new { htmlAttributes = new { @class = "createBox form-control", @placeholder = "Emergency Phone" } })
                             @Html.ValidationMessageFor(model => model._profile.SecondEmergencyPhone, "", new { @class = "text-danger" })
                         </div>
                     </div> <!-- end SecondEmergency Phone -->
