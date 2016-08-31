@@ -13,111 +13,114 @@
 <div class="row">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12 thumbnail" style="height:355px; margin-right: 16px;">
-                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                            <div class="form-group col-sm-12">
-                                <div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 thumbnail" style="height:355px; margin-right: 16px;">
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                        <div class="form-group col-sm-12">
+                            <div>
+                                @if (Model._profile.PhotoBytes == null)
+                                {
+                                    <img src="~/Portrait_placeholder.png" alt="avatar" class="idpicsize img-responsive" />
+                                }
+                                else
+                                {
                                     <img src="~/File?id=@Model._profile.ProfileID" alt="avatar" class="idpicsize img-responsive" />
-                                    <a class="btn btn-primary btn-large" href="/Profiles/EmergencyText/1">Emergency</a>                                </div>
-                            </div> <!-- end Current Avatar -->
-                        </div>
-                        <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" style="padding-top: 15px;">
-                            <div class="form-group clearfix" style="display:block">
-                                <div class="col-sm-4">
-                                    @Html.EditorFor(model => model._profile.FirstName, new { htmlAttributes = new { disabled = "disabled", @readonly = "readonly", @class = "form-control", style = "max-width: 350px", @placeholder = "First Name*" } })
-                                    @Html.ValidationMessageFor(model => model._profile.FirstName, "", new { @class = "text-danger" })
-                                </div>
-                                <div class="col-sm-4">
-                                    @Html.EditorFor(model => model._profile.LastName, new { htmlAttributes = new { disabled = "disabled", @readonly = "readonly", @class = "form-control", style = "max-width: 350px", @placeholder = "Last Name" } })
-                                    @Html.ValidationMessageFor(model => model._profile.LastName, "", new { @class = "text-danger" })
-                                </div>
-                            </div> <!-- end First Name & Last Name -->
-
-                            <div class="form-group clearfix" style="display:block">
-                                <div class="col-sm-8">
-                                    @Html.EditorFor(model => model._profile.StreetAdress, new { htmlAttributes = new { disabled = "disabled", @readonly = "readonly", @class = "form-control", style = "max-width: 550px;", @placeholder = "Street Address" } })
-                                </div>
-                            </div> <!-- end Street Address -->
-
-                            <div class="form-group editcity clearfix" style="display:block">
-                                <div class="col-sm-4">
-                                    @Html.EditorFor(model => model._profile.City, new { htmlAttributes = new { disabled = "disabled", @readonly = "readonly", @class = "form-control", @placeholder = "City" } })
-                                </div>
-                                <div class="col-sm-2">
-                                    @Html.EditorFor(model => model._profile.State, new { htmlAttributes = new { disabled = "disabled", @readonly = "readonly", @class = "form-control", @placeholder = "State" } })
-                                </div>
-                                <div class="col-sm-2">
-                                    @Html.EditorFor(model => model._profile.ZipCode, new { htmlAttributes = new { disabled = "disabled", @readonly = "readonly", @class = "form-control", style = "max-width: 140px;", @placeholder = "Zip Code" } })
-                                    @Html.ValidationMessageFor(model => model._profile.ZipCode, "", new { @class = "text-danger" })
-                                </div>
-                            </div> <!-- end City -->
-
-                            <div class="emergencyContacts">
-                                <p>Emergency contacnt header or title or something here maybe</p>
+                                }
+                                <input type="file" class="filestyle" data-iconName="fa fa-camera" data-input="false" id="AvatarEdit" data-buttonText="" name="upload" />
+                                <button class="btn btn-primary" type="button" id="generateQr" onclick="printpage()">Print Qr Code</button>
                             </div>
-
-                            <div class="form-group clearfix" style="display:block">
-                                <div class="col-sm-4">
-                                    @Html.EditorFor(model => model._profile.EcontactName, new { htmlAttributes = new { disabled = "disabled", @readonly = "readonly", @class = "form-control", style = "max-width: 400px;", @placeholder = "Emergency Conatact" } })
-                                </div>
-                                <div class="col-sm-4">
-                                    @Html.EditorFor(model => model._profile.EmergencyPhone, new { htmlAttributes = new { disabled = "disabled", @readonly = "readonly", @class = "form-control", style = "max-width: 400px;", @placeholder = "Emergency Contact Phone" } })
-                                </div>
-                            </div> <!--end Emergency Contact Name & Emergency Contact Phone -->
-
-                            <div class="form-group clearfix" style="display:block">
-                                <div class="col-sm-4">
-                                    @Html.EditorFor(model => model._profile.SecondEcontactName, new { htmlAttributes = new { disabled = "disabled", @readonly = "readonly", @class = "form-control", style = "max-width: 400px;", @placeholder = "Emergency Conatact" } })
-                                </div>
-                                <div class="col-sm-4">
-                                    @Html.EditorFor(model => model._profile.SecondEmergencyPhone, new { htmlAttributes = new { disabled = "disabled", @readonly = "readonly", @class = "form-control", style = "max-width: 400px;", @placeholder = "Emergency Contact Phone" } })
-                                </div>
-                            </div> <!--end Second Emergency Contact Name & Second Emergency Contact Phone -->
-                        </div>
+                        </div> <!-- end Current Avatar -->
                     </div>
-                </div>
-
-                <div class="row" id="Medical">
-                    @for (int i = 0; i < Model.medInfoList.Count(); i++)
-                    {
-                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12" style="padding-left: 0; margin-top: 15px;">
-                            <div class="thumbnail" style="height: 300px;">
-                                <div class="form-group clearfix" style="display:block">
-                                    <div class="col-sm-12" style="margin: 10px 0;">
-                                        <h5 style="color: black;">Medical Conditions:</h5>
-                                        @Html.EditorFor(model => model.medInfoList[i].MedicalCondition, new { htmlAttributes = new { disabled = "disabled", @readonly = "readonly", @class = "form-control", style = "max-width: 400px;" } })
-                                    </div>
-                                    <div class="col-sm-12">
-                                        <h5 style="color: black;">Symptoms:</h5>
-                                        @Html.EditorFor(model => model.medInfoList[i].Symptoms, new { htmlAttributes = new { disabled = "disabled", @readonly = "readonly", @class = "form-control", style = "max-width: 400px;" } })
-                                    </div>
-                                </div> <!-- end Medical Condition  & Symptoms -->
-
-
-                                <div class="form-group clearfix" id="relatedInfo">
-                                    <div class="col-lg-12 col-md-12 col-sm-12" style="margin:0 auto; text-align:center;">
-                                        <h5 style="color: black;">Related Information:</h5>
-                                        @Html.TextAreaFor(model => model.medInfoList[i].RelatedInformation, 4, 35, new { disabled = "disabled", @readonly = "readonly", htmlAttributes = new { @class = "form-control", style = "max-width: 840px;" } })
-                                    </div>
-                                </div> <!-- Related Information -->
+                    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" style="padding-top: 15px;">
+                        <div class="form-group clearfix" style="display:block">
+                            <div class="col-sm-6">
+                                @Html.EditorFor(model => model._profile.FirstName, new { htmlAttributes = new { disabled = "disabled", @readonly = "readonly", @class = "form-control", style = "max-width: 350px; width: 95%;", @placeholder = "First Name*" } })
                             </div>
+                            <div class="col-sm-6">
+                                @Html.EditorFor(model => model._profile.LastName, new { htmlAttributes = new { disabled = "disabled", @readonly = "readonly", @class = "form-control", style = "max-width: 350px; width: 93%;", @placeholder = "Last Name" } })
+                            </div>
+                        </div> <!-- end First Name & Last Name -->
 
+                        <div class="form-group clearfix" style="display:block">
+                            <div class="col-sm-12">
+                                @Html.EditorFor(model => model._profile.StreetAdress, new { htmlAttributes = new { disabled = "disabled", @readonly = "readonly", @class = "form-control", style = "max-width: 550px;", @placeholder = "Street Address" } })
+                            </div>
+                        </div> <!-- end Street Address -->
+
+                        <div class="form-group editcity clearfix" style="display:block">
+                            <div class="col-sm-5">
+                                @Html.EditorFor(model => model._profile.City, new { htmlAttributes = new { disabled = "disabled", @readonly = "readonly", @class = "form-control", @placeholder = "City" } })
+                            </div>
+                            <div class="col-sm-3">
+                                @Html.EditorFor(model => model._profile.State, new { htmlAttributes = new { disabled = "disabled", @readonly = "readonly", @class = "form-control", @placeholder = "State" } })
+                            </div>
+                            <div class="col-sm-4">
+                                @Html.EditorFor(model => model._profile.ZipCode, new { htmlAttributes = new { disabled = "disabled", @readonly = "readonly", @class = "form-control", style = "max-width: 150px;", @placeholder = "Zip Code" } })
+                            </div>
+                        </div> <!-- end City -->
+
+                        <div class="emergencyContacts">
+                            <h4 style="color:black;">Emergency Contacts</h4>
                         </div>
-                    }
 
+                        <div class="form-group clearfix" style="display:block">
+                            <div class="col-sm-6">
+                                @Html.EditorFor(model => model._profile.EcontactName, new { htmlAttributes = new { disabled = "disabled", @readonly = "readonly", @class = "form-control", style = "max-width: 250px;", @placeholder = "Name" } })
+                            </div>
+                            <div class="col-sm-6">
+                                @Html.EditorFor(model => model._profile.EmergencyPhone, new { htmlAttributes = new { disabled = "disabled", @readonly = "readonly", @class = "form-control", style = "max-width: 250px;", @placeholder = "Phone" } })
+                            </div>
+                        </div> <!--end Emergency Contact Name & Emergency Contact Phone -->
+
+                        <div class="form-group clearfix" style="display:block">
+                            <div class="col-sm-6">
+                                @Html.EditorFor(model => model._profile.SecondEcontactName, new { htmlAttributes = new { disabled = "disabled", @readonly = "readonly", @class = "form-control", style = "max-width: 250px;", @placeholder = "Name" } })
+                            </div>
+                            <div class="col-sm-6">
+                                @Html.EditorFor(model => model._profile.SecondEmergencyPhone, new { htmlAttributes = new { disabled = "disabled", @readonly = "readonly", @class = "form-control", style = "max-width: 250px;", @placeholder = "Phone" } })
+                            </div>
+                        </div> <!--end Second Emergency Contact Name & Second Emergency Contact Phone -->
+                    </div>
                 </div>
             </div>
 
+            <div class="row" id="Medical">
+                @for (int i = 0; i < Model.medInfoList.Count(); i++)
+                {
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12" style="padding-left: 0; margin-top: 15px;">
+                        <div class="thumbnail" style="height: 300px;">
+                            <div class="form-group clearfix" style="display:block">
+                                <div class="col-sm-12" style="margin: 10px 0;">
+                                    <h5 style="color: black;">Medical Conditions:</h5>
+                                    @Html.EditorFor(model => model.medInfoList[i].MedicalCondition, new { htmlAttributes = new { disabled = "disabled", @readonly = "readonly", @class = "form-control", style = "max-width: 400px;" } })
+                                </div>
+                                <div class="col-sm-12">
+                                    <h5 style="color: black;">Symptoms:</h5>
+                                    @Html.EditorFor(model => model.medInfoList[i].Symptoms, new { htmlAttributes = new { disabled = "disabled", @readonly = "readonly", @class = "form-control", style = "max-width: 400px;" } })
+                                </div>
+
+                            </div> <!-- end Medical Condition  & Symptoms -->
+
+
+                            <div class="form-group clearfix" id="relatedInfo">
+                                <div class="col-lg-12 col-md-12 col-sm-12" style="margin:0 auto; text-align:center;">
+                                    <h5 style="color: black;">Related Information:</h5>
+                                    @Html.TextAreaFor(model => model.medInfoList[i].RelatedInformation, 4, 35, new { @readonly = "readonly", @class = "form-control", style = "max-width: 840px;" })
+                                </div>
+                            </div> <!-- Related Information -->
+                        </div>
+
+                    </div>
+                }
+
+            </div>
+        </div>
+
+
+
     </div>
 </div>
-
-
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model._profile.ProfileID }) |
-@Html.ActionLink("Back to List", "Index")
-</p>
 
 
 <script>
@@ -168,7 +171,30 @@
                 break;
         }
     }
+
+
+
 </script>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        if (window.location.pathname.substring(0, 17) == "/Profiles/Details") {
+            $('#NavBarLayout').css({ "height": "50px", "margin-bottom": "28px" })
+            var button = '<ul id="navItems"><li class="lastItem" style="margin-top: 4px"><span class="glyphicon glyphicon-user" style="margin-top: 3px"></span></li></ul>'
+            $('#leftNav').append(button);
+            $('#userIcon').remove();
+            $('.homeNavBrand').css("font-size", "40px"); //SQR
+            $('#homeNavBrand').css({ "font-size": "90px", "bottom": "-29px" }); //DOT
+
+            var body = $(window).height();
+            $('#renderBody').css("height", body + 100)
+        }
+    </script>
+}
+
+
+
 
 
 
