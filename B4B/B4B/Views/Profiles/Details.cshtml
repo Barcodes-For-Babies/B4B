@@ -93,11 +93,11 @@
                             <div class="form-group clearfix" style="display:block">
                                 <div class="col-sm-12" style="margin: 10px 0;">
                                     <h5 style="color: black;">Medical Conditions:</h5>
-                                    @Html.EditorFor(model => model.medInfoList[i].MedicalCondition, new { htmlAttributes = new { disabled = "disabled", @readonly = "readonly", @class = "form-control"} })
+                                    @Html.EditorFor(model => model.medInfoList[i].MedicalCondition, new { htmlAttributes = new { @id = "editMedCondition", disabled = "disabled", @readonly = "readonly", @class = "form-control"} })
                                 </div>
                                 <div class="col-sm-12">
                                     <h5 style="color: black;">Symptoms:</h5>
-                                    @Html.EditorFor(model => model.medInfoList[i].Symptoms, new { htmlAttributes = new { disabled = "disabled", @readonly = "readonly", @class = "form-control" } })
+                                    @Html.EditorFor(model => model.medInfoList[i].Symptoms, new { htmlAttributes = new { @id = "editSymptoms", disabled = "disabled", @readonly = "readonly", @class = "form-control" } })
                                 </div>
 
                             </div> <!-- end Medical Condition  & Symptoms -->
@@ -106,7 +106,7 @@
                             <div class="form-group clearfix" id="relatedInfo">
                                 <div class="col-lg-12 col-md-12 col-sm-12" style="margin:0 auto; text-align:center;">
                                     <h5 style="color: black;">Related Information:</h5>
-                                    @Html.TextAreaFor(model => model.medInfoList[i].RelatedInformation, 4, 35, new { @readonly = "readonly", @class = "form-control" })
+                                    @Html.TextAreaFor(model => model.medInfoList[i].RelatedInformation, 4, 35, new { @id = "editRelatedInfo", @readonly = "readonly", @class = "form-control" })
                                 </div>
                             </div> <!-- Related Information -->
                         </div>
