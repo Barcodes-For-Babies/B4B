@@ -143,7 +143,8 @@
                 </div>
                 <input type="submit" value="Save" class="btn btn-default" style="margin-top: 28px; display: inline-block;" />
                 <a class="btn btn-danger" style="margin-top: 28px; display:inline-block" role="button" href="@Url.Action("Delete", "Profiles",  new { id = Model._profile.ProfileID })">Delete</a>
-                <a class="btn btn-danger" style="float: left; margin-top: 28px; display:inline-block" role="button" href="@Url.Action("Admin", "Home")">Cancle</a>
+                <a class="btn btn-danger" style="float: left; margin-top: 28px; display:inline-block" role="button" href="@Url.Action("Details", "Profiles", new { id = Model._profile.ProfileID})">Details</a>
+                <a class="btn btn-danger" style="float: left; margin-top: 28px; display:inline-block" role="button" href="@Url.Action("Admin", "Home")">Cancel</a>
             </div>
 
         }

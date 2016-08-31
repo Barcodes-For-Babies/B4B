@@ -78,11 +78,7 @@ namespace B4B.Controllers
             string url = string.Format(baseUri, lat, lng);
 
             dynamic googleResults = new Uri(url).GetDynamicJsonObject();
-            //foreach (var result in googleResults.results)
-            //{
-            //    Console.WriteLine("[" + result.geometry.location.lat + "," + result.geometry.location.lng + "] " + result.formatted_address);
-                
-            //}
+
             var result = googleResults.results[0];
             address = result.formatted_address;
         }
@@ -296,7 +292,7 @@ namespace B4B.Controllers
                 }
 
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Admin","Home");
             }
 
 
@@ -331,7 +327,7 @@ namespace B4B.Controllers
             Profile profile = db.Profiles.Find(id);
             db.Profiles.Remove(profile);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Admin", "Home");
         }
 
         protected override void Dispose(bool disposing)
