@@ -202,21 +202,15 @@ namespace B4B.Controllers
                     wizardViewModel._profile.PhotoType = avatar.PhotoType;           //Adds the extension type of photo to db
                     wizardViewModel._profile.PhotoBytes = avatar.PhotoBytes;         //Adds the byte array representation of photo to db
                 }
-                var profileID = 0;
-                var profilesList = db.Profiles.ToList();
-                profileID = profilesList.Count() + 1;
 
-                var medInfoID = 0;
-                var medInfosList = db.MedicalInfoes.ToList();
-                medInfoID = medInfosList.Count() + 1;
-              
-                wizardViewModel._profile.Admin = CurrentUser;                               //Assigns current user to as admin of profile
-                wizardViewModel._profile.ProfileID = profileID;
+                wizardViewModel._profile.Admin = CurrentUser;
                 db.Profiles.Add(wizardViewModel._profile);                                  //Adds profile object into database
-                wizardViewModel._medicalInfo.MedicalInfoID = medInfoID;
-                wizardViewModel._medicalInfo.ProfileID = profileID;                 //Assigns profile to medicalInfo
-                db.MedicalInfoes.Add(wizardViewModel._medicalInfo);                         //Adds medical info object to database
                 db.SaveChanges();                                                           //Saves everything just added to database
+
+                wizardViewModel._medicalInfo.Profile = CurrentUser.Profiles.Last();
+                db.MedicalInfoes.Add(wizardViewModel._medicalInfo);
+                db.SaveChanges();                                                           //Saves everything just added to database
+
                 return RedirectToAction("Admin", "Home");                                   //Redirect you to admin home
             }
 
