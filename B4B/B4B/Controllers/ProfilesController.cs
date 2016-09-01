@@ -138,7 +138,10 @@ namespace B4B.Controllers
         // GET: Profiles
         public ActionResult Index()
         {
-            
+            if(CurrentUser == null)
+            {
+                return View();
+            }
             return View(CurrentUser.Profiles.ToList());
         } 
 

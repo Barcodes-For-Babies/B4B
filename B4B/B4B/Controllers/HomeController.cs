@@ -54,8 +54,11 @@ namespace B4B.Controllers
         public ActionResult Admin()
         {
             ViewBag.currentUser = CurrentUser;
-            
-            return View(CurrentUser.Profiles.ToList());
+            if (CurrentUser != null && User.Identity.IsAuthenticated)
+            {
+                return View(CurrentUser.Profiles.ToList());
+            }
+            return RedirectToAction("Index", "Home");
         }
 
         //POST: Home/Admin/5
