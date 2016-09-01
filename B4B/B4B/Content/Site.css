@@ -900,8 +900,10 @@ a.loginNavBrand{
         font-size:40px;
     }
     #homeNavBrand{
-        left: 106px;
-        bottom: -26px;
+        left: 87px;
+        bottom: 0px;
+        top: 8px;
+        font-size:100px;
     }
     div.row.mobileHome{
         margin-bottom: 50px !important;
