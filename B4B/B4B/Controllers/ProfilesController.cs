@@ -254,6 +254,14 @@ namespace B4B.Controllers
         public ActionResult Edit(WizardViewModel wizardViewModel, HttpPostedFileBase upload)
         {
             wizardViewModel._profile.Admin = CurrentUser;
+            //var currentProfile = db.Profiles.Find(wizardViewModel._profile.ProfileID);
+            //if (currentProfile.PhotoBytes != null)
+            //{
+            //    wizardViewModel._profile.PhotoBytes = currentProfile.PhotoBytes;
+            //    wizardViewModel._profile.PhotoName = currentProfile.PhotoName;
+            //    wizardViewModel._profile.PhotoType = currentProfile.PhotoType;
+            //    wizardViewModel._profile.FileType = currentProfile.FileType;
+            //}
             for (int i = 0; i < wizardViewModel.medInfoList.Count; i++)
             {
                 wizardViewModel.medInfoList[i].ProfileID = wizardViewModel._profile.ProfileID;
@@ -278,6 +286,7 @@ namespace B4B.Controllers
                     wizardViewModel._profile.PhotoType = avatar.PhotoType;           //Adds the extension type of photo to db
                     wizardViewModel._profile.PhotoBytes = avatar.PhotoBytes;         //Adds the byte array representation of photo to db
                 }
+                //db.Entry(currentProfile).CurrentValues.SetValues(wizardViewModel._profile);
                 db.Entry(wizardViewModel._profile).State = EntityState.Modified;            //Adds profile object into database
 
 
