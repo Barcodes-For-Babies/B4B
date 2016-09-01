@@ -161,7 +161,7 @@
             </div>
         </div>
         <div class="qrCodeTester pull-right target" id="target" style="visibility: hidden;">
-            <img src="@Url.Action("myAction", "Profiles", new { id = Model._profile.ProfileID })" alt="qr code" id="testQrCode" width="50" height="50" />
+            <img src="@Url.Action("myAction", "Profiles", new { id = Model._profile.ProfileID })" alt="qr code" id="testQrCode" width="150" height="150" />
         </div>
         <div>
         </div>
@@ -224,20 +224,6 @@
 
         @section Scripts {
             @Scripts.Render("~/bundles/jqueryval")
-            @*<script>
-                    if (window.location.pathname.substring(0,14) == "/Profiles/Edit") {
-                        $('#NavBarLayout').css({ "height": "50px", "margin-bottom": "28px" })
-                        var button = '<ul id="navItems"><li class="lastItem" style="margin-top: 4px"><span class="glyphicon glyphicon-user" style="margin-top: 3px"></span></li></ul>'
-                        $('#leftNav').append(button);
-                        $('#userIcon').remove();
-                        $('.homeNavBrand').css("font-size", "40px"); //SQR
-                        $('#homeNavBrand').css({ "font-size": "90px", "bottom": "-29px" }); //DOT
 
-                        var body = $(window).height();
-                        $('#renderBody').css("height", body + 200)
-
-                        if()
-                    }
-                </script>*@
         }
 
