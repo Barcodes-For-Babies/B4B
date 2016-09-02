@@ -24,8 +24,15 @@ body {
     color: #333333;
     white-space: nowrap;
 }
+.thumbnail{
+    background-color: white;
+}
+.btn-default{
+    background-color: #F7B733;
+}
 #SQRnavbar{
     background-color: #FC4A1A;
+    border: 0;
 }
 .navbar-brand.homeNavBrand{
     color: white;
@@ -138,7 +145,7 @@ textarea {
     border-radius: 5px;
 }
 #tab1, #tab2, #tab3{
-    height: auto;
+    height: 500px;
     padding-left: 20px;
     padding-right: 20px;
 }
@@ -240,7 +247,8 @@ textarea {
     color:white !important;
 }
 #submitWiz{
-    width: 88px;
+    width: auto;
+    padding: 6px 15px;
 }
 .footerSeperate{
     width: 20px;
@@ -569,6 +577,9 @@ a.loginNavBrand{
     div.row.mobileHome{
         margin-bottom: 100px;
     }
+    #tab1, #tab2, #tab3{
+        height: 670px;
+    }
 }
 @media screen and (max-width: 768px) {
     #homeNavItems>.lastItem{
@@ -667,6 +678,9 @@ a.loginNavBrand{
         resize: none;
         width: 660px;
         max-width: 1000px;
+    }
+    #tab1, #tab2, #tab3{
+        height: 670px;
     }
 }
 
@@ -827,7 +841,9 @@ a.loginNavBrand{
     #Econtact1{
         height: 100px;
     }
-
+    #tab1, #tab2, #tab3{
+        height: 670px;
+    }
 
 }
 
@@ -874,9 +890,15 @@ a.loginNavBrand{
     #LoginNav{
         height: 85px !important
     }
+    #tab1, #tab2, #tab3{
+        height: 670px;
+    }
 }
 
 @media screen and (max-width: 320px) {
+    #tab1, #tab2, #tab3{
+    height: 670px;
+}
     #home-background{
     background-image: url('../Images/BackgroundOverlay.jpg');
     background-size:cover;

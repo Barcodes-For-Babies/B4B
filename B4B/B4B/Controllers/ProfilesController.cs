@@ -92,7 +92,7 @@ namespace B4B.Controllers
 
         private Bitmap renderQRCode(int id)
         {
-            string url = "https://localhost:44378/Profiles/Details/" + id;
+            string url = "https://safekeepersqr.azurewebsites.net/Profiles/Details/" + id;
             PayloadGenerator.Url myUrl = new PayloadGenerator.Url(url);
             QRCodeGenerator qrGenerator = new QRCodeGenerator();
             QRCodeData qrCodeData = qrGenerator.CreateQrCode(myUrl.ToString(), QRCodeGenerator.ECCLevel.Q);
