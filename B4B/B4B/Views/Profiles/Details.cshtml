@@ -124,13 +124,18 @@
 
 <script>
     function getLocation() {
+       alert("This feature is temporarily disabled")
+    }
+
+
+    @* {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(showPosition);
         } else {
             x.innerHTML = "Geolocation is not supported by this browser.";
         }
     }
-    function showPosition(position) {
+   function showPosition(position) {
 
         //stores lat and long in array
         var coordinates = {
@@ -171,7 +176,7 @@
         }
     }
 
-
+*@
 
 </script>
 

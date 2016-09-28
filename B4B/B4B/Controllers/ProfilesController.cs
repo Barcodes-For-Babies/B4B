@@ -27,68 +27,68 @@ namespace B4B.Controllers
         private byte[] byteArray;
 
         //This method will send a text to the emergency contact provided by admin
-        public void SendEmergencyText(string output, string address)
-        {
-           var client = new TwilioRestClient(WebConfigurationManager.AppSettings["TWILIO_SID"],
-                WebConfigurationManager.AppSettings["TWILIO_AUTHTOKEN"]);
+        //public void SendEmergencyText(string output, string address)
+        //{
+        //   var client = new TwilioRestClient(WebConfigurationManager.AppSettings["TWILIO_SID"],
+        //        WebConfigurationManager.AppSettings["TWILIO_AUTHTOKEN"]);
                 
-                var result = client.SendMessage(WebConfigurationManager.AppSettings["TWILIO_PHONE"], output, "Emergency button has been activated at:\n" + address);
+        //        var result = client.SendMessage(WebConfigurationManager.AppSettings["TWILIO_PHONE"], output, "Emergency button has been activated at:\n" + address);
           
-        }
-        public ActionResult Logout()
-        {
-            FormsAuthentication.SignOut();
-            return RedirectToAction("Index", "Home", null);    //home is Controller,and index is page where you want to redirect
+        //}
+        //public ActionResult Logout()
+        //{
+        //    FormsAuthentication.SignOut();
+        //    return RedirectToAction("Index", "Home", null);    //home is Controller,and index is page where you want to redirect
 
-        }
+        //}
 
-        [HttpPost]
-        public ActionResult EmergencyText(int? id, string Latitude, string Longitude)
-        {
-            string pattern = "[0-9]";
-            string phoneNumber = "+1";
-            string phoneNumber2 = "+1";
+        //[HttpPost]
+        //public ActionResult EmergencyText(int? id, string Latitude, string Longitude)
+        //{
+        //    string pattern = "[0-9]";
+        //    string phoneNumber = "+1";
+        //    string phoneNumber2 = "+1";
 
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Profile profile = db.Profiles.Find(id);
-            if (profile == null)
-            {
-                return HttpNotFound();
-            }
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    Profile profile = db.Profiles.Find(id);
+        //    if (profile == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
 
-            GoogleGeoCode(Latitude, Longitude);
+        //    GoogleGeoCode(Latitude, Longitude);
 
 
 
-            if (profile.EmergencyPhone != null)
-            {
-                foreach (Match m in Regex.Matches(profile.EmergencyPhone, pattern))
-                    phoneNumber += m.Value;
+        //    if (profile.EmergencyPhone != null)
+        //    {
+        //        foreach (Match m in Regex.Matches(profile.EmergencyPhone, pattern))
+        //            phoneNumber += m.Value;
 
-                SendEmergencyText(phoneNumber, address);
+        //        SendEmergencyText(phoneNumber, address);
 
-            }
-            if (profile.SecondEmergencyPhone != null)
-            {
-                foreach (Match m in Regex.Matches(profile.SecondEmergencyPhone, pattern))
-                    phoneNumber2 += m.Value;
+        //    }
+        //    if (profile.SecondEmergencyPhone != null)
+        //    {
+        //        foreach (Match m in Regex.Matches(profile.SecondEmergencyPhone, pattern))
+        //            phoneNumber2 += m.Value;
 
-                SendEmergencyText(phoneNumber2, address);
-            }
-            return RedirectToAction("Index");
-        }
-        void GoogleGeoCode(string lat, string lng)
-        {
-            string url = string.Format(baseUri, lat, lng);
+        //        SendEmergencyText(phoneNumber2, address);
+        //    }
+        //    return RedirectToAction("Index");
+        //}
+        //void GoogleGeoCode(string lat, string lng)
+        //{
+        //    string url = string.Format(baseUri, lat, lng);
 
-            dynamic googleResults = new Uri(url).GetDynamicJsonObject();
+        //    dynamic googleResults = new Uri(url).GetDynamicJsonObject();
 
-            var result = googleResults.results[0];
-            address = result.formatted_address;
-        }
+        //    var result = googleResults.results[0];
+        //    address = result.formatted_address;
+        //}
 
         private Bitmap renderQRCode(int id)
         {
