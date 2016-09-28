@@ -375,7 +375,6 @@
     <Content Include="Views\MedicalInfoes\Details.cshtml" />
     <Content Include="Views\MedicalInfoes\Edit.cshtml" />
     <Content Include="Views\MedicalInfoes\Index.cshtml" />
-    <Content Include="Secrets.config" />
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
