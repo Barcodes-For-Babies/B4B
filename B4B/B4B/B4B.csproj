@@ -226,7 +226,6 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JsonObject.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\MedicalInfoesController.cs" />
     <Compile Include="Controllers\ProfilesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -328,7 +327,9 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="User_-_add-512.png" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -370,11 +371,6 @@
     <Content Include="Views\Profiles\Edit.cshtml" />
     <Content Include="Views\Home\Admin.cshtml" />
     <Content Include="Views\Home\Settings.cshtml" />
-    <Content Include="Views\MedicalInfoes\Create.cshtml" />
-    <Content Include="Views\MedicalInfoes\Delete.cshtml" />
-    <Content Include="Views\MedicalInfoes\Details.cshtml" />
-    <Content Include="Views\MedicalInfoes\Edit.cshtml" />
-    <Content Include="Views\MedicalInfoes\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
